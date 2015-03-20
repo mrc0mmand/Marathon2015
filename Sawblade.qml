@@ -9,12 +9,10 @@ PhysicsEntity {
     width: 80
     height: 80
     bodyType: Body.Dynamic
-    linearDamping: 0.1
+    linearDamping: 0.5
     angularDamping: 0
     fixedRotation: true
     transformOrigin: Item.Center
-
-    property bool onFloor: false
 
     ImageLayer {
         id: sawblade
