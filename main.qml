@@ -69,30 +69,39 @@ Window {
                 id: entity
                 x: 100
                 y: 300
-                width: 32
-                height: 32
+                width: 80
+                height: 80
                 bodyType: Body.Kinematic
 
                 behavior: ScriptBehavior {
                     script: {
-                        if (globalMouse.mouseY - entity.y > 16)
+                        if (globalMouse.mouseY - entity.y > 40)
                             entity.linearVelocity = Qt.point(0, 10)
-                        else if (globalMouse.mouseY - entity.y < -16)
+                        else if (globalMouse.mouseY - entity.y < -40)
                             entity.linearVelocity = Qt.point(0, -10)
                         else
                             entity.linearVelocity = Qt.point(0, 0)
                     }
                 }
 
-                Rectangle {
+                Rectangle{
                     anchors.fill: parent
-                    color: "red"
+                    color: "transparent"
+                    border.color: "white"
+                    anchors.centerIn: parent
+
+                    Text {
+                        text: "placeholder"
+                        color: "white"
+                        anchors.centerIn: parent
+                    }
                 }
+
 
                 fixtures: Box {
                     density: 10000000
-                    width: 32
-                    height: 32
+                    width: 80
+                    height: 80
                     friction: 0.5
                     restitution: 0.2
                 }
