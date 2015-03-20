@@ -69,12 +69,6 @@ Window {
                 }
             }
 
-            Behavior on x {
-                NumberAnimation {
-                    duration: 400
-                }
-            }
-
             width: 10000 - x
             height: parent.height
 
@@ -192,6 +186,15 @@ Window {
             id: gameover
             width: parent.width
             height: parent.height
+            opacity: 0
+
+            enterAnimation: NumberAnimation {
+                target: gameover
+                property: "opacity"
+                from: 0
+                to: 1
+                duration: 500
+            }
 
             Rectangle {
                 id: gobg
