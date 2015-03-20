@@ -10,23 +10,26 @@ PhysicsEntity {
     bodyType: Body.Kinematic
     property real rota: 0
     property int rotaDirection: 1
+    property alias hitbox: box
     transformOrigin: "Center"
 
     linearVelocity: Qt.point(-5, 0)
 
     Image {
         id: slaughter
-        source: "qrc:/slaughter.png"
+        source: "qrc:/assets/slaughter.png"
         height: 120
         fillMode: Image.PreserveAspectFit
     }
 
     fixtures: Box {
+        id: box
         density: 10000000
         width: slaughter.width
         height: slaughter.height
         friction: 0.5
         restitution: 0.2
+        property string entityType: "slaughter"
     }
 
     behavior: ScriptBehavior {

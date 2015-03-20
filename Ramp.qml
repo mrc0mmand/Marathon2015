@@ -6,9 +6,11 @@ import WhateverDude 1.0 as Whatever
 PhysicsEntity {
     id: root
     clip: true
+    linearVelocity: Qt.point(-5, 0)
 
     fixtures: [
         Polygon {
+            property string entityType: "ramp"
             vertices: [
                 Qt.point(0, root.height),
                 Qt.point(root.width, root.height),

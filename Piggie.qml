@@ -11,12 +11,13 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 0
+    property int hitpoints: 100
 
     property bool onFloor: false
 
     Image {
         id: piggie
-        source: "qrc:/pig.png"
+        source: "qrc:/assets/pig.png"
         anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
@@ -25,11 +26,32 @@ PhysicsEntity {
     fixtures: [
         Circle {
             onBeginContact: {
-                if (other == floor.box)
+                if (other.entityType == "floor")
                     onFloor = true
+                if (other.entityType == "ramp") {
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                }
+                if (other.entityType == "slaughter") {
+                    entity.hitpoints -= 10
+                    console.log("Hitpoints: ", entity.hitpoints)
+                    for(var i = 0; i < 3; i++)
+                    {
+                        var startX = entity.x
+                        var startY = entity.y
+                        var newBacon = Qt.createQmlObject("Bacon{}", scene)
+                        newBacon.x = startX - i
+                        newBacon.y = startY - i
+                        for(var a = 0; a < 3; a++)
+                        {
+                            var newBloodDrop = Qt.createQmlObject("BloodDrop{}", scene)
+                            newBloodDrop.x = startX
+                            newBloodDrop.y = startY
+                        }
+                     }
+                }
             }
             onEndContact: {
-                if (other == floor.box)
+                if (other.entityType == "floor")
                     onFloor = false
             }
 

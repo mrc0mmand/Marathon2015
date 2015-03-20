@@ -1,16 +1,26 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>astronaut.png</file>
-        <file>sky.png</file>
         <file>Floor.qml</file>
-        <file>pig.png</file>
         <file>Piggie.qml</file>
         <file>Slaughter.qml</file>
-        <file>slaughter.png</file>
         <file>Ramp.qml</file>
         <file>sky2.png</file>
         <file>Sawblade.qml</file>
         <file>sawblade.png</file>
+        <file>assets/bacon.png</file>
+        <file>Bacon.qml</file>
+        <file>BloodDrop.qml</file>
+        <file>main.cpp</file>
+        <file>polygon.cpp</file>
+        <file>polygon.h</file>
+        <file>HUD.qml</file>
+        <file>assets/astronaut.png</file>
+        <file>assets/baconstrip.png</file>
+        <file>assets/bloodDrop.png</file>
+        <file>assets/pig.png</file>
+        <file>assets/sky.png</file>
+        <file>assets/sky2.png</file>
+        <file>assets/slaughter.png</file>
     </qresource>
 </RCC>

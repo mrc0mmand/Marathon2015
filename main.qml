@@ -39,11 +39,11 @@ Window {
         }
     }
 
-
     Game {
         id: game
         anchors.fill: parent
 
+        property real startTime
         currentScene: scene
 
         Scene {
@@ -69,7 +69,7 @@ Window {
             ImageLayer {
                 id: layer
                 anchors.fill: parent
-                source: "qrc:/sky.png"
+                source: "qrc:/assets/sky.png"
 
                 behavior: ScrollBehavior {
                     horizontalStep: -2
@@ -79,7 +79,7 @@ Window {
             ImageLayer {
                 id: layer2
                 anchors.fill: parent
-                source: "qrc:/sky2.png"
+                source: "qrc:/assets/sky2.png"
 
                 behavior: ScrollBehavior {
                     horizontalStep: -5
@@ -91,6 +91,7 @@ Window {
                 id: piggie
             }
             Slaughter {
+                id: slaughter
             }
 
             Floor {
@@ -110,53 +111,6 @@ Window {
 
             }
 
-            Sprite {
-                id: spriteItem
-                visible: false
-                x: 64
-                y: globalMouse.mouseY
-
-
-                animation: "falling"
-
-                Rectangle{
-                    width: childrenRect.width + 20
-                    height: width
-                    color: "transparent"
-                    border.color: "white"
-                    anchors.centerIn: parent
-
-                    Text {
-                        text: "placeholder"
-                        color: "white"
-                        anchors.centerIn: parent
-                    }
-                }
-
-
-                animations: SpriteAnimation {
-                    name: "falling"
-                    //source: "qrc:/astronaut.png"
-                    frames: 3
-                    duration: 450
-                    loops: Animation.Infinite
-                }
-
-                Behavior on y {
-                    NumberAnimation {
-                        duration: 250
-                    }
-                }
-
-                NumberAnimation on rotation {
-                    from: 0
-                    to: 360
-                    running: game.gameState === Bacon2D.Running
-                    loops: Animation.Infinite
-                    duration: 1800
-                }
-            }
-
             MouseArea {
                 id: globalMouse
                 anchors.fill: parent
@@ -165,12 +119,23 @@ Window {
             Component.onCompleted: {
                 for (var i = 0; i < 10; i++) {
                     for (var j = 0; j < 10; j++) {
-                        var newBox = ball.createObject(scene);
-                        newBox.x = scene.width / 2 + 100 + 32*j;
-                        newBox.y = (15*i) - 10;
+                        //var newBox = ball.createObject(scene);
+                        //newBox.x = scene.width / 2 + 100 + 32*j;
+                        //newBox.y = (15*i) - 10;
                     }
                 }
+                parent.startTime = new Date().valueOf()
             }
         }
+    }
+
+    HUD {
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            margins: 8
+        }
+        height: 64
     }
 }
