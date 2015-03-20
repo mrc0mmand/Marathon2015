@@ -26,6 +26,8 @@ PhysicsEntity {
     fixtures: [
         Circle {
             onBeginContact: {
+                if (other.entityType == "sawblade")
+                    entity.hitpoints -= 50
                 if (other.entityType == "floor")
                     onFloor = true
                 if (other.entityType == "ramp") {

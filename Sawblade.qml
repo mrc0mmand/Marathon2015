@@ -2,13 +2,13 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 PhysicsEntity {
-    id: sawbladeEntity
+    id: entity
     x: 400
     y: 300
     focus: false
     width: 80
     height: 80
-    bodyType: Body.Dynamic
+    bodyType: Body.Kinematic
     linearDamping: 0.1
     angularDamping: 0
     fixedRotation: true
@@ -43,7 +43,7 @@ PhysicsEntity {
 
     fixtures: [
         Circle {
-            id: sawbladeCircle
+            property string entityType: "sawblade"
             density: 1000
             radius: sawbladeEntity.width / 2
             friction: 0.5
