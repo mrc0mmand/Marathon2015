@@ -10,6 +10,7 @@ PhysicsEntity {
     bodyType: Body.Kinematic
     property real rota: 0
     property int rotaDirection: 1
+    property alias hitbox: box
     transformOrigin: "Center"
 
     linearVelocity: Qt.point(-5, 0)
@@ -22,6 +23,7 @@ PhysicsEntity {
     }
 
     fixtures: Box {
+        id: box
         density: 10000000
         width: slaughter.width
         height: slaughter.height

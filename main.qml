@@ -91,6 +91,7 @@ Window {
                 id: piggie
             }
             Slaughter {
+                id: slaughter
             }
 
             Floor {

@@ -27,6 +27,10 @@ PhysicsEntity {
             onBeginContact: {
                 if (other == floor.box)
                     onFloor = true
+
+                if (other == slaughter.hitbox) {
+                    console.log("slaughter")
+                }
             }
             onEndContact: {
                 if (other == floor.box)
