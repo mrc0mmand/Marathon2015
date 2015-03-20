@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.0
 import Bacon2D 1.0
+import QtQuick.Layouts 1.1
 
 Window {
     id: window
@@ -127,6 +128,16 @@ Window {
                 hoverEnabled: true
             }
 
+            HUD {
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    top: parent.top
+                    margins: 8
+                }
+                height: 64
+            }
+
             Component.onCompleted: {
                 for (var i = 0; i < 10; i++) {
                     for (var j = 0; j < 10; j++) {
@@ -138,6 +149,53 @@ Window {
                 parent.startTime = new Date().valueOf()
             }
         }
+
+        Scene {
+            id: gameover
+            width: parent.width
+            height: parent.height
+
+            ColumnLayout {
+                anchors.centerIn: parent
+
+                Text {
+                    id: textgo
+                    text: "Game over"
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
+                    font.pointSize: 60
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.centerIn: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 60
+                        font.weight: Font.SemiBold
+                    }
+                }
+
+                Text {
+                    id: testscore
+                    text: game.score
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
+                    font.pointSize: 60
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.centerIn: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 60
+                        font.weight: Font.SemiBold
+                    }
+                }
+            }
+        }
+
         Timer {
             running: true
             interval: 1000
@@ -146,13 +204,5 @@ Window {
         }
     }
 
-    HUD {
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: parent.top
-            margins: 8
-        }
-        height: 64
-    }
+
 }

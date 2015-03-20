@@ -11,7 +11,7 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 0
-    property int hitpoints: 100
+    property int hitpoints: 20
 
     property bool onFloor: false
 
@@ -21,6 +21,14 @@ PhysicsEntity {
         anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
+    }
+
+    onHitpointsChanged: {
+        if(entity.hitpoints <= 0) {
+            game.score = 0
+            game.currentScene = gameover
+            console.log("Game Over")
+        }
     }
 
     fixtures: [
@@ -33,6 +41,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
+
                     console.log("Hitpoints: ", entity.hitpoints)
                     for(var i = 0; i < 3; i++)
                     {
