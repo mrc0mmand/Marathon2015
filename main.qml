@@ -3,8 +3,10 @@ import QtQuick.Window 2.0
 import Bacon2D 1.0
 
 Window {
-    width: 512
-    height: 512
+    maximumWidth: 512
+    maximumHeight: 512
+    minimumWidth: 512
+    minimumHeight: 512
     visible: true
 
 
@@ -75,9 +77,9 @@ Window {
 
                 behavior: ScriptBehavior {
                     script: {
-                        if (globalMouse.mouseY - entity.y > 40)
+                        if (globalMouse.mouseY - entity.y > 5)
                             entity.linearVelocity = Qt.point(0, 10)
-                        else if (globalMouse.mouseY - entity.y < -40)
+                        else if (globalMouse.mouseY - entity.y < -5)
                             entity.linearVelocity = Qt.point(0, -10)
                         else
                             entity.linearVelocity = Qt.point(0, 0)
