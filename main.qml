@@ -3,6 +3,7 @@ import QtQuick.Window 2.0
 import Bacon2D 1.0
 
 Window {
+    id: "mainWindow"
     maximumWidth: 512
     maximumHeight: 512
     minimumWidth: 512
@@ -67,8 +68,10 @@ Window {
                 }
             }
 
-            // PIGGIE
+            // Stuff in scene
             Piggie {
+            }
+            Slaughter {
             }
 
             Sprite {

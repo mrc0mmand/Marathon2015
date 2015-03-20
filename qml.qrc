@@ -6,5 +6,7 @@
         <file>Bowl.qml</file>
         <file>pig.png</file>
         <file>Piggie.qml</file>
+        <file>Slaughter.qml</file>
+        <file>slaughter.png</file>
     </qresource>
 </RCC>
