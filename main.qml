@@ -418,9 +418,6 @@ Window {
 
             ColumnLayout {
                 anchors.fill: parent
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-
 
                 Text {
                     id: lbtext
@@ -440,14 +437,37 @@ Window {
                     }
                 }
 
-                Repeater {
+                Item {
+                    height: 50
+                }
+
+                ListView {
+                    id: scoreboardlist
+                    width: window.width / 2
+                    height: window.height - 100
+                    Layout.alignment: Qt.AlignCenter
+                    Layout.fillHeight: true
+                    anchors.centerIn: parent
+                   // Layout.fillWidth: true
+
                     model: settings.scores
-                    /*Text {
+                    header: Text {
+                        //horizontalAlignment: Text.AlignHCenter
+                        color: "brown"
+                        text: "Name\t\t\tScore"
+                        font.family: baconFont.name
+                        font.weight: Font.Bold
+                        font.pointSize: 20
+                    }
+
+                    delegate: Text {
+                        //width: scoreboardlist.width
+                        //Layout.alignment: Qt.AlignCenter
+                       // horizontalAlignment: Text.AlignHCenter
                         color: "white"
-                        text: "PRDEL" + settings.scores[index][0]
-                        font.pointSize: 40
-                        Component.onCompleted: console.log(index)
-                    }*/
+                        font.pointSize: 15
+                        text: settings.scores[index][0] + "\t\t\t" + settings.scores[index][1]
+                    }
                 }
 
                 Button {
@@ -480,7 +500,6 @@ Window {
                     }
                 }
             }
-
         }
 
         Timer {
