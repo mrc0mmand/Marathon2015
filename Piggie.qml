@@ -11,6 +11,7 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 0
+    property int hitpoints: 100
 
     property bool onFloor: false
 
@@ -31,6 +32,8 @@ PhysicsEntity {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
                 }
                 if (other.entityType == "slaughter") {
+                    entity.hitpoints -= 10
+                    console.log("Hitpoints: ", entity.hitpoints)
                     for(var i = 0; i < 3; i++)
                     {
                         var startX = entity.x
