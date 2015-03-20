@@ -12,12 +12,12 @@ Item {
         onWidthChanged: {
             var newBacon = Qt.createQmlObject("Bacon{}", root)
             newBacon.x = width
-            newBacon.y = 100
-            for(var a = 0; a < 3; a++)
+            newBacon.y = 20
+            for(var a = 0; a < 15; a++)
             {
                 var newBloodDrop = Qt.createQmlObject("BloodDrop{}", root)
-                newBloodDrop.x = width - a
-                newBloodDrop.y = 100
+                newBloodDrop.x = width + Math.random() * 100
+                newBloodDrop.y = 10 + Math.random() * 100
             }
             bounceAnimation.start()
 
@@ -28,6 +28,8 @@ Item {
             property real scale: 1
             xScale: scale
             yScale: scale
+            origin.x: hitpointBar.width / 2
+            origin.y: hitpointBar.height / 2
         }
 
         SequentialAnimation {
@@ -37,14 +39,15 @@ Item {
                 target: scaleTransform
                 properties: "scale"
                 from: 1.0
-                to: 1.8
+                to: 1.4
+                easing.type: Easing.InOutBack
                 duration: 100
             }
             PropertyAnimation {
                 target: scaleTransform
                 properties: "scale"
-                from: 1.8
                 to: 1.0
+                easing.type: Easing.InOutBack
                 duration: 100
             }
         }
