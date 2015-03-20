@@ -147,54 +147,38 @@ Scene {
         id: piggie
         linearVelocity: Qt.point(15, 0)
     }
-    Mine {
-        y: parent.height - height
-        x: 3000
-    }
-    Mine {
-        y: parent.height - height
-        x: 4000
-    }
-    Mine {
-        y: parent.height - height
-        x: 5000
-    }
-    Slaughter {
-        id: slaughter
-        y: parent.height - height
-        x: 900
-    }
-    Slaughter {
-        id: slaughter2
-        y: parent.height - height
-        x: 1500
-    }
-    Slaughter {
-        id: slaughter3
-        y: parent.height - height
-        x: 2500
-    }
 
     Floor {
         id: floor
         anchors.fill: parent
     }
 
-    Ramp {
-        //anchors.bottom: parent.bottom
-        //anchors.horizontalCenter:  parent.horizontalCenter
-        y: parent.height - height
-        x: 600
-        width: 200
-        height: 100
-        //linearVelocity: Qt.point(-10, 0)
-    }
+    Timer {
+        id: generatorTimer
+        interval: 250
+        repeat: true
+        running: true
+        onTriggered: {
+            var rand = Math.random()
+            var obj
+            if (rand < 0.1) {
+                obj = Qt.createQmlObject("Ramp{}", scene)
+            }
+            else if (rand < 0.2) {
+                obj = Qt.createQmlObject("Slaughter{}", scene)
+            }
+            else if (rand < 0.3) {
+                obj = Qt.createQmlObject("Mine{}", scene)
+            }
+            else if (rand < 0.4) {
+                obj = Qt.createQmlObject("Sawblade{}", scene)
+            }
 
-    Sawblade {
-        id: sawbladeEntity
-        y: parent.height - height
-        x: parent.width + 300
-
+            if (obj) {
+                obj.x = piggie.x + game.width
+                obj.y = game.height - obj.height
+            }
+        }
     }
 
     MouseArea {
