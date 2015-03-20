@@ -4,10 +4,10 @@ import Bacon2D 1.0
 
 Window {
     id: window
-    maximumWidth: 512
-    maximumHeight: 512
-    minimumWidth: 512
-    minimumHeight: 512
+    maximumWidth: 800
+    maximumHeight: 600
+    minimumWidth: maximumWidth
+    minimumHeight: minimumWidth
     visible: true
 
 
@@ -54,15 +54,15 @@ Window {
 
             focus: true
             physics: true
-            gravity: Qt.point(0, 1)
+            gravity: Qt.point(0, 5)
             width: parent.width
             height: parent.height
 
             Keys.onRightPressed: {
-                piggie.linearVelocity = Qt.point(5, 0)
+                piggie.linearVelocity = Qt.point(5, piggie.linearVelocity.y)
             }
             Keys.onLeftPressed: {
-                piggie.linearVelocity = Qt.point(-5, 0)
+                piggie.linearVelocity = Qt.point(-5, piggie.linearVelocity.y)
             }
             Keys.onUpPressed: {
                 piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -5)
@@ -74,7 +74,7 @@ Window {
                 source: "qrc:/sky.png"
 
                 behavior: ScrollBehavior {
-                    horizontalStep: -15
+                    horizontalStep: -5
                 }
             }
 

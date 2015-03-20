@@ -29,9 +29,9 @@ PhysicsEntity {
 
 
     fixtures: Circle {
-        density: 10000000
+        density: 100
         radius: entity.width / 2
         friction: 0.5
-        restitution: 0.2
+        restitution: 0.4
     }
 }
