@@ -187,6 +187,15 @@ Window {
             id: gameover
             width: parent.width
             height: parent.height
+            opacity: 0
+
+            enterAnimation: NumberAnimation {
+                target: gameover
+                property: "opacity"
+                from: 0
+                to: 1
+                duration: 500
+            }
 
             Rectangle {
                 id: gobg
