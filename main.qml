@@ -96,7 +96,7 @@ Window {
 
             ParallelAnimation {
                 id: powerUpAnimation
-                running: true
+                running: false
                 loops: 10
                 property real speed: 150
                 onRunningChanged: {
@@ -112,7 +112,7 @@ Window {
                         target: rotationTransform
                         property: "angle"
                         from: 0
-                        to: Math.random() > 0.5 ? 12 : -12
+                        to: Math.random() > 0.5 ? 6 : -6
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {
@@ -125,14 +125,14 @@ Window {
                 SequentialAnimation {
                     NumberAnimation {
                         target: scaleTransform
-                        properties: "xScale, yScale"
+                        properties: "xScale,yScale"
                         from: 1
-                        to: Math.random() > 0.5 ? 1.2 : 0.8
+                        to: Math.random() > 0.5 ? 1.1 : 0.9
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {
                         target: scaleTransform
-                        property: "xScale, yScale"
+                        properties: "xScale,yScale"
                         to: 1
                         duration: powerUpAnimation.speed
                     }
@@ -142,7 +142,7 @@ Window {
                         target: translateTransform
                         properties: "x, y"
                         from: 0
-                        to: Math.random() > 0.5 ? 10 : -10
+                        to: Math.random() > 0.5 ? 6 : -6
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {

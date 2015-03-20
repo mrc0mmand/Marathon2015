@@ -50,6 +50,7 @@ PhysicsEntity {
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
                     piggie.source = "qrc:/assets/pigRocket.png"
+                    powerUpAnimation.running = true
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
