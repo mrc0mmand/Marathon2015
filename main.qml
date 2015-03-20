@@ -226,6 +226,7 @@ Window {
                 id: piggie
                 linearVelocity: Qt.point(15, 0)
             }
+
             Mine {
                 id: mine
                 y: parent.height - height

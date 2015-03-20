@@ -25,5 +25,7 @@
         <file>sounds/holyshit.wav</file>
         <file>Mine.qml</file>
         <file>assets/mine.png</file>
+        <file>assets/explosion.png</file>
+        <file>Explosion.qml</file>
     </qresource>
 </RCC>

@@ -1,7 +1,20 @@
 import QtQuick 2.0
+import Bacon2D 1.0
 
-Rectangle {
-    width: 100
-    height: 62
+Sprite {
+    animation: "explosion"
+
+    animations: SpriteAnimation {
+        name: "explosion"
+        source: "qrc:/assets/explosion.png"
+        frames: 4
+        duration: 400
+        loops: Animation.Infinite
+    }
+    Timer {
+        running: true
+        interval: 400
+        onTriggered: root.destroy()
+    }
 }
 

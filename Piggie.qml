@@ -55,9 +55,16 @@ PhysicsEntity {
                 if (other.entityType == "floor") {
                     onFloor = true
                     rocket.visible = false
+
                 }
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
+                    for(var i = 0; i < 1000; i+=100)
+                    {
+                        var spriteObject = Qt.createQmlObject("Explosion{}", scene)
+                        spriteObject.x = entity.x + Math.random() * 100
+                        spriteObject.y = entity.y - i
+                    }
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
