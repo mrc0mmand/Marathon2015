@@ -155,7 +155,7 @@ Scene {
 
     Timer {
         id: generatorTimer
-        interval: 250
+        interval: 500
         repeat: true
         running: true
         onTriggered: {
