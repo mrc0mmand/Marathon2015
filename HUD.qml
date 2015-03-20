@@ -171,6 +171,8 @@ Item {
         Text {
             id: idMulti
             text: ""
+            textFormat: Text.RichText
+            horizontalAlignment: Text.AlignHCenter
             anchors.centerIn: parent
             font.family: baconFont.name
             color: "brown"

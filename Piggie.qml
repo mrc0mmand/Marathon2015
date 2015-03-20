@@ -17,6 +17,9 @@ PhysicsEntity {
 
     property bool onFloor: true
 
+    property string comboType: ""
+    property int    comboCount: 0
+
     Image {
         id: piggie
         source: "qrc:/assets/pig.png"
@@ -53,12 +56,19 @@ PhysicsEntity {
                     rocket.visible = false
                 }
 
+                if(comboType == other.entityType) {
+                    comboCount += 1
+                } else {
+                    comboType = other.entityType
+                    comboCount = 1
+                }
+
                 if (other.entityType == "floor") {
                     onFloor = true
                 }
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
-                    hud.multiplierText("Exploded!")
+                    hud.multiplierText("HARDCORE!<br><br>mine combo " + comboCount + "x")
                     gameScene.animatePowerUp()
                     for(var i = 0; i < 500; i+=10)
                     {
@@ -74,12 +84,12 @@ PhysicsEntity {
                     holyShit.play()
                     rocket.visible = true
 
-                    hud.multiplierText("Holy shit!")
+                    hud.multiplierText("Holy shit!<br><br>boost combo " + comboCount + "x")
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 1
                     gameScene.animatePowerUp()
-                    hud.multiplierText("Hardcore!")
+                    hud.multiplierText("Hardcore!<br><br>" + comboType + " combo " + comboCount + "x")
                 }
             }
             onEndContact: {
