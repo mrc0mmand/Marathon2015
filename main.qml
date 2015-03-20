@@ -79,14 +79,18 @@ Window {
             height: parent.height
 
             Keys.onRightPressed: {
-                piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+                if(piggie.onFloor) {
+                    piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+                }
             }
             Keys.onLeftPressed: {
-                piggie.linearVelocity = Qt.point(-15, piggie.linearVelocity.y)
+                if(piggie.linearVelocity > 5) {
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 5, piggie.linearVelocity.y)
+                }
             }
             Keys.onUpPressed: {
                 if (piggie.onFloor)
-                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -20)
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -15)
             }
             Image {
                 anchors.fill: parent
@@ -126,6 +130,7 @@ Window {
             // Stuff in scene
             Piggie {
                 id: piggie
+                linearVelocity: Qt.point(15, 0)
             }
             Slaughter {
                 id: slaughter
