@@ -22,8 +22,8 @@ PhysicsEntity {
     fixtures: [         // Left border
         Edge {
             vertices: [
-                Qt.point(0, 512),
-                Qt.point(512, 512)
+                Qt.point(0, window.height),
+                Qt.point(window.width, window.height)
             ]
         }
     ]
@@ -43,8 +43,8 @@ PhysicsEntity {
                 for (var i = 1; i < root.model.length; i++)
                     context.lineTo(root.model[i].x, root.model[i].y);
             }
-            context.moveTo(0, height)
-            context.lineTo(width, height)
+            context.moveTo(0, window.height)
+            context.lineTo(window.width, window.height)
 
             context.strokeStyle = "red";
             context.stroke();

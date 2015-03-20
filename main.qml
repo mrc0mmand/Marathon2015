@@ -3,6 +3,7 @@ import QtQuick.Window 2.0
 import Bacon2D 1.0
 
 Window {
+    id: window
     maximumWidth: 512
     maximumHeight: 512
     minimumWidth: 512
@@ -72,9 +73,13 @@ Window {
 
             }
 
+            Bowl {
+
+            }
+
             Sprite {
                 id: spriteItem
-visible: false
+                visible: false
                 x: 64
                 y: globalMouse.mouseY
 
