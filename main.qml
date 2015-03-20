@@ -4,6 +4,7 @@ import Bacon2D 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
+import QtMultimedia 5.0
 
 Window {
     id: window
@@ -14,12 +15,17 @@ Window {
 
     FontLoader {
         id: baconFont
-        source: "qrc:/assets/Bacon_Bad.ttf"
+        source: "qrc:/fonts/Bacon_Bad.ttf"
     }
 
     Settings {
         id: settings
         property variant scores: [["ofc", 50],["AAA", 0]]
+    }
+
+    Audio {
+        id: holyShit
+        source: "qrc:/sounds/holyshit.wav"
     }
 
     Component {
@@ -103,7 +109,7 @@ Window {
 
             ParallelAnimation {
                 id: powerUpAnimation
-                running: true
+                running: false
                 loops: 10
                 property real speed: 150
                 onRunningChanged: {
@@ -119,7 +125,7 @@ Window {
                         target: rotationTransform
                         property: "angle"
                         from: 0
-                        to: Math.random() > 0.5 ? 12 : -12
+                        to: Math.random() > 0.5 ? 6 : -6
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {
@@ -132,14 +138,14 @@ Window {
                 SequentialAnimation {
                     NumberAnimation {
                         target: scaleTransform
-                        properties: "xScale, yScale"
+                        properties: "xScale,yScale"
                         from: 1
-                        to: Math.random() > 0.5 ? 1.2 : 0.8
+                        to: Math.random() > 0.5 ? 1.1 : 0.9
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {
                         target: scaleTransform
-                        property: "xScale, yScale"
+                        properties: "xScale,yScale"
                         to: 1
                         duration: powerUpAnimation.speed
                     }
@@ -149,7 +155,7 @@ Window {
                         target: translateTransform
                         properties: "x, y"
                         from: 0
-                        to: Math.random() > 0.5 ? 10 : -10
+                        to: Math.random() > 0.5 ? 6 : -6
                         duration: powerUpAnimation.speed
                     }
                     NumberAnimation {
@@ -219,6 +225,11 @@ Window {
             Piggie {
                 id: piggie
                 linearVelocity: Qt.point(15, 0)
+            }
+            Mine {
+                id: mine
+                y: parent.height - height
+                x: 2000
             }
             Slaughter {
                 id: slaughter
