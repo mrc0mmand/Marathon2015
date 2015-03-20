@@ -100,9 +100,8 @@ Window {
             }
 
             Ramp {
-                //anchors.bottom: parent.bottom
-                //anchors.horizontalCenter:  parent.horizontalCenter
-                anchors.centerIn: parent
+                anchors.bottom: parent.bottom
+                anchors.horizontalCenter:  parent.horizontalCenter
                 width: 200
                 height: 100
             }
