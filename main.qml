@@ -23,6 +23,12 @@ Window {
         source: "qrc:/sounds/holyshit.wav"
     }
 
+    Audio {
+        id: unstoppable
+        source: "qrc:/sounds/unstoppable.mp3"
+        autoLoad: true
+    }
+
     Component {
         id: ball
         PhysicsEntity {
@@ -102,7 +108,7 @@ Window {
             running: true
             interval: 1000
             repeat: true
-            onTriggered: game.score += 25
+            onTriggered: game.score += 10
         }
     }
 
