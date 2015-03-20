@@ -13,6 +13,7 @@ PhysicsEntity {
     angularDamping: 0
     fixedRotation: true
     transformOrigin: Item.Center
+    property alias hitbox: circle
 
     ImageLayer {
         id: sawblade
@@ -42,7 +43,8 @@ PhysicsEntity {
     fixtures: [
         Circle {
             property string entityType: "sawblade"
-            density: 1000
+            id: circle
+            density: 100000
             radius: sawbladeEntity.width / 2
             friction: 0.5
             restitution: 1
