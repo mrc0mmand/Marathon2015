@@ -10,6 +10,7 @@ PhysicsEntity {
     height: 80
     bodyType: Body.Dynamic
     linearDamping: 0.1
+    angularDamping: 0
 
     Rectangle {
         anchors.verticalCenter: parent.verticalCenter

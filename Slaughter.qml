@@ -12,10 +12,12 @@ PhysicsEntity {
     property int rotaDirection: 1
     transformOrigin: "Center"
 
+    linearVelocity: Qt.point(-5, 0)
+
     Image {
         id: slaughter
         source: "qrc:/slaughter.png"
-        height: 150
+        height: 120
         fillMode: Image.PreserveAspectFit
     }
 
@@ -29,10 +31,6 @@ PhysicsEntity {
 
     behavior: ScriptBehavior {
         script: {
-            var rota = 0
-            var newPos = slaughterEntity.x - 5
-            slaughterEntity.x = newPos
-
             // Rotation
             if(slaughterEntity.rota > 45)
             {
@@ -43,11 +41,9 @@ PhysicsEntity {
             }
 
             slaughterEntity.rota = slaughterEntity.rota + (slaughterEntity.rotaDirection * 5)
-
             slaughterEntity.rotation = slaughterEntity.rota
         }
     }
-
 }
 
 

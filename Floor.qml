@@ -17,11 +17,19 @@ PhysicsEntity {
         Qt.point(576, height - 6),
     ]
 
-    fixtures: Box {
-        y: parent.height - 2
-        height: 1
-        width: parent.width
-    }
+    fixtures: [
+        Box {
+            y: parent.height - 2
+            height: 1
+            width: parent.width
+        },
+        Box {
+            y: 0
+            width: parent.width
+            height: 1
+        }
+
+    ]
 
     Rectangle {
         width: parent.width
