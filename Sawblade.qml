@@ -3,8 +3,8 @@ import Bacon2D 1.0
 
 PhysicsEntity {
     id: entity
-    x: 400
-    y: 300
+    x: Math.abs(Math.floor(Math.random() * window.width - (window.width / 2))) + (window.width / 4)
+    y: Math.abs(Math.floor(Math.random() * window.height - (window.height / 2))) + (window.height / 4)
     focus: false
     width: 80
     height: 80
@@ -45,8 +45,9 @@ PhysicsEntity {
             property string entityType: "sawblade"
             id: circle
             density: 100000
-            radius: sawbladeEntity.width / 2
-            friction: 0.5
+
+            radius: entity.width / 2
+            friction: 0
             restitution: 1
         }
     ]
