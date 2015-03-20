@@ -30,7 +30,7 @@ Item {
                 transformOrigin: Item.Center
                 Item {
                     id: secondHand
-                    rotation: 6.2
+                    rotation: 0
                     function move() {
                         rotation = (new Date().valueOf() - game.startTime) / 1000 * 6 + 6.2
                         console.log(rotation)
@@ -54,6 +54,7 @@ Item {
                         y: -height
                         transformOrigin: Image.BottomLeft
                     }
+                    Component.onCompleted: rotation = 6.2
                 }
                 Item {
                     id: minuteHand

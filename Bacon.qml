@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 PhysicsEntity {
+    id: root
     width: bacon.width
     height: bacon.height
     bodyType: Body.Dynamic
@@ -23,5 +24,10 @@ PhysicsEntity {
         height: bacon.height
         friction: 0.5
         restitution: 0.2
+    }
+    Timer {
+        running: true
+        interval: 2000
+        onTriggered: root.destroy()
     }
 }
