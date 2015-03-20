@@ -75,14 +75,6 @@ Window {
                 }
             }
 
-            Rectangle {
-                color: "red"
-                x: piggie.x
-                y: 100
-                width: 30
-                height: 30
-            }
-
             width: 10000 - x
             height: parent.height
 
@@ -134,15 +126,21 @@ Window {
             // Stuff in scene
             Piggie {
                 id: piggie
-                Rectangle {
-                    anchors.fill: parent
-                    color: "#88ff0000"
-                }
             }
             Slaughter {
                 id: slaughter
                 y: parent.height - height
                 x: 900
+            }
+            Slaughter {
+                id: slaughter2
+                y: parent.height - height
+                x: 1500
+            }
+            Slaughter {
+                id: slaughter3
+                y: parent.height - height
+                x: 2500
             }
 
             Floor {
