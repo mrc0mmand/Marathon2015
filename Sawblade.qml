@@ -36,8 +36,8 @@ PhysicsEntity {
             var newY = sawbladeEntity.y + Math.floor(Math.random() * ((Math.random() * 2) > 1 ? -5 : 5))*/
 
 
-            sawbladeEntity.x = newX > parent.width ? parent.width : newX
-            sawbladeEntity.y = newY > parent.height ? parent.height : newY
+            /*sawbladeEntity.x = newX > parent.width ? parent.width : newX
+            sawbladeEntity.y = newY > parent.height ? parent.height : newY*/
         }
     }
 
