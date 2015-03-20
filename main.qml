@@ -38,9 +38,24 @@ Window {
 
                 animation: "falling"
 
+                Rectangle{
+                    width: childrenRect.width + 20
+                    height: width
+                    color: "transparent"
+                    border.color: "white"
+                    anchors.centerIn: parent
+
+                    Text {
+                        text: "placeholder"
+                        color: "white"
+                        anchors.centerIn: parent
+                    }
+                }
+
+
                 animations: SpriteAnimation {
                     name: "falling"
-                    source: "qrc:/astronaut.png"
+                    //source: "qrc:/astronaut.png"
                     frames: 3
                     duration: 450
                     loops: Animation.Infinite
