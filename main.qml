@@ -183,6 +183,7 @@ Window {
             Keys.onUpPressed: {
                 if (piggie.onFloor)
                 {
+                    piggie.onFloor = false
                     piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -15)
                 }
             }
@@ -198,29 +199,6 @@ Window {
                 source: "qrc:/assets/sky2.png"
                 fillMode: Image.TileHorizontally
             }
-            /*
-            ImageLayer {
-                id: layer
-                anchors.fill: parent
-                source: "qrc:/assets/sky.png"
-
-                behavior: ScrollBehavior {
-                    horizontalStep: -2
-                }
-
-            }
-
-            ImageLayer {
-                id: layer2
-                anchors.fill: parent
-                source: "qrc:/assets/sky2.png"
-
-
-                behavior: ScrollBehavior {
-                    horizontalStep: -5
-                }
-            }
-*/
             // Stuff in scene
             Piggie {
                 id: piggie
