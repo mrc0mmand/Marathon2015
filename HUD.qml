@@ -3,11 +3,34 @@ import QtQuick 2.0
 Item {
     id: root
 
-    Image {
-        source: "qrc:/assets/baconstrip.png"
+    Item {
+        width: childrenRect.width * (piggie.hitpoints / 100)
         height: parent.height
-        fillMode: Image.PreserveAspectFit
-        smooth: true
+        clip: true
+
+        Image {
+            source: "qrc:/assets/baconstrip.png"
+            height: parent.height
+            fillMode: Image.PreserveAspectFit
+            smooth: true
+        }
+    }
+
+    Text {
+        text: game.score
+        anchors.centerIn: parent
+        font.family: baconFont.name
+        color: "brown"
+        font.pointSize: 60
+        font.weight: Font.Bold
+        Text {
+            text: parent.text
+            anchors.centerIn: parent
+            font.family: baconFont.name
+            color: "dark red"
+            font.pointSize: 60
+            font.weight: Font.SemiBold
+        }
     }
 
     Rectangle {
