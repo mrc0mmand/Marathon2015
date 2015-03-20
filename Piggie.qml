@@ -12,8 +12,8 @@ PhysicsEntity {
     angularDamping: 0
     linearDamping: 0
 
-    property int hitpoints: 100
-    property int maxHitpoints: 100
+    property int hitpoints: 10
+    property int maxHitpoints: 10
 
     property bool onFloor: true
 

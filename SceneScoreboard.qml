@@ -112,7 +112,7 @@ Scene {
                 }
                 Text {
                     horizontalAlignment: Text.AlignHCenter
-                    color: "pink"
+                    color: "brown"
                     font.family: baconFont.name
                     font.bold: true
                     font.pointSize: 15
@@ -121,10 +121,12 @@ Scene {
                     Text {
                         text: parent.text
                         anchors.fill: parent
-                        font.family: baconFont.name
-                        color: "purple"
-                        font.pointSize: parent.font.pointSize
+                        Layout.alignment: Qt.AlignCenter
+                        verticalAlignment: parent.verticalAlignment
                         horizontalAlignment: parent.horizontalAlignment
+                        font.family: parent.font.family
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
                     }
                 }
             }
@@ -134,30 +136,35 @@ Scene {
             width: window.width / 2
             Layout.alignment: Qt.AlignHCenter
             Layout.fillHeight: true
-            height: 35
+            height: 50
 
             TextInput {
                 id: scoresubmitinput
                 focus: true
                 text: "Your name"
                 width: 200
-                color: "brown"
+                height: parent.height
+                color: Qt.lighter("brown")
                 font.family: baconFont.name
                 font.bold: true
+                verticalAlignment: TextInput.AlignVCenter
+                horizontalAlignment: TextInput.AlignHCenter
                 maximumLength: 10
                 font.pointSize: 25
                 Text {
                     text: parent.text
                     anchors.fill: parent
                     font.family: baconFont.name
-                    color: "dark red"
+                    color: "red"
                     font.pointSize: parent.font.pointSize
+                    horizontalAlignment: Text.AlignHCenter
                 }                
             }
 
             Button {
                 id: scoresubmitbutton
                 text: "Submit"
+                height: parent.height
 
                 style: ButtonStyle {
                     background: Rectangle {
@@ -169,13 +176,14 @@ Scene {
                         font.bold: true
                         font.pointSize: 30
                         text: scoresubmitbutton.text
+                        verticalAlignment: Text.AlignVCenter
                         Text {
                             text: parent.text
                             anchors.fill: parent
                             font.family: baconFont.name
                             color: "dark red"
                             font.pointSize: parent.font.pointSize
-
+                            verticalAlignment: parent.verticalAlignment
                         }
                     }
                 }
@@ -222,10 +230,21 @@ Scene {
                 label: Text {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    color: "white"
+                    color: "brown"
                     font.pointSize: 50
+                    font.bold: true
                     font.family: baconFont.name
                     text: scoreboardok.text
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
+                        verticalAlignment: parent.verticalAlignment
+                        horizontalAlignment: parent.horizontalAlignment
+                        font.family: parent.font.family
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                    }
                 }
             }
 
