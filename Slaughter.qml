@@ -4,7 +4,7 @@ import Bacon2D 1.0
 PhysicsEntity {
     id: slaughterEntity
     x: window.width - width
-    y: 300
+    y: window.height - height - 10
     width: slaughter.width
     height: slaughter.height
     bodyType: Body.Kinematic
@@ -45,7 +45,6 @@ PhysicsEntity {
             slaughterEntity.rota = slaughterEntity.rota + (slaughterEntity.rotaDirection * 5)
 
             slaughterEntity.rotation = slaughterEntity.rota
-            console.log("slaughter rota -> ", slaughterEntity.rota, " direction ", slaughterEntity.rotaDirection)
         }
     }
 
