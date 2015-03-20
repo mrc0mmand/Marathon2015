@@ -33,8 +33,8 @@ Window {
             fixtures: Circle {
                 radius: 15
                 density: 1
-                friction: 0.5
-                restitution: 0.2
+                friction: 0
+                restitution: 1
             }
         }
     }
@@ -51,6 +51,7 @@ Window {
 
             focus: true
             physics: true
+            gravity: Qt.point(-1, 0)
             width: parent.width
             height: parent.height
 
@@ -64,11 +65,45 @@ Window {
                 }
             }
 
+            PhysicsEntity {
+                id: entity
+                x: 100
+                y: 300
+                width: 32
+                height: 32
+                bodyType: Body.Kinematic
+
+                behavior: ScriptBehavior {
+                    script: {
+                        if (globalMouse.mouseY - entity.y > 16)
+                            entity.linearVelocity = Qt.point(0, 10)
+                        else if (globalMouse.mouseY - entity.y < -16)
+                            entity.linearVelocity = Qt.point(0, -10)
+                        else
+                            entity.linearVelocity = Qt.point(0, 0)
+                    }
+                }
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "red"
+                }
+
+                fixtures: Box {
+                    density: 10000000
+                    width: 32
+                    height: 32
+                    friction: 0.5
+                    restitution: 0.2
+                }
+            }
+
             Sprite {
                 id: spriteItem
-
+visible: false
                 x: 64
                 y: globalMouse.mouseY
+
 
                 animation: "falling"
 
@@ -111,7 +146,9 @@ Window {
             }
 
             Bowl {
-                anchors.centerIn: parent
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+
             }
 
             MouseArea {
