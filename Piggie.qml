@@ -59,6 +59,7 @@ PhysicsEntity {
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
                     powerUpAnimation.running = true
+                    rocket.visible = true
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
