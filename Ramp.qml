@@ -7,8 +7,11 @@ PhysicsEntity {
     id: root
     clip: true
 
+    property alias box: rootPoly
+
     fixtures: [
         Polygon {
+            property string entityType: "ramp"
             vertices: [
                 Qt.point(0, root.height),
                 Qt.point(root.width, root.height),

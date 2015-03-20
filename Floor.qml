@@ -24,6 +24,7 @@ PhysicsEntity {
             y: parent.height - 2
             height: 1
             width: parent.width
+            property string entityType: "floor"
             onBeginContact: {
                 if (other.objectName == "piggie") {
                     other.onFloor = true

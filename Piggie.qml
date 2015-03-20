@@ -25,11 +25,15 @@ PhysicsEntity {
     fixtures: [
         Circle {
             onBeginContact: {
-                if (other == floor.box)
+                if (other.entityType == "floor")
                     onFloor = true
+                if (other.entityType == "ramp") {
+                    console.log("AAA")
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
+                }
             }
             onEndContact: {
-                if (other == floor.box)
+                if (other.entityType == "floor")
                     onFloor = false
             }
 
