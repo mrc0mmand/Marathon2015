@@ -11,8 +11,9 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
-    property int hitpoints: 15
-    property int maxHitpoints: 15
+    property int hitpoints: 100
+    property int maxHitpoints: 100
+
     property bool onFloor: true
 
     Image {
@@ -43,10 +44,13 @@ PhysicsEntity {
     fixtures: [
         Box {
             onBeginContact: {
+                if (["floor", "mine", "slaughter", "ramp", "sawblade"].indexOf(other.entityType) >= 0)
+                {
+                    rocket.visible = false
+                }
+
                 if (other.entityType == "floor") {
                     onFloor = true
-                    rocket.visible = false
-
                 }
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
@@ -60,7 +64,7 @@ PhysicsEntity {
                     }
                 }
                 if (other.entityType == "ramp") {
-                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
                     gameScene.animatePowerUp()
                     holyShit.play()
                     rocket.visible = true
