@@ -7,7 +7,7 @@ Window {
     maximumWidth: 800
     maximumHeight: 600
     minimumWidth: maximumWidth
-    minimumHeight: minimumWidth
+    minimumHeight: maximumHeight
     visible: true
 
 
@@ -37,7 +37,7 @@ Window {
                 radius: 15
                 density: 1
                 friction: 0
-                restitution: 1
+                restitution: 0.5
             }
         }
     }
@@ -54,7 +54,7 @@ Window {
 
             focus: true
             physics: true
-            gravity: Qt.point(0, 5)
+            gravity: Qt.point(0, 10)
             width: parent.width
             height: parent.height
 
@@ -65,7 +65,8 @@ Window {
                 piggie.linearVelocity = Qt.point(-5, piggie.linearVelocity.y)
             }
             Keys.onUpPressed: {
-                piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -5)
+                if (piggie.onFloor)
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -5)
             }
 
             ImageLayer {
@@ -86,6 +87,7 @@ Window {
             }
 
             Floor {
+                id: floor
                 anchors.fill: parent
             }
 

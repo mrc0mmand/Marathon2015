@@ -3,6 +3,7 @@ import Bacon2D 1.0
 
 PhysicsEntity {
     id: root
+    property alias box: floorBox
 
     property variant model: [
         Qt.point(0, height),
@@ -19,14 +20,30 @@ PhysicsEntity {
 
     fixtures: [
         Box {
+            id: floorBox
             y: parent.height - 2
             height: 1
             width: parent.width
+            onBeginContact: {
+                if (other.objectName == "piggie") {
+                    other.onFloor = true
+                }
+            }
+            onEndContact: {
+                if (other.objectName == "piggie") {
+                    other.onFloor = false
+                }
+            }
         },
         Box {
             y: 0
             width: parent.width
             height: 1
+        },
+        Box {
+            x: 0
+            height: parent.height
+            width: 1
         }
 
     ]

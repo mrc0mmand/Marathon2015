@@ -12,13 +12,7 @@ PhysicsEntity {
     linearDamping: 0.1
     angularDamping: 0
 
-    Rectangle {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.horizontalCenter
-        width: 100
-        height: 3
-        color: "blue"
-    }
+    property bool onFloor: false
 
     Image {
         id: piggie
@@ -28,11 +22,26 @@ PhysicsEntity {
         fillMode: Image.PreserveAspectFit
     }
 
+    onOnFloorChanged: console.log("OFC")
 
-    fixtures: Circle {
-        density: 100
-        radius: entity.width / 2
-        friction: 0.5
-        restitution: 0.4
-    }
+
+    fixtures: [
+        Circle {
+            onBeginContact: {
+                if (other == floor.box)
+                    onFloor = true
+            }
+            onEndContact: {
+                if (other == floor.box)
+                    onFloor = false
+            }
+
+            id: pigCircle
+            density: 100
+            radius: entity.width / 2
+            friction: 0.5
+            restitution: 0.2
+        }
+    ]
+
 }

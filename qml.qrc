@@ -8,5 +8,6 @@
         <file>Piggie.qml</file>
         <file>Slaughter.qml</file>
         <file>slaughter.png</file>
+        <file>Ramp.qml</file>
     </qresource>
 </RCC>
