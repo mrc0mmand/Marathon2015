@@ -38,13 +38,13 @@ Scene {
         }
 
         Item {
-            height: 50
+            height: 15
         }
 
         ListView {
             id: scoreboardlist
             width: window.width / 2
-            height: window.height - 100
+            height: window.height - 200
             Layout.alignment: Qt.AlignCenter
             Layout.fillHeight: true
             anchors.centerIn: parent
@@ -111,7 +111,7 @@ Scene {
                 }
                 Text {
                     horizontalAlignment: Text.AlignHCenter
-                    color: "brown"
+                    color: "pink"
                     font.family: baconFont.name
                     font.bold: true
                     font.pointSize: 15
@@ -121,9 +121,52 @@ Scene {
                         text: parent.text
                         anchors.fill: parent
                         font.family: baconFont.name
-                        color: "dark red"
+                        color: "purple"
                         font.pointSize: parent.font.pointSize
                         horizontalAlignment: parent.horizontalAlignment
+                    }
+                }
+            }
+        }
+
+        Row {
+            width: window.width / 2
+            Layout.alignment: Qt.AlignHCenter
+            Layout.fillHeight: true
+            height: 35
+
+            TextInput {
+                focus: true
+                text: "Your name"
+                width: 200
+                color: "pink"
+                maximumLength: 10
+                font.pointSize: 25
+               //: selectAll()
+            }
+
+            Button {
+                id: scoresubmitbutton
+                text: "Submit"
+
+                style: ButtonStyle {
+                    background: Rectangle {
+                        visible: false
+                    }
+                    label: Text {
+                        color: "brown"
+                        font.family: baconFont.name
+                        font.bold: true
+                        font.pointSize: 30
+                        text: scoresubmitbutton.text
+                        Text {
+                            text: parent.text
+                            anchors.fill: parent
+                            font.family: baconFont.name
+                            color: "dark red"
+                            font.pointSize: parent.font.pointSize
+
+                        }
                     }
                 }
             }
@@ -132,6 +175,8 @@ Scene {
         Button {
             id: scoreboardok
             Layout.alignment: Qt.AlignCenter
+            Layout.fillHeight: true
+            height: 55
             text: "RESTART"
 
             style: ButtonStyle {
