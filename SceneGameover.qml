@@ -118,10 +118,21 @@ Scene {
                 label: Text {
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    color: "white"
+                    color: "brown"
+                    font.bold: true
                     font.pointSize: 50
                     font.family: baconFont.name
                     text: gameoverok.text
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
+                        verticalAlignment: parent.verticalAlignment
+                        horizontalAlignment: parent.horizontalAlignment
+                        font.family: parent.font.family
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                    }
                 }
             }
 
