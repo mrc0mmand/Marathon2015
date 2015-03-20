@@ -174,6 +174,13 @@ Scene {
                 obj = Qt.createQmlObject("Sawblade{}", scene)
             }
 
+            // Sounds
+            if (game.score % 50 == 0 && game.score != 0) {
+                game.score += 10
+                unstoppable.play()
+                hud.multiplierText("Unstoppable!")
+            }
+
             if (obj) {
                 obj.x = piggie.x + game.width
                 obj.y = game.height - obj.height

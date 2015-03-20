@@ -200,7 +200,7 @@ Item {
 
         SequentialAnimation {
             id: multiAnimation
-            loops: 8
+            loops:8
             onStopped: multiplier.visible = false
             PropertyAnimation {
                 target: multiScale

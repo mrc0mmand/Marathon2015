@@ -65,6 +65,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                    entity.angularVelocity = 0
                     gameScene.animatePowerUp()
                     holyShit.play()
                     rocket.visible = true
