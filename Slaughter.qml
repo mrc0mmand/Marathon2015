@@ -13,7 +13,7 @@ PhysicsEntity {
     property alias hitbox: box
     transformOrigin: "Center"
 
-    linearVelocity: Qt.point(-5, 0)
+    linearVelocity: Qt.point(window.speed, 0)
 
     Image {
         id: slaughter

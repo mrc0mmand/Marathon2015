@@ -100,6 +100,8 @@ Window {
             }
             Slaughter {
                 id: slaughter
+                y: parent.height - height
+                x: parent.width + 300
             }
 
             Floor {
@@ -111,14 +113,16 @@ Window {
                 //anchors.bottom: parent.bottom
                 //anchors.horizontalCenter:  parent.horizontalCenter
                 y: parent.height - height
-                x: parent.width - 100
+                x: parent.width
                 width: 200
                 height: 100
-                linearVelocity: Qt.point(-10, 0)
+                //linearVelocity: Qt.point(-10, 0)
             }
 
             Sawblade {
                 id: sawbladeEntity
+                y: parent.height - height
+                x: parent.width + 300
 
             }
 
@@ -200,7 +204,7 @@ Window {
             running: true
             interval: 1000
             repeat: true
-            onTriggered: game.score++
+            onTriggered: game.score += 25
         }
     }
 
