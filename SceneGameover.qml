@@ -20,10 +20,28 @@ Scene {
         duration: 500
     }
 
-    Rectangle {
+    Image {
         id: gobg
-        color: "black"
-        anchors.fill: parent
+        source: "qrc:/assets/happy_pig.png"
+        fillMode: Image.PreserveAspectCrop
+        height: parent.height
+        SequentialAnimation {
+            running: true
+            loops: -1
+            NumberAnimation {
+                target: gobg
+                property: "x"
+                from: 0
+                duration: 15000
+                to: -window.width + 32
+            }
+            NumberAnimation {
+                target: gobg
+                property: "x"
+                duration: 15000
+                to: 0
+            }
+        }
     }
 
     ColumnLayout {
