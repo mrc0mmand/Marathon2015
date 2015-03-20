@@ -10,5 +10,7 @@
         <file>slaughter.png</file>
         <file>Ramp.qml</file>
         <file>sky2.png</file>
+        <file>HUD.qml</file>
+        <file>baconstrip.png</file>
     </qresource>
 </RCC>

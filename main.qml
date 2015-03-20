@@ -44,6 +44,7 @@ Window {
         id: game
         anchors.fill: parent
 
+        property real startTime
         currentScene: scene
 
         Scene {
@@ -167,7 +168,18 @@ Window {
                         newBox.y = (15*i) - 10;
                     }
                 }
+                parent.startTime = new Date().valueOf()
             }
         }
+    }
+
+    HUD {
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            margins: 8
+        }
+        height: 64
     }
 }
