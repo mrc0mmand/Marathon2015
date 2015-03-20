@@ -4,10 +4,10 @@ import Bacon2D 1.0
 PhysicsEntity {
     id: entity
     x: 100
-    y: 300
+    y: scene.height - height
     focus: true
-    width: 80
-    height: 80
+    width: 120
+    height: 120
     bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 1
@@ -32,14 +32,23 @@ PhysicsEntity {
         }
     }
 
+    behavior: ScriptBehavior {
+        script: {
+            if(linearVelocity.x < 10) {
+                entity.linearVelocity = Qt.point(15, entity.linearVelocity.y)
+            }
+        }
+    }
+
     fixtures: [
         Box {
             onBeginContact: {
                 if (other.entityType == "floor")
                     onFloor = true
+                    piggie.source = "qrc:/assets/pig.png"
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
-                    window.speed -= 10
+                    piggie.source = "qrc:/assets/pigRocket.png"
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
@@ -71,7 +80,7 @@ PhysicsEntity {
             width: entity.width
             height: entity.width
             friction: 0.5
-            restitution: 0.2
+            restitution: 0.1
         }
     ]
 
