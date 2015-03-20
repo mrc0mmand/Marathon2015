@@ -23,6 +23,14 @@ PhysicsEntity {
         fillMode: Image.PreserveAspectFit
     }
 
+    onHitpointsChanged: {
+        if(entity.hitpoints <= 0) {
+            game.score = 0
+            game.currentScene = gameover
+            console.log("Game Over")
+        }
+    }
+
     fixtures: [
         Box {
             onBeginContact: {
@@ -34,6 +42,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
+
                     console.log("Hitpoints: ", entity.hitpoints)
                     for(var i = 0; i < 3; i++)
                     {

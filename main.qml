@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Window 2.0
 import Bacon2D 1.0
+import QtQuick.Layouts 1.1
 
 Window {
     id: window
@@ -59,7 +60,15 @@ Window {
             focus: true
             physics: true
             gravity: Qt.point(0, 10)
-            x: -piggie.x + 200
+            x: 0
+            Connections {
+                target: piggie
+                onXChanged: {
+                    if (-piggie.x + 200 < scene.x)
+                        scene.x = -piggie.x + 200
+                }
+            }
+
             Behavior on x {
                 NumberAnimation {
                     duration: 400
@@ -74,18 +83,18 @@ Window {
                 height: 30
             }
 
-            width: 10000
+            width: 10000 - x
             height: parent.height
 
             Keys.onRightPressed: {
-                piggie.linearVelocity = Qt.point(5, piggie.linearVelocity.y)
+                piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
             }
             Keys.onLeftPressed: {
-                piggie.linearVelocity = Qt.point(-5, piggie.linearVelocity.y)
+                piggie.linearVelocity = Qt.point(-15, piggie.linearVelocity.y)
             }
             Keys.onUpPressed: {
                 if (piggie.onFloor)
-                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -25)
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -20)
             }
             Image {
                 anchors.fill: parent
@@ -95,7 +104,7 @@ Window {
             }
             Image {
                 anchors.fill: parent
-                anchors.leftMargin: -1000 - piggie.x / 2
+                anchors.leftMargin: -1000 + scene.x / 2
                 source: "qrc:/assets/sky2.png"
                 fillMode: Image.TileHorizontally
             }
@@ -133,7 +142,7 @@ Window {
             Slaughter {
                 id: slaughter
                 y: parent.height - height
-                x: 700
+                x: 900
             }
 
             Floor {
@@ -175,6 +184,53 @@ Window {
                 parent.startTime = new Date().valueOf()
             }
         }
+
+        Scene {
+            id: gameover
+            width: parent.width
+            height: parent.height
+
+            ColumnLayout {
+                anchors.centerIn: parent
+
+                Text {
+                    id: textgo
+                    text: "Game over"
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
+                    font.pointSize: 60
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.centerIn: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 60
+                        font.weight: Font.SemiBold
+                    }
+                }
+
+                Text {
+                    id: testscore
+                    text: game.score
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
+                    font.pointSize: 60
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.centerIn: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 60
+                        font.weight: Font.SemiBold
+                    }
+                }
+            }
+        }
+
         Timer {
             id: scoreTimer
             running: true
@@ -183,6 +239,8 @@ Window {
             onTriggered: game.score += 25
         }
     }
+
+
 
     HUD {
         anchors {
