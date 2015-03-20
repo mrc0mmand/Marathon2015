@@ -4,9 +4,40 @@ Item {
     id: root
 
     Item {
+        id: hitpointBar
         width: childrenRect.width * (piggie.hitpoints / 100)
         height: parent.height
         clip: true
+
+        onWidthChanged: {
+            bounceAnimation.start()
+        }
+
+        transform: Scale {
+            id: scaleTransform
+            property real scale: 1
+            xScale: scale
+            yScale: scale
+        }
+
+        SequentialAnimation {
+            id: bounceAnimation
+            loops: 1
+            PropertyAnimation {
+                target: scaleTransform
+                properties: "scale"
+                from: 1.0
+                to: 1.3
+                duration: 200
+            }
+            PropertyAnimation {
+                target: scaleTransform
+                properties: "scale"
+                from: 1.3
+                to: 1.0
+                duration: 200
+            }
+        }
 
         Image {
             source: "qrc:/assets/baconstrip.png"
