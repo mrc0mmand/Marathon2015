@@ -71,6 +71,16 @@ Window {
                 source: "qrc:/sky.png"
 
                 behavior: ScrollBehavior {
+                    horizontalStep: -2
+                }
+            }
+
+            ImageLayer {
+                id: layer2
+                anchors.fill: parent
+                source: "qrc:/sky2.png"
+
+                behavior: ScrollBehavior {
                     horizontalStep: -5
                 }
             }

@@ -8,5 +8,6 @@
         <file>Piggie.qml</file>
         <file>Slaughter.qml</file>
         <file>slaughter.png</file>
+        <file>sky2.png</file>
     </qresource>
 </RCC>
