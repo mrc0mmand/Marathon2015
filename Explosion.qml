@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 Sprite {
+    id: root
     animation: "explosion"
 
     animations: SpriteAnimation {
