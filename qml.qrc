@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainForm.ui.qml</file>
+
+        <file>astronaut.png</file>
+
+        <file>sky.png</file>
+
+    </qresource>
+</RCC>
