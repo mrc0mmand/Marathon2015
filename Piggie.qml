@@ -6,8 +6,8 @@ PhysicsEntity {
     x: 100
     y: scene.height - height -10
     focus: true
-    width: 80
-    height: 80
+    width: 110
+    height: 110
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
@@ -28,7 +28,7 @@ PhysicsEntity {
             anchors.top: parent.top
             source: "qrc:/assets/pigRocket.png"
             fillMode: Image.PreserveAspectFit
-            width: 150
+            width: 240
         }
     }
 
