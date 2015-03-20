@@ -121,7 +121,7 @@ Window {
             Sawblade {
                 id: sawbladeEntity
                 y: parent.height - height
-                x: parent.width
+                x: parent.width + 300
 
             }
 

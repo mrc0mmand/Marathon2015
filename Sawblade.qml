@@ -14,6 +14,7 @@ PhysicsEntity {
     fixedRotation: true
     transformOrigin: Item.Center
     property alias hitbox: circle
+    linearVelocity: Qt.point(window.speed, 0)
 
     ImageLayer {
         id: sawblade
