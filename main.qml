@@ -159,6 +159,12 @@ Window {
             width: parent.width
             height: parent.height
 
+            Rectangle {
+                id: gobg
+                color: "black"
+                anchors.fill: parent
+            }
+
             ColumnLayout {
                 anchors.centerIn: parent
 
