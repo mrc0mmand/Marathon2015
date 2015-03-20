@@ -230,8 +230,11 @@ Scene {
             }
 
             onClicked: {
-                game.currentScene = gameScene
+                gameScene.piggie.hitpoints = gameScene.piggie.maxHitpoints
+                hud.visible = true
                 isSubmitted = false
+                game.currentScene = gameScene
+
             }
         }
     }
