@@ -11,7 +11,7 @@ PhysicsEntity {
 
     Image {
         id: bloodDrop
-        source: "qrc:/bloodDrop.png"
+        source: "qrc:/assets/bloodDrop.png"
         height: 20
         fillMode: Image.PreserveAspectFit
     }

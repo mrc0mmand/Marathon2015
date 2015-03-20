@@ -68,7 +68,7 @@ Window {
             ImageLayer {
                 id: layer
                 anchors.fill: parent
-                source: "qrc:/sky.png"
+                source: "qrc:/assets/sky.png"
 
                 behavior: ScrollBehavior {
                     horizontalStep: -2
@@ -78,7 +78,7 @@ Window {
             ImageLayer {
                 id: layer2
                 anchors.fill: parent
-                source: "qrc:/sky2.png"
+                source: "qrc:/assets/sky2.png"
 
                 behavior: ScrollBehavior {
                     horizontalStep: -5
@@ -105,53 +105,6 @@ Window {
                 height: 100
             }
 
-
-            Sprite {
-                id: spriteItem
-                visible: false
-                x: 64
-                y: globalMouse.mouseY
-
-
-                animation: "falling"
-
-                Rectangle{
-                    width: childrenRect.width + 20
-                    height: width
-                    color: "transparent"
-                    border.color: "white"
-                    anchors.centerIn: parent
-
-                    Text {
-                        text: "placeholder"
-                        color: "white"
-                        anchors.centerIn: parent
-                    }
-                }
-
-
-                animations: SpriteAnimation {
-                    name: "falling"
-                    //source: "qrc:/astronaut.png"
-                    frames: 3
-                    duration: 450
-                    loops: Animation.Infinite
-                }
-
-                Behavior on y {
-                    NumberAnimation {
-                        duration: 250
-                    }
-                }
-
-                NumberAnimation on rotation {
-                    from: 0
-                    to: 360
-                    running: game.gameState === Bacon2D.Running
-                    loops: Animation.Infinite
-                    duration: 1800
-                }
-            }
 
             MouseArea {
                 id: globalMouse

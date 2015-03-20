@@ -17,7 +17,7 @@ PhysicsEntity {
 
     Image {
         id: slaughter
-        source: "qrc:/slaughter.png"
+        source: "qrc:/assets/slaughter.png"
         height: 120
         fillMode: Image.PreserveAspectFit
     }

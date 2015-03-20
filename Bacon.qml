@@ -11,7 +11,7 @@ PhysicsEntity {
 
     Image {
         id: bacon
-        source: "qrc:/bacon.png"
+        source: "qrc:/assets/bacon.png"
         height: 60
         fillMode: Image.PreserveAspectFit
     }

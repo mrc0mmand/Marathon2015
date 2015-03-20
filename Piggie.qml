@@ -16,7 +16,7 @@ PhysicsEntity {
 
     Image {
         id: piggie
-        source: "qrc:/pig.png"
+        source: "qrc:/assets/pig.png"
         anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
