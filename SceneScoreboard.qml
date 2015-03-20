@@ -139,9 +139,18 @@ Scene {
                 focus: true
                 text: "Your name"
                 width: 200
-                color: "pink"
+                color: "brown"
+                font.family: baconFont.name
+                font.bold: true
                 maximumLength: 10
                 font.pointSize: 25
+                Text {
+                    text: parent.text
+                    anchors.fill: parent
+                    font.family: baconFont.name
+                    color: "dark red"
+                    font.pointSize: parent.font.pointSize
+                }
                //: selectAll()
             }
 
