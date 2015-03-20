@@ -8,6 +8,11 @@ Window {
     height: 600
     visible: true
 
+    FontLoader {
+        id: baconFont
+        source: "qrc:/assets/Bacon_Bad.ttf"
+    }
+
     Component {
         id: ball
         PhysicsEntity {
@@ -44,6 +49,7 @@ Window {
         anchors.fill: parent
 
         property real startTime
+        property int score: 0
         currentScene: scene
 
         Scene {
@@ -116,6 +122,7 @@ Window {
                 anchors.fill: parent
                 hoverEnabled: true
             }
+
             Component.onCompleted: {
                 for (var i = 0; i < 10; i++) {
                     for (var j = 0; j < 10; j++) {
@@ -126,6 +133,12 @@ Window {
                 }
                 parent.startTime = new Date().valueOf()
             }
+        }
+        Timer {
+            running: true
+            interval: 1000
+            repeat: true
+            onTriggered: game.score++
         }
     }
 
