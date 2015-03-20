@@ -7,6 +7,39 @@ Window {
     height: 512
     visible: true
 
+
+    Component {
+        id: ball
+        PhysicsEntity {
+            id: ballEntity
+            height: 32
+            width: 32
+
+            bodyType: Body.Dynamic
+
+            Rectangle {
+                // This is the drawn ball
+
+                radius: 16
+                color: Qt.rgba(0.86, 0.28, 0.07, 1)  // #DD4814
+
+                height: parent.height
+                width: parent.width
+                Text {
+                    color: "white"
+                    text: "place<br>holder"
+                }
+            }
+            fixtures: Circle {
+                radius: 15
+                density: 1
+                friction: 0.5
+                restitution: 0.2
+            }
+        }
+    }
+
+
     Game {
         id: game
         anchors.fill: parent
@@ -17,6 +50,7 @@ Window {
             id: scene
 
             focus: true
+            physics: true
             width: parent.width
             height: parent.height
 
@@ -75,10 +109,24 @@ Window {
                     duration: 1800
                 }
             }
+
+            Bowl {
+                anchors.centerIn: parent
+            }
+
             MouseArea {
                 id: globalMouse
                 anchors.fill: parent
                 hoverEnabled: true
+            }
+            Component.onCompleted: {
+                for (var i = 0; i < 10; i++) {
+                    for (var j = 0; j < 10; j++) {
+                        var newBox = ball.createObject(scene);
+                        newBox.x = scene.width / 2 + 100 + 32*j;
+                        newBox.y = (15*i) - 10;
+                    }
+                }
             }
         }
     }

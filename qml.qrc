@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>astronaut.png</file>
         <file>sky.png</file>
+        <file>Bowl.qml</file>
     </qresource>
 </RCC>
