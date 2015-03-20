@@ -3,6 +3,7 @@ import Bacon2D 1.0
 
 PhysicsEntity {
     id: root
+    clip: true
 
     fixtures: [
         Polygon {
@@ -15,9 +16,15 @@ PhysicsEntity {
     ]
 
     Rectangle {
-        width: parent.width
-        y: parent.height - 10
-        height: 20
-        color: "brown"
+        anchors.fill: parent
+        color: "blue"
+    }
+
+    Rectangle {
+        transformOrigin: Item.LeftCenter
+        rotation: -Math.atan(height / width) / Math.PI * 180
+        width: Math.sqrt(parent.width * parent.width + parent.height * parent.height)
+        height: width
+        color: "red"
     }
 }

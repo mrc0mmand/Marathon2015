@@ -4,12 +4,9 @@ import Bacon2D 1.0
 
 Window {
     id: window
-    maximumWidth: 800
-    maximumHeight: 600
-    minimumWidth: maximumWidth
-    minimumHeight: maximumHeight
+    width: 800
+    height: 600
     visible: true
-
 
     Component {
         id: ball
@@ -90,6 +87,15 @@ Window {
                 id: floor
                 anchors.fill: parent
             }
+
+            Ramp {
+                //anchors.bottom: parent.bottom
+                //anchors.horizontalCenter:  parent.horizontalCenter
+                anchors.centerIn: parent
+                width: 200
+                height: 100
+            }
+
 
             Sprite {
                 id: spriteItem

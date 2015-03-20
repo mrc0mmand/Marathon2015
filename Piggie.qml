@@ -22,9 +22,6 @@ PhysicsEntity {
         fillMode: Image.PreserveAspectFit
     }
 
-    onOnFloorChanged: console.log("OFC")
-
-
     fixtures: [
         Circle {
             onBeginContact: {
