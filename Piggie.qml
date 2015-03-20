@@ -12,7 +12,7 @@ PhysicsEntity {
     angularDamping: 0
     linearDamping: 0
 
-    property int hitpoints: 5
+    property int hitpoints: 10
     property int maxHitpoints: 10
 
     property bool onFloor: true
@@ -38,6 +38,9 @@ PhysicsEntity {
         script: {
             if(linearVelocity.x < 15) {
                 entity.linearVelocity = Qt.point(15, entity.linearVelocity.y)
+            }
+            if(entity.y < 0) {
+                entity.linearVelocity = Qt.point(entity.linearVelocity.x, 0)
             }
         }
     }
@@ -66,6 +69,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                    entity.angularVelocity = 0
                     gameScene.animatePowerUp()
                     holyShit.play()
                     rocket.visible = true
