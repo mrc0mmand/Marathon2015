@@ -29,6 +29,7 @@ PhysicsEntity {
         height: slaughter.height
         friction: 0.5
         restitution: 0.2
+        property string entityType: "slaughter"
     }
 
     behavior: ScriptBehavior {

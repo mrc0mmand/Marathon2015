@@ -39,7 +39,6 @@ Window {
         }
     }
 
-
     Game {
         id: game
         anchors.fill: parent
@@ -163,9 +162,9 @@ Window {
             Component.onCompleted: {
                 for (var i = 0; i < 10; i++) {
                     for (var j = 0; j < 10; j++) {
-                        var newBox = ball.createObject(scene);
-                        newBox.x = scene.width / 2 + 100 + 32*j;
-                        newBox.y = (15*i) - 10;
+                        //var newBox = ball.createObject(scene);
+                        //newBox.x = scene.width / 2 + 100 + 32*j;
+                        //newBox.y = (15*i) - 10;
                     }
                 }
                 parent.startTime = new Date().valueOf()

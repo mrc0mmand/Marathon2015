@@ -12,5 +12,9 @@
         <file>sky2.png</file>
         <file>HUD.qml</file>
         <file>baconstrip.png</file>
+        <file>bacon.png</file>
+        <file>Bacon.qml</file>
+        <file>bloodDrop.png</file>
+        <file>BloodDrop.qml</file>
     </qresource>
 </RCC>
