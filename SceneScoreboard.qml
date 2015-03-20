@@ -200,7 +200,7 @@ Scene {
             }
 
             onClicked: {
-                game.currentScene = scene
+                game.currentScene = gameScene
             }
         }
     }

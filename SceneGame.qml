@@ -9,6 +9,9 @@ Scene {
     id: scene
 
     property alias piggie: piggie
+    function animatePowerUp() {
+        powerUpAnimation.running = true
+    }
 
     focus: true
     physics: true
@@ -50,7 +53,7 @@ Scene {
     ParallelAnimation {
         id: powerUpAnimation
         running: false
-        loops: 10
+        loops: 6
         property real speed: 150
         onRunningChanged: {
             rotationTransform.angle = 0
