@@ -21,6 +21,15 @@ PhysicsEntity {
         anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
+        Image {
+            id:rocket
+            visible: false
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            source: "qrc:/assets/pigRocket.png"
+            fillMode: Image.PreserveAspectFit
+            width: 150
+        }
     }
 
     onHitpointsChanged: {
@@ -45,11 +54,11 @@ PhysicsEntity {
             onBeginContact: {
                 if (other.entityType == "floor") {
                     onFloor = true
-                    piggie.source = "qrc:/assets/pig.png"
+                    rocket.visible = false
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
-                    piggie.source = "qrc:/assets/pigRocket.png"
+                    rocket.visible = true
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
