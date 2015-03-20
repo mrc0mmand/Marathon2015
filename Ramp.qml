@@ -6,7 +6,6 @@ import WhateverDude 1.0 as Whatever
 PhysicsEntity {
     id: root
     bodyType: Body.Kinematic
-    linearVelocity: Qt.point(window.speed, 0)
 
     fixtures: [
         Polygon {

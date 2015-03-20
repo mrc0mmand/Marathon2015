@@ -36,12 +36,14 @@ PhysicsEntity {
                 }
             }
         },
+        /*
         Box {
             y: 0
             x: -64
             width: parent.width * 2
             height: 1
         },
+        */
         Box {
             x: -64
             height: parent.height

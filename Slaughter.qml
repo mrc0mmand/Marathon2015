@@ -3,7 +3,7 @@ import Bacon2D 1.0
 
 PhysicsEntity {
     id: slaughterEntity
-    x: window.width - width
+    x: 300
     y: window.height - height - 10
     width: slaughter.width
     height: slaughter.height
@@ -13,7 +13,7 @@ PhysicsEntity {
     property alias hitbox: box
     transformOrigin: "Center"
 
-    linearVelocity: Qt.point(window.speed, 0)
+    //linearVelocity: Qt.point(window.speed, 0)
 
     Image {
         id: slaughter

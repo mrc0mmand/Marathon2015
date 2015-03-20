@@ -60,20 +60,55 @@ Window {
             focus: true
             physics: true
             gravity: Qt.point(0, 10)
-            width: parent.width
+            x: 0
+            Connections {
+                target: piggie
+                onXChanged: {
+                    if (-piggie.x + 200 < scene.x)
+                        scene.x = -piggie.x + 200
+                }
+            }
+
+            Behavior on x {
+                NumberAnimation {
+                    duration: 400
+                }
+            }
+
+            Rectangle {
+                color: "red"
+                x: piggie.x
+                y: 100
+                width: 30
+                height: 30
+            }
+
+            width: 10000 - x
             height: parent.height
 
             Keys.onRightPressed: {
-                piggie.linearVelocity = Qt.point(5, piggie.linearVelocity.y)
+                piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
             }
             Keys.onLeftPressed: {
-                piggie.linearVelocity = Qt.point(-5, piggie.linearVelocity.y)
+                piggie.linearVelocity = Qt.point(-15, piggie.linearVelocity.y)
             }
             Keys.onUpPressed: {
                 if (piggie.onFloor)
-                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -5)
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -20)
             }
-
+            Image {
+                anchors.fill: parent
+                anchors.leftMargin: -1000
+                source: "qrc:/assets/sky.png"
+                fillMode: Image.TileHorizontally
+            }
+            Image {
+                anchors.fill: parent
+                anchors.leftMargin: -1000 + scene.x / 2
+                source: "qrc:/assets/sky2.png"
+                fillMode: Image.TileHorizontally
+            }
+            /*
             ImageLayer {
                 id: layer
                 anchors.fill: parent
@@ -82,6 +117,7 @@ Window {
                 behavior: ScrollBehavior {
                     horizontalStep: -2
                 }
+
             }
 
             ImageLayer {
@@ -89,19 +125,24 @@ Window {
                 anchors.fill: parent
                 source: "qrc:/assets/sky2.png"
 
+
                 behavior: ScrollBehavior {
                     horizontalStep: -5
                 }
             }
-
+*/
             // Stuff in scene
             Piggie {
                 id: piggie
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#88ff0000"
+                }
             }
             Slaughter {
                 id: slaughter
                 y: parent.height - height
-                x: parent.width + 300
+                x: 900
             }
 
             Floor {
@@ -113,7 +154,7 @@ Window {
                 //anchors.bottom: parent.bottom
                 //anchors.horizontalCenter:  parent.horizontalCenter
                 y: parent.height - height
-                x: parent.width
+                x: 600
                 width: 200
                 height: 100
                 //linearVelocity: Qt.point(-10, 0)
@@ -130,16 +171,6 @@ Window {
                 id: globalMouse
                 anchors.fill: parent
                 hoverEnabled: true
-            }
-
-            HUD {
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    top: parent.top
-                    margins: 8
-                }
-                height: 64
             }
 
             Component.onCompleted: {
@@ -207,6 +238,7 @@ Window {
         }
 
         Timer {
+            id: scoreTimer
             running: true
             interval: 1000
             repeat: true
@@ -215,4 +247,14 @@ Window {
     }
 
 
+
+    HUD {
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            margins: 8
+        }
+        height: 64
+    }
 }

@@ -10,8 +10,8 @@ PhysicsEntity {
     height: 80
     bodyType: Body.Dynamic
     linearDamping: 0.1
-    angularDamping: 0
-    property int hitpoints: 20
+    angularDamping: 1
+    property int hitpoints: 100
 
     property bool onFloor: false
 
@@ -34,7 +34,7 @@ PhysicsEntity {
     }
 
     fixtures: [
-        Circle {
+        Box {
             onBeginContact: {
                 if (other.entityType == "floor")
                     onFloor = true
@@ -69,7 +69,8 @@ PhysicsEntity {
 
             id: pigCircle
             density: 100
-            radius: entity.width / 2
+            width: entity.width
+            height: entity.width
             friction: 0.5
             restitution: 0.2
         }
