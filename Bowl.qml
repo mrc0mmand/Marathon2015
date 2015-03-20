@@ -2,61 +2,28 @@ import QtQuick 2.4
 import Bacon2D 1.0
 
 PhysicsEntity {
+    id: root
     height: 300
     width: 250
 
-    fixtures: [
-        // Left border
-        Edge {
-            vertices: [
-                Qt.point(0, 0),
-                Qt.point(0, target.height * 2/5)
-            ]
-        },
-        Edge {
-            vertices: [
-                Qt.point(0, target.height * 2/5),
-                Qt.point(target.width * 3/8, target.height * 3/5)
-            ]
-        },
-        Edge {
-            vertices: [
-                Qt.point(target.width * 3/8, target.height * 3/5),
-                Qt.point(target.width * 3/8, target.height)
-            ]
-        },
+    property variant model: [
+        Qt.point(0, height),
+        Qt.point(64, height - 20),
+        Qt.point(128, height - 32),
+        Qt.point(192, height - 24),
+        Qt.point(256, height - 12),
+        Qt.point(320, height - 6),
+        Qt.point(384, height - 6),
+        Qt.point(448, height - 6),
+        Qt.point(512, height - 6),
+        Qt.point(576, height - 6),
+    ]
 
-        // Right border
+    fixtures: [         // Left border
         Edge {
             vertices: [
-                Qt.point(target.width, 0),
-                Qt.point(target.width, target.height * 2/5)
-            ]
-        },
-        Edge {
-            vertices: [
-                Qt.point(target.width, target.height * 2/5),
-                Qt.point(target.width * 5/8, target.height * 3/5)
-            ]
-        },
-        Edge {
-            vertices: [
-                Qt.point(target.width * 5/8, target.height * 3/5),
-                Qt.point(target.width * 5/8, target.height)
-            ]
-        },
-
-        // Top pyramid
-        Edge {
-            vertices: [
-                Qt.point(target.width / 4, target.height / 4),
-                Qt.point(target.width / 2, target.height / 8),
-            ]
-        },
-        Edge {
-            vertices: [
-                Qt.point(target.width / 2, target.height / 8),
-                Qt.point(target.width * 3/4, target.height / 4)
+                Qt.point(0, 512),
+                Qt.point(512, 512)
             ]
         }
     ]
@@ -68,27 +35,34 @@ PhysicsEntity {
         onPaint: {
             var context = canvas.getContext("2d")
             context.beginPath();
-            context.lineWidth = 5;
+            context.lineWidth = 2;
 
             // Left border
-            context.moveTo(0, 0);
-            context.lineTo(0, height * 2/5);
-            context.lineTo(width * 3/8, height * 3/5);
-            context.lineTo(width * 3/8, height);
+            if (0) {
+                context.moveTo(root.model[0].x, root.model[0].y);
+                for (var i = 1; i < root.model.length; i++)
+                    context.lineTo(root.model[i].x, root.model[i].y);
+            }
+            context.moveTo(0, height)
+            context.lineTo(width, height)
 
-            // Right border
-            context.moveTo(width, 0);
-            context.lineTo(width, height * 2/5);
-            context.lineTo(width * 5/8, height * 3/5);
-            context.lineTo(width * 5/8, height);
-
-            // Pyramid
-            context.moveTo(width / 4, parent.height / 4);
-            context.lineTo(width / 2, parent.height / 8);
-            context.lineTo(width * 3/4, parent.height / 4);
-
-            context.strokeStyle = "pink";
+            context.strokeStyle = "red";
             context.stroke();
         }
+    }
+
+    Component.onCompleted: {
+        return;
+        var j = 0;
+        var tmp = []
+        for (var i = 1; i < root.model.length; i++) {
+            var edge = Qt.createQmlObject('import Bacon2D 1.0; Edge { }', root)
+            console.log(edge)
+            edge.vertices = [Qt.point(root.model[j], root.model[i])]
+            console.log(edge)
+            tmp.push(edge)
+            j = i;
+        }
+        root.fixtures = tmp
     }
 }
