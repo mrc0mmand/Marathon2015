@@ -10,7 +10,17 @@ Item {
         clip: true
 
         onWidthChanged: {
+            var newBacon = Qt.createQmlObject("Bacon{}", root)
+            newBacon.x = width
+            newBacon.y = 100
+            for(var a = 0; a < 3; a++)
+            {
+                var newBloodDrop = Qt.createQmlObject("BloodDrop{}", root)
+                newBloodDrop.x = width - a
+                newBloodDrop.y = 100
+            }
             bounceAnimation.start()
+
         }
 
         transform: Scale {

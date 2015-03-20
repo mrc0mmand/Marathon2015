@@ -27,7 +27,7 @@ PhysicsEntity {
     }
     Timer {
         running: true
-        interval: 500
+        interval: 2000
         onTriggered: root.destroy()
     }
 }

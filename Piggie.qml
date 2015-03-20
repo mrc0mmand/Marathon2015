@@ -34,7 +34,7 @@ PhysicsEntity {
 
     behavior: ScriptBehavior {
         script: {
-            if(linearVelocity.x < 10) {
+            if(linearVelocity.x < 5) {
                 entity.linearVelocity = Qt.point(15, entity.linearVelocity.y)
             }
         }
