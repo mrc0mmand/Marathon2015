@@ -74,7 +74,7 @@ Item {
                     transformOrigin: Item.Bottom
                     Image {
                         id: minuteHandInner
-                        source: "qrc:/baconstrip.png"
+                        source: "qrc:/assets/baconstrip.png"
                         height: minuteHandInner.height * 0.8
                         fillMode: Image.PreserveAspectFit
                         smooth: true

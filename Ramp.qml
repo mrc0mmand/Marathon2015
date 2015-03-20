@@ -6,6 +6,7 @@ import WhateverDude 1.0 as Whatever
 PhysicsEntity {
     id: root
     clip: true
+    linearVelocity: Qt.point(-5, 0)
 
     fixtures: [
         Polygon {
