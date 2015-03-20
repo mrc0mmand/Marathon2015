@@ -112,6 +112,10 @@ Window {
                 height: 100
             }
 
+            Sawblade {
+                id: sawbladeEntity
+
+            }
 
             MouseArea {
                 id: globalMouse

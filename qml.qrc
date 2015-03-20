@@ -5,6 +5,8 @@
         <file>Piggie.qml</file>
         <file>Slaughter.qml</file>
         <file>Ramp.qml</file>
+        <file>Sawblade.qml</file>
+        <file>assets/sawblade.png</file>
         <file>assets/bacon.png</file>
         <file>Bacon.qml</file>
         <file>BloodDrop.qml</file>
