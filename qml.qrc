@@ -11,8 +11,11 @@
         <file>HUD.qml</file>
         <file>Mine.qml</file>
         <file>Explosion.qml</file>
+        <file>SceneGame.qml</file>
+        <file>SceneScoreboard.qml</file>
+        <file>SceneGameover.qml</file>
     </qresource>
-    <qresource prefix="/assets/">
+    <qresource prefix="/assets">
         <file alias="astronaut.png">assets/astronaut.png</file>
         <file alias="baconstrip.png">assets/baconstrip.png</file>
         <file alias="bloodDrop.png">assets/bloodDrop.png</file>
@@ -27,10 +30,10 @@
         <file alias="sawblade.png">assets/sawblade.png</file>
         <file alias="bacon.png">assets/bacon.png</file>
     </qresource>
-    <qresource prefix="/sounds/">
+    <qresource prefix="/sounds">
         <file alias="holyshit.wav">sounds/holyshit.wav</file>
     </qresource>
-    <qresource prefix="/fonts/">
+    <qresource prefix="/fonts">
         <file alias="Bacon_Bad.ttf">fonts/Bacon_Bad.ttf</file>
     </qresource>
 </RCC>
