@@ -23,5 +23,7 @@
         <file>assets/clock.png</file>
         <file>fonts/Bacon_Bad.ttf</file>
         <file>sounds/holyshit.wav</file>
+        <file>Mine.qml</file>
+        <file>assets/mine.png</file>
     </qresource>
 </RCC>

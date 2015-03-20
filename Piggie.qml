@@ -56,6 +56,9 @@ PhysicsEntity {
                     onFloor = true
                     rocket.visible = false
                 }
+                if (other.entityType == "mine") {
+                    entity.hitpoints -= 1
+                }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
                     powerUpAnimation.running = true
@@ -63,23 +66,7 @@ PhysicsEntity {
                     rocket.visible = true
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
-                    entity.hitpoints -= 10
-
-                    console.log("Hitpoints: ", entity.hitpoints)
-                    for(var i = 0; i < 3; i++)
-                    {
-                        var startX = 300
-                        var startY = 20
-                        var newBacon = Qt.createQmlObject("Bacon{}", scene)
-                        newBacon.x = startX - i
-                        newBacon.y = startY - i
-                        for(var a = 0; a < 3; a++)
-                        {
-                            var newBloodDrop = Qt.createQmlObject("BloodDrop{}", scene)
-                            newBloodDrop.x = startX
-                            newBloodDrop.y = startY
-                        }
-                     }
+                    entity.hitpoints -= 1
                 }
             }
             onEndContact: {
