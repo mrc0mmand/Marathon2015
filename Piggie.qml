@@ -39,6 +39,10 @@ PhysicsEntity {
             if(linearVelocity.x < 15) {
                 entity.linearVelocity = Qt.point(15, entity.linearVelocity.y)
             }
+            if(entity.y < 0) {
+                entity.linearVelocity = Qt.point(entity.linearVelocity.x, 0)
+            }
+            console.log("y: ", entity.y)
         }
     }
 
