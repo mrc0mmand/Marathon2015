@@ -8,7 +8,7 @@ PhysicsEntity {
     focus: false
     width: 80
     height: 80
-    bodyType: Body.Kinematic
+    bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 0
     fixedRotation: true
