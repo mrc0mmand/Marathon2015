@@ -461,7 +461,7 @@ Window {
                 ListView {
                     id: scoreboardlist
                     width: window.width / 2
-                    height: window.height - 100
+                    height: window.height - 150
                     Layout.alignment: Qt.AlignCenter
                     Layout.fillHeight: true
                     anchors.centerIn: parent
@@ -521,14 +521,14 @@ Window {
                                 text: parent.text
                                 anchors.fill: parent
                                 font.family: baconFont.name
-                                color: "dark red"
+                                color: "red"
                                 font.pointSize: parent.font.pointSize
                                 horizontalAlignment: parent.horizontalAlignment
                             }
                         }
                         Text {
                             horizontalAlignment: Text.AlignHCenter
-                            color: "brown"
+                            color: "pink"
                             font.family: baconFont.name
                             font.bold: true
                             font.pointSize: 15
@@ -538,9 +538,55 @@ Window {
                                 text: parent.text
                                 anchors.fill: parent
                                 font.family: baconFont.name
-                                color: "dark red"
+                                color: "purple"
                                 font.pointSize: parent.font.pointSize
                                 horizontalAlignment: parent.horizontalAlignment
+                            }
+                        }
+                    }
+                }
+
+
+                Row {
+                    Layout.alignment: Qt.AlignCenter
+                    Layout.fillHeight: true
+                    anchors.centerIn: parent
+
+                    TextInput {
+                        focus: true
+                        text: "Your name"
+                        width: parent.width / 2
+                        horizontalAlignment: Text.AlignHCenter
+                        color: "white"
+                        maximumLength: 10
+                        font.pointSize: 25
+                    }
+
+                    Button {
+                        id: scoresubmitbutton
+                        text: "Submit"
+                        width: parent.width / 2
+                        Layout.alignment: Qt.AlignRight
+
+                        style: ButtonStyle {
+                            background: Rectangle {
+                                visible: false
+                            }
+
+                            label: Text {
+                                color: "brown"
+                                font.family: baconFont.name
+                                font.bold: true
+                                font.pointSize: 30
+                                text: scoresubmitbutton.text
+                                Text {
+                                    text: parent.text
+                                    anchors.fill: parent
+                                    font.family: baconFont.name
+                                    color: "dark red"
+                                    font.pointSize: parent.font.pointSize
+                                    horizontalAlignment: parent.horizontalAlignment
+                                }
                             }
                         }
                     }
