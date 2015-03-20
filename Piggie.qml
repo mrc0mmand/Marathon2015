@@ -31,7 +31,20 @@ PhysicsEntity {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
                 }
                 if (other.entityType == "slaughter") {
-                    console.log("slaughter")
+                    for(var i = 0; i < 3; i++)
+                    {
+                        var startX = entity.x
+                        var startY = entity.y
+                        var newBacon = Qt.createQmlObject("Bacon{}", scene)
+                        newBacon.x = startX - i
+                        newBacon.y = startY - i
+                        for(var a = 0; a < 3; a++)
+                        {
+                            var newBloodDrop = Qt.createQmlObject("BloodDrop{}", scene)
+                            newBloodDrop.x = startX
+                            newBloodDrop.y = startY
+                        }
+                     }
                 }
             }
             onEndContact: {
