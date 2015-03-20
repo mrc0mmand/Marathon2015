@@ -8,7 +8,7 @@ PhysicsEntity {
     focus: false
     width: 80
     height: 80
-    bodyType: Body.Kinematic
+    bodyType: Body.Dynamic
     linearDamping: 0.1
     angularDamping: 0
     fixedRotation: true
@@ -44,10 +44,10 @@ PhysicsEntity {
     fixtures: [
         Circle {
             id: sawbladeCircle
-            density: 50
+            density: 1000
             radius: sawbladeEntity.width / 2
             friction: 0.5
-            restitution: 0.2
+            restitution: 1
         }
     ]
 }
