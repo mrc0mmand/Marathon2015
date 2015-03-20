@@ -328,7 +328,7 @@ Window {
                     font.family: baconFont.name
                     color: "brown"
                     font.pointSize: 60
-                    font.weight: Font.Bold
+                    font.bold: true
                     Text {
                         text: parent.text
                         anchors.fill: parent
@@ -336,7 +336,7 @@ Window {
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 60
-                        font.weight: Font.SemiBold
+
                     }
                 }
 
@@ -352,7 +352,7 @@ Window {
                     font.family: baconFont.name
                     color: "brown"
                     font.pointSize: 45
-                    font.weight: Font.Bold
+                    font.bold: true
                     Text {
                         text: parent.text
                         anchors.fill: parent
@@ -360,7 +360,6 @@ Window {
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 45
-                        font.weight: Font.SemiBold
                     }
                 }
 
@@ -371,7 +370,7 @@ Window {
                     font.family: baconFont.name
                     color: "brown"
                     font.pointSize: 55
-                    font.weight: Font.Bold
+                    font.bold: true
                     Text {
                         text: parent.text
                         anchors.fill: parent
@@ -379,7 +378,7 @@ Window {
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 55
-                        font.weight: Font.SemiBold
+
                     }
                 }
 
@@ -437,14 +436,14 @@ Window {
                     font.family: baconFont.name
                     color: "brown"
                     font.pointSize: 60
-                    font.weight: Font.Bold
+                    font.bold: true
                     Text {
                         text: parent.text
                         anchors.fill: parent
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 60
-                        font.weight: Font.SemiBold
+
                     }
                 }
 
@@ -460,24 +459,83 @@ Window {
                     Layout.fillHeight: true
                     anchors.centerIn: parent
                    // Layout.fillWidth: true
+                    clip: true
 
                     model: settings.scores
-                    header: Text {
-                        //horizontalAlignment: Text.AlignHCenter
-                        color: "brown"
-                        text: "Name\t\t\tScore"
-                        font.family: baconFont.name
-                        font.weight: Font.Bold
-                        font.pointSize: 20
+                    header: Row {
+                        width: parent.width
+                        Text {
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "brown"
+                            text: "Name"
+                            font.family: baconFont.name
+                            font.bold: true
+                            font.pointSize: 20
+                            width: parent.width / 2
+                            Text {
+                                text: parent.text
+                                anchors.fill: parent
+                                font.family: baconFont.name
+                                color: "dark red"
+                                font.pointSize: parent.font.pointSize
+                                horizontalAlignment: parent.horizontalAlignment
+                            }
+                        }
+                        Text {
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "brown"
+                            text: "Score"
+                            font.family: baconFont.name
+                            font.bold: true
+                            font.pointSize: 20
+                            width: parent.width / 2
+                            Text {
+                                text: parent.text
+                                anchors.fill: parent
+                                font.family: baconFont.name
+                                color: "dark red"
+                                font.pointSize: parent.font.pointSize
+                                horizontalAlignment: parent.horizontalAlignment
+                            }
+                        }
                     }
 
-                    delegate: Text {
-                        //width: scoreboardlist.width
-                        //Layout.alignment: Qt.AlignCenter
-                       // horizontalAlignment: Text.AlignHCenter
-                        color: "white"
-                        font.pointSize: 15
-                        text: settings.scores[index][0] + "\t\t\t" + settings.scores[index][1]
+                    delegate: Row {
+                        width: parent.width
+                        Text {
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "brown"
+                            font.family: baconFont.name
+                            font.bold: true
+                            font.pointSize: 15
+                            text: settings.scores[index][0]
+                            width: parent.width / 2
+                            Text {
+                                text: parent.text
+                                anchors.fill: parent
+                                font.family: baconFont.name
+                                color: "dark red"
+                                font.pointSize: parent.font.pointSize
+                                horizontalAlignment: parent.horizontalAlignment
+                            }
+                        }
+                        Text {
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "brown"
+                            font.family: baconFont.name
+                            font.bold: true
+                            font.pointSize: 15
+                            text: settings.scores[index][1]
+                            width: parent.width / 2
+                            Text {
+                                text: parent.text
+                                anchors.fill: parent
+                                font.family: baconFont.name
+                                color: "dark red"
+                                font.pointSize: parent.font.pointSize
+                                horizontalAlignment: parent.horizontalAlignment
+                            }
+                        }
                     }
                 }
 

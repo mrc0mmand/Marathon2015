@@ -70,7 +70,6 @@ Item {
             font.family: baconFont.name
             color: "dark red"
             font.pointSize: 60
-            font.weight: Font.SemiBold
         }
     }
 
