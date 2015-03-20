@@ -5,35 +5,32 @@ PhysicsEntity {
     id: entity
     x: 100
     y: 300
+    focus: true
     width: 80
     height: 80
-    bodyType: Body.Kinematic
+    bodyType: Body.Dynamic
+    linearDamping: 0.1
 
-    behavior: ScriptBehavior {
-        script: {
-            if (globalMouse.mouseY - entity.y > 5)
-                entity.linearVelocity = Qt.point(0, 10)
-            else if (globalMouse.mouseY - entity.y < -5)
-                entity.linearVelocity = Qt.point(0, -10)
-            else
-                entity.linearVelocity = Qt.point(0, 0)
-        }
+    Rectangle {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: parent.horizontalCenter
+        width: 100
+        height: 3
+        color: "blue"
     }
 
     Image {
         id: piggie
         source: "qrc:/pig.png"
-        width: 50
-        height: 50
+        anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
     }
 
 
-    fixtures: Box {
+    fixtures: Circle {
         density: 10000000
-        width: piggie.width
-        height: piggie.height
+        radius: entity.width / 2
         friction: 0.5
         restitution: 0.2
     }
