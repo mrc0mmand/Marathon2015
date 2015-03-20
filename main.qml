@@ -7,6 +7,7 @@ Window {
     width: 800
     height: 600
     visible: true
+    property int speed: -10
 
     Component {
         id: ball
@@ -100,10 +101,13 @@ Window {
             }
 
             Ramp {
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter:  parent.horizontalCenter
+                //anchors.bottom: parent.bottom
+                //anchors.horizontalCenter:  parent.horizontalCenter
+                y: parent.height - height
+                x: parent.width - 100
                 width: 200
                 height: 100
+                linearVelocity: Qt.point(-10, 0)
             }
 
 
