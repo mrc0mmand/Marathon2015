@@ -18,11 +18,6 @@ Window {
         source: "qrc:/fonts/Bacon_Bad.ttf"
     }
 
-    Settings {
-        id: settings
-        property variant scores: [["ofc", 50],["AAA", 0]]
-    }
-
     Audio {
         id: holyShit
         source: "qrc:/sounds/holyshit.wav"
@@ -68,10 +63,16 @@ Window {
     Game {
         id: game
         anchors.fill: parent
+        gameName: "marathon2015"
 
         property real startTime
         property int score: 0
         currentScene: gameScene
+
+        Settings {
+            id: settings
+            property variant scores: []
+        }
 
         SceneGame {
             id: gameScene

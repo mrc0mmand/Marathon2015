@@ -9,6 +9,7 @@ Scene {
     id: scoreboard
     width: parent.width
     height: parent.height
+    property bool isSubmitted: false
 
     Rectangle {
         color: "black"
@@ -136,6 +137,7 @@ Scene {
             height: 35
 
             TextInput {
+                id: scoresubmitinput
                 focus: true
                 text: "Your name"
                 width: 200
@@ -150,8 +152,7 @@ Scene {
                     font.family: baconFont.name
                     color: "dark red"
                     font.pointSize: parent.font.pointSize
-                }
-               //: selectAll()
+                }                
             }
 
             Button {
@@ -178,6 +179,31 @@ Scene {
                         }
                     }
                 }
+
+                onClicked: {
+                    if(isSubmitted == true)
+                        return
+
+                    var tmpArray = []
+                    var pushed = false
+
+                    for(var i = 0; i < settings.scores.length; i++) {
+                        if(settings.scores[i][1] <= gameover.finalScore) {
+                            tmpArray.push([scoresubmitinput.text, gameover.finalScore])
+                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
+                            pushed = true
+                            console.log("New HighScore: " + scoresubmitinput.text + ": " + gameover.finalScore)
+                        } else {
+                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
+                        }
+                    }
+
+                    if(pushed == false)
+                        tmpArray.push([scoresubmitinput.text, gameover.finalScore])
+
+                    settings.scores = tmpArray
+                    isSubmitted = true
+                }
             }
         }
 
@@ -190,11 +216,6 @@ Scene {
 
             style: ButtonStyle {
                 background: Rectangle {
-                    /*color: "brown"
-                    implicitWidth: 75
-                    implicitHeight: 40
-                    radius: 4
-                    border.color: "brown"*/
                     visible: false
                 }
 
@@ -210,6 +231,7 @@ Scene {
 
             onClicked: {
                 game.currentScene = gameScene
+                isSubmitted = false
             }
         }
     }
