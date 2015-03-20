@@ -86,24 +86,18 @@ Window {
                     }
                 }
 
-                Rectangle{
-                    anchors.fill: parent
-                    color: "transparent"
-                    border.color: "white"
-                    anchors.centerIn: parent
-
-                    Text {
-                        text: "placeholder"
-                        color: "white"
-                        anchors.centerIn: parent
-                    }
+                Image {
+                    id: piggie
+                    source: "qrc:/pig.png"
+                    width: 50
+                    height: 50
                 }
 
 
                 fixtures: Box {
                     density: 10000000
-                    width: 80
-                    height: 80
+                    width: piggie.width
+                    height: piggie.height
                     friction: 0.5
                     restitution: 0.2
                 }

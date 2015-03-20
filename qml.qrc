@@ -4,5 +4,6 @@
         <file>astronaut.png</file>
         <file>sky.png</file>
         <file>Bowl.qml</file>
+        <file>pig.png</file>
     </qresource>
 </RCC>
