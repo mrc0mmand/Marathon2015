@@ -4,12 +4,9 @@ import Bacon2D 1.0
 
 Window {
     id: window
-    maximumWidth: 800
-    maximumHeight: 600
-    minimumWidth: maximumWidth
-    minimumHeight: minimumWidth
+    width: 800
+    height: 600
     visible: true
-
 
     Component {
         id: ball
