@@ -56,6 +56,6 @@ PhysicsEntity {
         width: parent.width
         y: parent.height - 10
         height: 20
-        color: "brown"
+        color: "transparent"
     }
 }

@@ -6,6 +6,8 @@ import WhateverDude 1.0 as Whatever
 PhysicsEntity {
     id: root
     bodyType: Body.Kinematic
+    width: 200
+    height: 100
 
     fixtures: [
         Polygon {
