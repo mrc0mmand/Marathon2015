@@ -38,7 +38,7 @@ PhysicsEntity {
                 if (other.entityType == "floor")
                     onFloor = true
                 if (other.entityType == "ramp") {
-                    //entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
                     window.speed -= 10
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {

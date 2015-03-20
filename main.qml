@@ -199,7 +199,7 @@ Window {
 
                 Image {
                     anchors.fill: parent
-                    Layout.aligment: Qt.AlignCenter
+                    Layout.alignment: Qt.AlignCenter
                     source: "qrc:/assets/pig.png"
                 }
 
