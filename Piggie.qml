@@ -6,8 +6,8 @@ PhysicsEntity {
     x: 100
     y: scene.height - height -10
     focus: true
-    width: 80
-    height: 80
+    width: 110
+    height: 110
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
@@ -21,6 +21,15 @@ PhysicsEntity {
         anchors.fill: parent
         smooth: true
         fillMode: Image.PreserveAspectFit
+        Image {
+            id:rocket
+            visible: false
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            source: "qrc:/assets/pigRocket.png"
+            fillMode: Image.PreserveAspectFit
+            width: 240
+        }
     }
 
     onHitpointsChanged: {
@@ -45,13 +54,13 @@ PhysicsEntity {
             onBeginContact: {
                 if (other.entityType == "floor") {
                     onFloor = true
-                    piggie.source = "qrc:/assets/pig.png"
+                    rocket.visible = false
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
-                    piggie.source = "qrc:/assets/pigRocket.png"
                     powerUpAnimation.running = true
                     holyShit.play()
+                    rocket.visible = true
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
