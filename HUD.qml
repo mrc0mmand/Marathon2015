@@ -2,7 +2,13 @@ import QtQuick 2.0
 
 Item {
     id: root
-    property alias multiplier: idMulti
+
+    function multiplierText(text)
+    {
+        idMulti.text = text
+        multiplier.visible = true
+        multiAnimation.start()
+    }
 
     Item {
         id: hitpointBar
@@ -164,10 +170,11 @@ Item {
         anchors.top: parent.bottom
         anchors.topMargin: 200
         width: idMulti.width
+        visible: false
 
         Text {
             id: idMulti
-            text: "Mmmmmonster kill"
+            text: ""
             anchors.centerIn: parent
             font.family: baconFont.name
             color: "brown"
@@ -182,8 +189,6 @@ Item {
             }
         }
 
-        Component.onCompleted: multiAnimation.start()
-
         transform: Scale {
             id: multiScale
             property real scale: 1
@@ -195,8 +200,8 @@ Item {
 
         SequentialAnimation {
             id: multiAnimation
-            loops: -1
-            onStopped: multiAnimation.visible = false
+            loops: 8
+            onStopped: multiplier.visible = false
             PropertyAnimation {
                 target: multiScale
                 properties: "scale"

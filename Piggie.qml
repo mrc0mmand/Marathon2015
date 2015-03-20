@@ -11,8 +11,8 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
-    property int hitpoints: 10
-    property int maxHitpoints: 10
+    property int hitpoints: 100
+    property int maxHitpoints: 100
 
     property bool onFloor: true
 
@@ -51,6 +51,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
+                    hud.multiplierText("Exploded!")
                     for(var i = 0; i < 500; i+=10)
                     {
                         var spriteObject = Qt.createQmlObject("Explosion{}", scene)
@@ -63,9 +64,12 @@ PhysicsEntity {
                     powerUpAnimation.running = true
                     holyShit.play()
                     rocket.visible = true
+
+                    hud.multiplierText("Holy shit!")
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 1
+                    hud.multiplierText("Hardcoret!")
                 }
             }
             onEndContact: {
