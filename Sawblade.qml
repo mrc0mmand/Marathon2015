@@ -18,7 +18,7 @@ PhysicsEntity {
 
     ImageLayer {
         id: sawblade
-        source: "sawblade.png"
+        source: "assets/sawblade.png"
         anchors.fill: parent
         smooth: true
     }
