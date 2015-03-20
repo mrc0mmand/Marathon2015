@@ -52,6 +52,7 @@ PhysicsEntity {
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
                     hud.multiplierText("Exploded!")
+                    gameScene.animatePowerUp()
                     for(var i = 0; i < 500; i+=10)
                     {
                         var spriteObject = Qt.createQmlObject("Explosion{}", scene)
@@ -61,7 +62,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
-                    powerUpAnimation.running = true
+                    gameScene.animatePowerUp()
                     holyShit.play()
                     rocket.visible = true
 
@@ -69,6 +70,7 @@ PhysicsEntity {
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 1
+                    gameScene.animatePowerUp()
                     hud.multiplierText("Hardcoret!")
                 }
             }
