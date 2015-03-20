@@ -23,7 +23,7 @@ Window {
         property variant scores: [["ofc", 50],["AAA", 0]]
     }
 
-    SoundEffect {
+    Audio {
         id: holyShit
         source: "qrc:/sounds/holyshit.wav"
     }
