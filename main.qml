@@ -188,8 +188,20 @@ Window {
             width: parent.width
             height: parent.height
 
+            Rectangle {
+                id: gobg
+                color: "black"
+                anchors.fill: parent
+            }
+
             ColumnLayout {
                 anchors.centerIn: parent
+
+                Image {
+                    anchors.fill: parent
+                    Layout.aligment: Qt.AlignCenter
+                    source: "qrc:/assets/pig.png"
+                }
 
                 Text {
                     id: textgo
@@ -241,6 +253,7 @@ Window {
 
 
     HUD {
+        id: hud
         anchors {
             left: parent.left
             right: parent.right

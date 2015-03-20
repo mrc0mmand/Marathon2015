@@ -25,7 +25,8 @@ PhysicsEntity {
 
     onHitpointsChanged: {
         if(entity.hitpoints <= 0) {
-            game.score = 0
+            hud.visible = false
+            scoreTimer.running = false
             game.currentScene = gameover
             console.log("Game Over")
         }
