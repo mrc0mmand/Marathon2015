@@ -197,11 +197,11 @@ Window {
             ColumnLayout {
                 anchors.centerIn: parent
 
-                Image {
+                /*Image {
                     anchors.fill: parent
                     Layout.alignment: Qt.AlignCenter
                     source: "qrc:/assets/pig.png"
-                }
+                }*/
 
                 Text {
                     id: textgo
