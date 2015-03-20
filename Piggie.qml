@@ -11,7 +11,7 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
-    property int hitpoints: 0
+    property int hitpoints: 1
 
     property bool onFloor: true
 
