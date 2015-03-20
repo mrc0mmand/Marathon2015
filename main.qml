@@ -33,8 +33,8 @@ Window {
             Sprite {
                 id: spriteItem
 
-                x: scene.width / 2 - spriteItem.width / 2
-                y: scene.height / 2 - spriteItem.height / 2
+                x: 64
+                y: globalMouse.mouseY
 
                 animation: "falling"
 
@@ -61,6 +61,12 @@ Window {
                     loops: Animation.Infinite
                 }
 
+                Behavior on y {
+                    NumberAnimation {
+                        duration: 250
+                    }
+                }
+
                 NumberAnimation on rotation {
                     from: 0
                     to: 360
@@ -68,6 +74,11 @@ Window {
                     loops: Animation.Infinite
                     duration: 1800
                 }
+            }
+            MouseArea {
+                id: globalMouse
+                anchors.fill: parent
+                hoverEnabled: true
             }
         }
     }
