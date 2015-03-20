@@ -54,7 +54,7 @@ Window {
 
             focus: true
             physics: true
-            gravity: Qt.point(-1, 0)
+            gravity: Qt.point(0, 1)
             width: parent.width
             height: parent.height
 
@@ -70,6 +70,7 @@ Window {
 
             // Stuff in scene
             Piggie {
+
             }
             Slaughter {
             }
@@ -119,12 +120,6 @@ visible: false
                     loops: Animation.Infinite
                     duration: 1800
                 }
-            }
-
-            Bowl {
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-
             }
 
             MouseArea {
