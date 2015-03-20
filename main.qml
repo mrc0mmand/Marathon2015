@@ -183,6 +183,7 @@ Window {
             Keys.onUpPressed: {
                 if (piggie.onFloor)
                 {
+                    piggie.onFloor = false
                     piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -15)
                 }
             }
