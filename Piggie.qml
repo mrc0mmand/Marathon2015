@@ -71,7 +71,7 @@ PhysicsEntity {
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 1
                     gameScene.animatePowerUp()
-                    hud.multiplierText("Hardcoret!")
+                    hud.multiplierText("Hardcore!")
                 }
             }
             onEndContact: {
