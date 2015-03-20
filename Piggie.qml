@@ -28,8 +28,10 @@ PhysicsEntity {
                 if (other.entityType == "floor")
                     onFloor = true
                 if (other.entityType == "ramp") {
-                    console.log("AAA")
-                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                }
+                if (other.entityType == "slaughter") {
+                    console.log("slaughter")
                 }
             }
             onEndContact: {

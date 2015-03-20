@@ -7,8 +7,6 @@ PhysicsEntity {
     id: root
     clip: true
 
-    property alias box: rootPoly
-
     fixtures: [
         Polygon {
             property string entityType: "ramp"
