@@ -28,6 +28,8 @@ Item {
             property real scale: 1
             xScale: scale
             yScale: scale
+            origin.x: hitpointBar.width / 2
+            origin.y: hitpointBar.height / 2
         }
 
         SequentialAnimation {
@@ -37,14 +39,15 @@ Item {
                 target: scaleTransform
                 properties: "scale"
                 from: 1.0
-                to: 1.8
+                to: 1.4
+                easing.type: Easing.InOutBack
                 duration: 100
             }
             PropertyAnimation {
                 target: scaleTransform
                 properties: "scale"
-                from: 1.8
                 to: 1.0
+                easing.type: Easing.InOutBack
                 duration: 100
             }
         }
