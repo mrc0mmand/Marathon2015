@@ -226,11 +226,17 @@ Window {
                 id: piggie
                 linearVelocity: Qt.point(15, 0)
             }
-
             Mine {
-                id: mine
                 y: parent.height - height
-                x: 2000
+                x: 3000
+            }
+            Mine {
+                y: parent.height - height
+                x: 4000
+            }
+            Mine {
+                y: parent.height - height
+                x: 5000
             }
             Slaughter {
                 id: slaughter
