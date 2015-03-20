@@ -9,6 +9,9 @@ Scene {
     id: scene
 
     property alias piggie: piggie
+    function animatePowerUp() {
+        powerUpAnimation.running = true
+    }
 
     focus: true
     physics: true
