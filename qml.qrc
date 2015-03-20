@@ -10,8 +10,6 @@
         <file>assets/bacon.png</file>
         <file>Bacon.qml</file>
         <file>BloodDrop.qml</file>
-        <file>main.cpp</file>
-        <file>polygon.cpp</file>
         <file>polygon.h</file>
         <file>HUD.qml</file>
         <file>assets/astronaut.png</file>
