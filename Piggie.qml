@@ -9,8 +9,8 @@ PhysicsEntity {
     width: 120
     height: 120
     bodyType: Body.Dynamic
-    linearDamping: 0.1
-    angularDamping: 1
+    angularDamping: 0
+    linearDamping: 0
     property int hitpoints: 100
 
     property bool onFloor: false

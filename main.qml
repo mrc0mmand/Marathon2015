@@ -69,12 +69,6 @@ Window {
                 }
             }
 
-            Behavior on x {
-                NumberAnimation {
-                    duration: 400
-                }
-            }
-
             width: 10000 - x
             height: parent.height
 
