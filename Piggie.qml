@@ -11,7 +11,7 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
-    property int hitpoints: 0
+    property int hitpoints: 100
 
     property bool onFloor: true
 
@@ -55,9 +55,16 @@ PhysicsEntity {
                 if (other.entityType == "floor") {
                     onFloor = true
                     rocket.visible = false
+
                 }
                 if (other.entityType == "mine") {
                     entity.hitpoints -= 1
+                    for(var i = 0; i < 500; i+=10)
+                    {
+                        var spriteObject = Qt.createQmlObject("Explosion{}", scene)
+                        spriteObject.x = entity.x + Math.random() * 400
+                        spriteObject.y = entity.y + 200 - i
+                    }
                 }
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
