@@ -11,7 +11,9 @@
         <file>main.cpp</file>
         <file>polygon.cpp</file>
         <file>polygon.h</file>
+        <file>HUD.qml</file>
         <file>assets/astronaut.png</file>
+        <file>assets/baconstrip.png</file>
         <file>assets/bloodDrop.png</file>
         <file>assets/pig.png</file>
         <file>assets/sky.png</file>
