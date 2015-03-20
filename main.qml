@@ -2,6 +2,8 @@ import QtQuick 2.2
 import QtQuick.Window 2.0
 import Bacon2D 1.0
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
 
 Window {
     id: window
@@ -13,6 +15,11 @@ Window {
     FontLoader {
         id: baconFont
         source: "qrc:/assets/Bacon_Bad.ttf"
+    }
+
+    Settings {
+        id: settings
+        property variant scores: [["ofc", 50],["AAA", 0]]
     }
 
     Component {
@@ -290,6 +297,11 @@ Window {
             }
 
             ColumnLayout {
+
+                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
                 anchors.centerIn: parent
 
                 /*Image {
@@ -308,10 +320,35 @@ Window {
                     font.weight: Font.Bold
                     Text {
                         text: parent.text
-                        anchors.centerIn: parent
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 60
+                        font.weight: Font.SemiBold
+                    }
+                }
+
+                Item {
+                    Layout.alignment: Qt.AlignCenter
+                    height: 100
+                }
+
+                Text {
+                    id: testscoretext
+                    text: "Score:"
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
+                    font.pointSize: 45
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 45
                         font.weight: Font.SemiBold
                     }
                 }
@@ -322,18 +359,128 @@ Window {
                     Layout.alignment: Qt.AlignCenter
                     font.family: baconFont.name
                     color: "brown"
+                    font.pointSize: 55
+                    font.weight: Font.Bold
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: 55
+                        font.weight: Font.SemiBold
+                    }
+                }
+
+                Button {
+                    id: gameoverok
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignCenter
+                    text: "OK"
+
+                    style: ButtonStyle {
+                        background: Rectangle {
+                            /*color: "brown"
+                            implicitWidth: 75
+                            implicitHeight: 40
+                            radius: 4
+                            border.color: "brown"*/
+                            visible: false
+                        }
+
+                        label: Text {
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "white"
+                            font.pointSize: 50
+                            font.family: baconFont.name
+                            text: gameoverok.text
+                        }
+                    }
+
+                    onClicked: {
+                        game.currentScene = scoreboard
+                    }
+                }
+            }
+        }
+
+        Scene {
+            id: scoreboard
+            width: parent.width
+            height: parent.height
+
+            Rectangle {
+                color: "black"
+                anchors.fill: parent
+
+            }
+
+            ColumnLayout {
+                anchors.fill: parent
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+
+
+                Text {
+                    id: lbtext
+                    text: "leaderboard"
+                    Layout.alignment: Qt.AlignCenter
+                    font.family: baconFont.name
+                    color: "brown"
                     font.pointSize: 60
                     font.weight: Font.Bold
                     Text {
                         text: parent.text
-                        anchors.centerIn: parent
+                        anchors.fill: parent
                         font.family: baconFont.name
                         color: "dark red"
                         font.pointSize: 60
                         font.weight: Font.SemiBold
                     }
                 }
+
+                Repeater {
+                    model: settings.scores
+                    /*Text {
+                        color: "white"
+                        text: "PRDEL" + settings.scores[index][0]
+                        font.pointSize: 40
+                        Component.onCompleted: console.log(index)
+                    }*/
+                }
+
+                Button {
+                    id: scoreboardok
+                    Layout.alignment: Qt.AlignCenter
+                    text: "RESTART"
+
+                    style: ButtonStyle {
+                        background: Rectangle {
+                            /*color: "brown"
+                            implicitWidth: 75
+                            implicitHeight: 40
+                            radius: 4
+                            border.color: "brown"*/
+                            visible: false
+                        }
+
+                        label: Text {
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignHCenter
+                            color: "white"
+                            font.pointSize: 50
+                            font.family: baconFont.name
+                            text: scoreboardok.text
+                        }
+                    }
+
+                    onClicked: {
+                        game.currentScene = scene
+                    }
+                }
             }
+
         }
 
         Timer {
@@ -344,8 +491,6 @@ Window {
             onTriggered: game.score += 25
         }
     }
-
-
 
     HUD {
         id: hud
