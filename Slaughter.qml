@@ -5,15 +5,15 @@ PhysicsEntity {
     id: entity
     x: window.width - width
     y: 300
-    width: 200
-    height: 200
+    width: slaughter.width
+    height: slaughter.height
     bodyType: Body.Static
 
     Image {
         id: slaughter
         source: "qrc:/slaughter.png"
-        width: parent.width
-        height: parent.height
+        height: 150
+        fillMode: Image.PreserveAspectFit
     }
 
     fixtures: Box {
