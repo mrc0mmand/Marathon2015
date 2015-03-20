@@ -3,8 +3,10 @@ import QtQuick.Window 2.0
 import Bacon2D 1.0
 
 Window {
-    width: 512
-    height: 512
+    maximumWidth: 512
+    maximumHeight: 512
+    minimumWidth: 512
+    minimumHeight: 512
     visible: true
 
 
@@ -65,50 +67,9 @@ Window {
                 }
             }
 
-            Bowl {
-                anchors.fill: parent
-            }
+            // PIGGIE
+            Piggie {
 
-            PhysicsEntity {
-                id: entity
-                x: 100
-                y: 300
-                width: 80
-                height: 80
-                bodyType: Body.Kinematic
-
-                behavior: ScriptBehavior {
-                    script: {
-                        if (globalMouse.mouseY - entity.y > 40)
-                            entity.linearVelocity = Qt.point(0, 10)
-                        else if (globalMouse.mouseY - entity.y < -40)
-                            entity.linearVelocity = Qt.point(0, -10)
-                        else
-                            entity.linearVelocity = Qt.point(0, 0)
-                    }
-                }
-
-                Rectangle{
-                    anchors.fill: parent
-                    color: "transparent"
-                    border.color: "white"
-                    anchors.centerIn: parent
-
-                    Text {
-                        text: "placeholder"
-                        color: "white"
-                        anchors.centerIn: parent
-                    }
-                }
-
-
-                fixtures: Box {
-                    density: 10000000
-                    width: 80
-                    height: 80
-                    friction: 0.5
-                    restitution: 0.2
-                }
             }
 
             Sprite {
