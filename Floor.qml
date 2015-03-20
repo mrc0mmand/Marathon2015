@@ -22,7 +22,7 @@ PhysicsEntity {
         Box {
             id: floorBox
             y: parent.height - 2
-            height: 1
+            height: 100
             width: parent.width
             property string entityType: "floor"
             onBeginContact: {
