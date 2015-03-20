@@ -105,6 +105,10 @@ Window {
                 height: 100
             }
 
+            Sawblade {
+                id: sawbladeEntity
+
+            }
 
             Sprite {
                 id: spriteItem
