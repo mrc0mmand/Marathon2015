@@ -5,7 +5,7 @@ Item {
 
     Item {
         id: hitpointBar
-        width: childrenRect.width * (piggie.hitpoints / 100)
+        width: childrenRect.width * (gameScene.piggie.hitpoints / 100)
         height: parent.height
         clip: true
 
