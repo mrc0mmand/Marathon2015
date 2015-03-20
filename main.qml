@@ -146,7 +146,7 @@ Window {
             running: true
             interval: 1000
             repeat: true
-            onTriggered: game.score++
+            onTriggered: game.score += 25
         }
     }
 
