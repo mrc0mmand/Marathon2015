@@ -3,7 +3,7 @@
         <file>main.qml</file>
         <file>astronaut.png</file>
         <file>sky.png</file>
-        <file>Bowl.qml</file>
+        <file>Floor.qml</file>
         <file>pig.png</file>
         <file>Piggie.qml</file>
         <file>Slaughter.qml</file>

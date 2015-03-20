@@ -25,6 +25,8 @@ PhysicsEntity {
         source: "qrc:/pig.png"
         width: 50
         height: 50
+        smooth: true
+        fillMode: Image.PreserveAspectFit
     }
 
 

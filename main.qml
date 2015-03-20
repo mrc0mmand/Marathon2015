@@ -75,8 +75,8 @@ Window {
             Slaughter {
             }
 
-            Bowl {
-
+            Floor {
+                anchors.fill: parent
             }
 
             Sprite {
