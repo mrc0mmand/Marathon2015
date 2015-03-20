@@ -19,7 +19,7 @@ PhysicsEntity {
         Qt.point(576, height - 6),
     ]
 
-    fixtures: [         // Left border
+    fixtures: [
         Edge {
             vertices: [
                 Qt.point(0, window.height),

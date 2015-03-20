@@ -68,9 +68,11 @@ Window {
                 }
             }
 
-            // PIGGIE
+            // Stuff in scene
             Piggie {
 
+            }
+            Slaughter {
             }
 
             Bowl {
