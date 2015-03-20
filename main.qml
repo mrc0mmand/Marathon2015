@@ -4,6 +4,7 @@ import Bacon2D 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
+import QtMultimedia 5.0
 
 Window {
     id: window
@@ -14,12 +15,17 @@ Window {
 
     FontLoader {
         id: baconFont
-        source: "qrc:/assets/Bacon_Bad.ttf"
+        source: "qrc:/fonts/Bacon_Bad.ttf"
     }
 
     Settings {
         id: settings
         property variant scores: [["ofc", 50],["AAA", 0]]
+    }
+
+    SoundEffect {
+        id: holyShit
+        source: "qrc:/sounds/holyshit.wav"
     }
 
     Component {
