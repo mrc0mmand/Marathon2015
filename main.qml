@@ -58,6 +58,16 @@ Window {
             width: parent.width
             height: parent.height
 
+            Keys.onRightPressed: {
+                piggie.linearVelocity = Qt.point(5, 0)
+            }
+            Keys.onLeftPressed: {
+                piggie.linearVelocity = Qt.point(-5, 0)
+            }
+            Keys.onUpPressed: {
+                piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -5)
+            }
+
             ImageLayer {
                 id: layer
                 anchors.fill: parent
@@ -70,7 +80,7 @@ Window {
 
             // Stuff in scene
             Piggie {
-
+                id: piggie
             }
             Slaughter {
             }
