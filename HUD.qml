@@ -54,7 +54,6 @@ Item {
                 rotation: 0
                 function move() {
                     rotation = (new Date().valueOf() - game.startTime) / 1000 * 6 + 6.2
-                    console.log(rotation)
                 }
                 Behavior on rotation {
                     NumberAnimation {
