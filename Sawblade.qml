@@ -2,19 +2,18 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 PhysicsEntity {
-    id: sawbladeEntity
-    x: 400
-    y: 300
+    id: entity
+    x: Math.abs(Math.floor(Math.random() * window.width - (window.width / 2))) + (window.width / 4)
+    y: Math.abs(Math.floor(Math.random() * window.height - (window.height / 2))) + (window.height / 4)
     focus: false
     width: 80
     height: 80
     bodyType: Body.Dynamic
-    linearDamping: 0.1
+    linearDamping: 0.5
     angularDamping: 0
     fixedRotation: true
     transformOrigin: Item.Center
-
-    property bool onFloor: false
+    property alias hitbox: circle
 
     ImageLayer {
         id: sawblade
@@ -43,10 +42,12 @@ PhysicsEntity {
 
     fixtures: [
         Circle {
-            id: sawbladeCircle
-            density: 1000
-            radius: sawbladeEntity.width / 2
-            friction: 0.5
+            property string entityType: "sawblade"
+            id: circle
+            density: 100000
+
+            radius: entity.width / 2
+            friction: 0
             restitution: 1
         }
     ]

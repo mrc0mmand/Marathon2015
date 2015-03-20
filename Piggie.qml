@@ -31,7 +31,7 @@ PhysicsEntity {
                 if (other.entityType == "ramp") {
                     entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
                 }
-                if (other.entityType == "slaughter") {
+                if (other.entityType == "slaughter" || other.entityType == "sawblade") {
                     entity.hitpoints -= 10
                     console.log("Hitpoints: ", entity.hitpoints)
                     for(var i = 0; i < 3; i++)
