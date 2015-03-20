@@ -4,16 +4,16 @@ import Bacon2D 1.0
 PhysicsEntity {
     id: entity
     x: 100
-    y: scene.height - height
+    y: scene.height - height -10
     focus: true
-    width: 120
-    height: 120
+    width: 80
+    height: 80
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
     property int hitpoints: 100
 
-    property bool onFloor: false
+    property bool onFloor: true
 
     Image {
         id: piggie
@@ -43,11 +43,12 @@ PhysicsEntity {
     fixtures: [
         Box {
             onBeginContact: {
-                if (other.entityType == "floor")
+                if (other.entityType == "floor") {
                     onFloor = true
                     piggie.source = "qrc:/assets/pig.png"
+                }
                 if (other.entityType == "ramp") {
-                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 5, entity.linearVelocity.y)
                     piggie.source = "qrc:/assets/pigRocket.png"
                 }
                 if (other.entityType == "slaughter" || other.entityType == "sawblade") {
@@ -56,8 +57,8 @@ PhysicsEntity {
                     console.log("Hitpoints: ", entity.hitpoints)
                     for(var i = 0; i < 3; i++)
                     {
-                        var startX = entity.x
-                        var startY = entity.y
+                        var startX = 300
+                        var startY = 20
                         var newBacon = Qt.createQmlObject("Bacon{}", scene)
                         newBacon.x = startX - i
                         newBacon.y = startY - i
@@ -72,7 +73,9 @@ PhysicsEntity {
             }
             onEndContact: {
                 if (other.entityType == "floor")
-                    onFloor = false
+                {
+                    //onFloor = false
+                }
             }
 
             id: pigCircle
@@ -80,7 +83,7 @@ PhysicsEntity {
             width: entity.width
             height: entity.width
             friction: 0.5
-            restitution: 0.1
+            restitution: 0.2
         }
     ]
 

@@ -27,15 +27,15 @@ Item {
                 target: scaleTransform
                 properties: "scale"
                 from: 1.0
-                to: 1.3
-                duration: 200
+                to: 1.8
+                duration: 100
             }
             PropertyAnimation {
                 target: scaleTransform
                 properties: "scale"
-                from: 1.3
+                from: 1.8
                 to: 1.0
-                duration: 200
+                duration: 100
             }
         }
 

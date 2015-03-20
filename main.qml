@@ -84,7 +84,9 @@ Window {
             }
             Keys.onUpPressed: {
                 if (piggie.onFloor)
+                {
                     piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -15)
+                }
             }
             Image {
                 anchors.fill: parent
