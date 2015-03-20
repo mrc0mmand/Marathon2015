@@ -4,9 +4,50 @@ Item {
     id: root
 
     Item {
+        id: hitpointBar
         width: childrenRect.width * (piggie.hitpoints / 100)
         height: parent.height
         clip: true
+
+        onWidthChanged: {
+            var newBacon = Qt.createQmlObject("Bacon{}", root)
+            newBacon.x = width
+            newBacon.y = 100
+            for(var a = 0; a < 3; a++)
+            {
+                var newBloodDrop = Qt.createQmlObject("BloodDrop{}", root)
+                newBloodDrop.x = width - a
+                newBloodDrop.y = 100
+            }
+            bounceAnimation.start()
+
+        }
+
+        transform: Scale {
+            id: scaleTransform
+            property real scale: 1
+            xScale: scale
+            yScale: scale
+        }
+
+        SequentialAnimation {
+            id: bounceAnimation
+            loops: 1
+            PropertyAnimation {
+                target: scaleTransform
+                properties: "scale"
+                from: 1.0
+                to: 1.8
+                duration: 100
+            }
+            PropertyAnimation {
+                target: scaleTransform
+                properties: "scale"
+                from: 1.8
+                to: 1.0
+                duration: 100
+            }
+        }
 
         Image {
             source: "qrc:/assets/baconstrip.png"

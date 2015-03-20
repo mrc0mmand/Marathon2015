@@ -2,12 +2,11 @@ import QtQuick 2.0
 import Bacon2D 1.0
 
 PhysicsEntity {
+    id: root
     width: bloodDrop.width
     height: bloodDrop.height
-    bodyType: Body.Kinematic
+    bodyType: Body.Dynamic
     transformOrigin: "Center"
-
-    linearVelocity: Qt.point(-10, -10)
 
     Image {
         id: bloodDrop
@@ -23,5 +22,10 @@ PhysicsEntity {
         height: bloodDrop.height
         friction: 0.5
         restitution: 0.2
+    }
+    Timer {
+        running: true
+        interval: 2000
+        onTriggered: root.destroy()
     }
 }
