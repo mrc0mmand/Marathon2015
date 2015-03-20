@@ -20,5 +20,7 @@
         <file>assets/sky2.png</file>
         <file>assets/slaughter.png</file>
         <file>assets/Bacon_Bad.ttf</file>
+        <file>assets/pigRocket.png</file>
+        <file>assets/clock.png</file>
     </qresource>
 </RCC>

@@ -76,9 +76,88 @@ Window {
                 }
             }
 
-            Behavior on x {
-                NumberAnimation {
-                    duration: 400
+            transform: [rotationTransform, scaleTransform]
+            Rotation {
+                id: rotationTransform
+                origin.x: piggie.x
+                origin.y: piggie.y
+                axis {
+                    x: 1
+                    y: 1
+                    z: -1
+                }
+                angle: 0
+            }
+            Scale {
+                id: scaleTransform
+                origin.x: piggie.x
+                origin.y: piggie.y
+                xScale: 1
+                yScale: 1
+            }
+            Translate {
+                id: translateTransform
+                x: 0
+                y: 0
+            }
+
+            ParallelAnimation {
+                id: powerUpAnimation
+                running: true
+                loops: 10
+                property real speed: 150
+                onRunningChanged: {
+                    rotationTransform.angle = 0
+                    scaleTransform.xScale = 1
+                    scaleTransform.yScale = 1
+                    translateTransform.x = 0
+                    translateTransform.y = 0
+                }
+
+                SequentialAnimation {
+                    NumberAnimation {
+                        target: rotationTransform
+                        property: "angle"
+                        from: 0
+                        to: Math.random() > 0.5 ? 12 : -12
+                        duration: powerUpAnimation.speed
+                    }
+                    NumberAnimation {
+                        target: rotationTransform
+                        property: "angle"
+                        to: 0
+                        duration: powerUpAnimation.speed
+                    }
+                }
+                SequentialAnimation {
+                    NumberAnimation {
+                        target: scaleTransform
+                        properties: "xScale, yScale"
+                        from: 1
+                        to: Math.random() > 0.5 ? 1.2 : 0.8
+                        duration: powerUpAnimation.speed
+                    }
+                    NumberAnimation {
+                        target: scaleTransform
+                        property: "xScale, yScale"
+                        to: 1
+                        duration: powerUpAnimation.speed
+                    }
+                }
+                SequentialAnimation {
+                    NumberAnimation {
+                        target: translateTransform
+                        properties: "x, y"
+                        from: 0
+                        to: Math.random() > 0.5 ? 10 : -10
+                        duration: powerUpAnimation.speed
+                    }
+                    NumberAnimation {
+                        target: translateTransform
+                        properties: "x, y"
+                        to: 0
+                        duration: powerUpAnimation.speed
+                    }
                 }
             }
 
@@ -86,14 +165,20 @@ Window {
             height: parent.height
 
             Keys.onRightPressed: {
-                piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+                if(piggie.onFloor) {
+                    piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+                }
             }
             Keys.onLeftPressed: {
-                piggie.linearVelocity = Qt.point(-15, piggie.linearVelocity.y)
+                if(piggie.linearVelocity > 5) {
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 5, piggie.linearVelocity.y)
+                }
             }
             Keys.onUpPressed: {
                 if (piggie.onFloor)
-                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x, -20)
+                {
+                    piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -15)
+                }
             }
             Image {
                 anchors.fill: parent
@@ -133,6 +218,7 @@ Window {
             // Stuff in scene
             Piggie {
                 id: piggie
+                linearVelocity: Qt.point(15, 0)
             }
             Slaughter {
                 id: slaughter
@@ -194,6 +280,15 @@ Window {
             id: gameover
             width: parent.width
             height: parent.height
+            opacity: 0
+
+            enterAnimation: NumberAnimation {
+                target: gameover
+                property: "opacity"
+                from: 0
+                to: 1
+                duration: 500
+            }
 
             Rectangle {
                 id: gobg
@@ -202,9 +297,18 @@ Window {
             }
 
             ColumnLayout {
+
                 anchors.fill: parent
                 Layout.fillHeight: true
                 Layout.fillWidth: true
+
+                anchors.centerIn: parent
+
+                /*Image {
+                    anchors.fill: parent
+                    Layout.alignment: Qt.AlignCenter
+                    source: "qrc:/assets/pig.png"
+                }*/
 
                 Text {
                     id: textgo

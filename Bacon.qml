@@ -8,7 +8,7 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     transformOrigin: "Center"
 
-    linearVelocity: Qt.point(-10, -10)
+    //linearVelocity: Qt.point(-10, -10)
 
     Image {
         id: bacon
@@ -27,7 +27,7 @@ PhysicsEntity {
     }
     Timer {
         running: true
-        interval: 500
+        interval: 2000
         onTriggered: root.destroy()
     }
 }
