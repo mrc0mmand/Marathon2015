@@ -10,6 +10,8 @@ Scene {
     height: parent.height
     opacity: 0
 
+    property int finalScore
+
     enterAnimation: NumberAnimation {
         target: gameover
         property: "opacity"
@@ -81,7 +83,7 @@ Scene {
 
         Text {
             id: testscore
-            text: game.score
+            text: gameover.finalScore
             Layout.alignment: Qt.AlignCenter
             font.family: baconFont.name
             color: "brown"
@@ -94,7 +96,6 @@ Scene {
                 font.family: baconFont.name
                 color: "dark red"
                 font.pointSize: 55
-
             }
         }
 

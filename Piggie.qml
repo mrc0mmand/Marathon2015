@@ -11,7 +11,8 @@ PhysicsEntity {
     bodyType: Body.Dynamic
     angularDamping: 0
     linearDamping: 0
-    property int hitpoints: 1
+    property int hitpoints: 10
+    property int maxHitpoints: 10
 
     property bool onFloor: true
 
@@ -29,15 +30,6 @@ PhysicsEntity {
             source: "qrc:/assets/pigRocket.png"
             fillMode: Image.PreserveAspectFit
             width: 240
-        }
-    }
-
-    onHitpointsChanged: {
-        if(entity.hitpoints <= 0) {
-            hud.visible = false
-            scoreTimer.running = false
-            game.currentScene = gameover
-            console.log("Game Over")
         }
     }
 

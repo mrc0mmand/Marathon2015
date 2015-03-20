@@ -70,10 +70,22 @@ Window {
         SceneGame {
             id: gameScene
             height: parent.height
+            Connections {
+                target: gameScene.piggie
+                onHitpointsChanged: {
+                    if(gameScene.piggie.hitpoints <= 0) {
+                        hud.visible = false
+                        scoreTimer.running = false
+                        gameover.finalScore = game.score
+                        game.currentScene = gameover
+                        console.log("Game Over")
+                    }
+                }
+            }
         }
 
         SceneGameover {
-            id: gameOver
+            id: gameover
             width: parent.width
             height: parent.height
         }
