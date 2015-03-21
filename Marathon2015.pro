@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     scores.cpp
 
 RESOURCES += qml.qrc \
-             data.qrc
+             data.qrc \
+             sounds.qrc
 
 EXAMPLE_IMAGE_FILES += \
     astronaut.png \
