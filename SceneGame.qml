@@ -171,8 +171,14 @@ Scene {
     }
     Image {
         anchors.fill: parent
-        anchors.leftMargin: -1000 + scene.x / 2
+        anchors.leftMargin: -1000 + scene.x / 4
         source: "qrc:/assets/sky2.png"
+        fillMode: Image.TileHorizontally
+    }
+    Image {
+        anchors.fill: parent
+        anchors.leftMargin: -1000 + scene.x / 2
+        source: "qrc:/assets/sky3.png"
         fillMode: Image.TileHorizontally
     }
     // Stuff in scene
