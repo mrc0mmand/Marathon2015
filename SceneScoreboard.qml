@@ -42,94 +42,6 @@ Scene {
             }
         }
 
-        ListView {
-            id: scoreboardlist
-            width: window.width / 2
-            Layout.alignment: Qt.AlignCenter
-            Layout.fillHeight: true
-           // Layout.fillWidth: true
-            clip: true
-
-            model: settings.scores
-            header: Row {
-                width: parent.width
-                Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "brown"
-                    text: "Name"
-                    font.family: baconFont.name
-                    font.bold: true
-                    font.pointSize: 20
-                    width: parent.width / 2
-                    Text {
-                        text: parent.text
-                        anchors.fill: parent
-                        font.family: baconFont.name
-                        color: "dark red"
-                        font.pointSize: parent.font.pointSize
-                        horizontalAlignment: parent.horizontalAlignment
-                    }
-                }
-                Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "brown"
-                    text: "Score"
-                    font.family: baconFont.name
-                    font.bold: true
-                    font.pointSize: 20
-                    width: parent.width / 2
-                    Text {
-                        text: parent.text
-                        anchors.fill: parent
-                        font.family: baconFont.name
-                        color: "dark red"
-                        font.pointSize: parent.font.pointSize
-                        horizontalAlignment: parent.horizontalAlignment
-                    }
-                }
-            }
-
-            delegate: Row {
-                width: parent.width
-                Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "brown"
-                    font.family: baconFont.name
-                    font.bold: true
-                    font.pointSize: 15
-                    text: settings.scores[index][0]
-                    width: parent.width / 2
-                    Text {
-                        text: parent.text
-                        anchors.fill: parent
-                        font.family: baconFont.name
-                        color: "dark red"
-                        font.pointSize: parent.font.pointSize
-                        horizontalAlignment: parent.horizontalAlignment
-                    }
-                }
-                Text {
-                    horizontalAlignment: Text.AlignHCenter
-                    color: "brown"
-                    font.family: baconFont.name
-                    font.bold: true
-                    font.pointSize: 15
-                    text: settings.scores[index][1]
-                    width: parent.width / 2
-                    Text {
-                        text: parent.text
-                        anchors.fill: parent
-                        Layout.alignment: Qt.AlignCenter
-                        verticalAlignment: parent.verticalAlignment
-                        horizontalAlignment: parent.horizontalAlignment
-                        font.family: parent.font.family
-                        color: "dark red"
-                        font.pointSize: parent.font.pointSize
-                    }
-                }
-            }
-        }
-
         Row {
             width: window.width / 2
             Layout.alignment: Qt.AlignHCenter
@@ -232,6 +144,94 @@ Scene {
                     scoresSaver.write(settings.scores)
                     isSubmitted = true
                     scoreboard.defaultExit = scoreboardok
+                }
+            }
+        }
+
+        ListView {
+            id: scoreboardlist
+            width: window.width / 2
+            Layout.alignment: Qt.AlignCenter
+            Layout.fillHeight: true
+           // Layout.fillWidth: true
+            clip: true
+
+            model: settings.scores
+            header: Row {
+                width: parent.width
+                Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "brown"
+                    text: "Name"
+                    font.family: baconFont.name
+                    font.bold: true
+                    font.pointSize: 20
+                    width: parent.width / 2
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                        horizontalAlignment: parent.horizontalAlignment
+                    }
+                }
+                Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "brown"
+                    text: "Score"
+                    font.family: baconFont.name
+                    font.bold: true
+                    font.pointSize: 20
+                    width: parent.width / 2
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                        horizontalAlignment: parent.horizontalAlignment
+                    }
+                }
+            }
+
+            delegate: Row {
+                width: parent.width
+                Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "brown"
+                    font.family: baconFont.name
+                    font.bold: true
+                    font.pointSize: 15
+                    text: settings.scores[index][0]
+                    width: parent.width / 2
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        font.family: baconFont.name
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                        horizontalAlignment: parent.horizontalAlignment
+                    }
+                }
+                Text {
+                    horizontalAlignment: Text.AlignHCenter
+                    color: "brown"
+                    font.family: baconFont.name
+                    font.bold: true
+                    font.pointSize: 15
+                    text: settings.scores[index][1]
+                    width: parent.width / 2
+                    Text {
+                        text: parent.text
+                        anchors.fill: parent
+                        Layout.alignment: Qt.AlignCenter
+                        verticalAlignment: parent.verticalAlignment
+                        horizontalAlignment: parent.horizontalAlignment
+                        font.family: parent.font.family
+                        color: "dark red"
+                        font.pointSize: parent.font.pointSize
+                    }
                 }
             }
         }
