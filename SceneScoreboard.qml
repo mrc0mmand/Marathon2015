@@ -20,7 +20,6 @@ Scene {
 
     Keys.onReturnPressed: {
         defaultExit.clicked.call()
-        defaultExit = scoreboardok
     }
 
     ColumnLayout {
@@ -239,6 +238,7 @@ Scene {
                     settings.scores = tmpArray
                     scoresSaver.write(settings.scores)
                     isSubmitted = true
+                    scoreboard.defaultExit = scoreboardok
                 }
             }
         }
@@ -277,6 +277,7 @@ Scene {
             }
 
             onClicked: {
+                scoreboard.defaultExit = scoresubmitbutton
                 gameScene.piggie.hitpoints = gameScene.piggie.maxHitpoints
                 gameScene.piggie.x = 100
                 gameScene.piggie.y = gameScene.height - gameScene.piggie.height - 10
