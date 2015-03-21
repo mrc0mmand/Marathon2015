@@ -144,11 +144,13 @@ Item {
             transformOrigin: Item.Center
             Item {
                 id: secondHand
+                property alias clockAnimation: clockAnimation
                 rotation: 0
                 function move() {
                     rotation += 4 //(new Date().valueOf()) / 1000 * 6 + 6.2
                 }
                 Behavior on rotation {
+                    id: clockAnimation
                     NumberAnimation {
                         duration: 999
                     }
