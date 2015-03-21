@@ -72,11 +72,12 @@ PhysicsEntity {
                     humiliation.play()
                     hud.multiplierText("Humiliation<br><br>mine combo " + comboCount + "x")
                     gameScene.animatePowerUp()
-                    for(var i = 0; i < 500; i+=10)
+                    for(var i = 0; i < 200; i+=10)
                     {
                         var spriteObject = Qt.createQmlObject("Explosion{}", scene)
                         spriteObject.x = entity.x + Math.random() * 400
                         spriteObject.y = entity.y + 200 - i
+                        spriteObject.scale = 3
                     }
                 }
                 if (other.entityType == "ramp") {

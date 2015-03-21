@@ -119,18 +119,20 @@ Scene {
     height: parent.height
 
 
+    function unlock() {
+        if(game.gameState == Bacon2D.Paused) {
+            scoreTimer.start()
+            gameScene.generatorTimer.start()
+            hud.clocks.clocksTimer.start()
+
+            parent.startTime = new Date().valueOf()
+            game.gameState = Bacon2D.Running
+            backgroundloop.play()
+            window.firstRun = false
+        }
+    }
     Keys.onPressed: {
         if(event.key == Qt.Key_Enter || event.key == Qt.Key_Space || event.key == Qt.Key_Return) {
-            if(game.gameState == Bacon2D.Paused) {
-                scoreTimer.start()
-                gameScene.generatorTimer.start()
-                hud.clocks.clocksTimer.start()
-
-                parent.startTime = new Date().valueOf()
-                game.gameState = Bacon2D.Running
-                backgroundloop.play()
-                window.firstRun = false
-            }
         }
 
         if(event.key == Qt.Key_S) {
@@ -243,6 +245,14 @@ Scene {
         id: globalMouse
         anchors.fill: parent
         hoverEnabled: true
+        onClicked: {
+            unlock()
+            if (piggie.onFloor)
+            {
+                piggie.onFloor = false
+                piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -50)
+            }
+        }
     }
 
     Component.onCompleted: {
