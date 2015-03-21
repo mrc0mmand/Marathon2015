@@ -22,8 +22,8 @@ Scene {
     Connections {
         target: piggie
         onXChanged: {
-            if (-piggie.x + 200 < scene.x)
-                scene.x = -piggie.x + 200
+            if (-piggie.x - piggie.width / 2 + 300 < scene.x)
+                scene.x = -piggie.x - piggie.width / 2 + 300
         }
     }
 
@@ -117,7 +117,7 @@ Scene {
 
     Keys.onRightPressed: {
         if(piggie.onFloor) {
-            piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+            piggie.linearVelocity = Qt.point(piggie.linearVelocity.x + 5, piggie.linearVelocity.y)
         }
     }
     Keys.onLeftPressed: {
