@@ -71,11 +71,47 @@ Item {
         font.pointSize: 60
         font.weight: Font.Bold
         Text {
+            id: gameScoreText
             text: parent.text
             anchors.centerIn: parent
             font.family: baconFont.name
             color: "dark red"
             font.pointSize: 60
+        }
+
+        transform: Scale {
+            id: scoreMultiScale
+            property real scale: 1
+            xScale: scale
+            yScale: scale
+            origin.x: gameScoreText.width / 2
+            origin.y: gameScoreText.height / 2
+        }
+
+        SequentialAnimation {
+            id: scoreMultiAnimation
+            loops:4
+            onStopped: multiplier.visible = false
+            PropertyAnimation {
+                target: scoreMultiScale
+                properties: "scale"
+                from: 1.0
+                to: 1.4
+                easing.type: Easing.InOutBack
+                duration: 50
+            }
+            PropertyAnimation {
+                target: scoreMultiScale
+                properties: "scale"
+                to: 1.0
+                easing.type: Easing.InOutBack
+                duration: 50
+            }
+        }
+
+        onTextChanged: {
+            if(game.score != 0 && game.score % 100 == 0)
+                scoreMultiAnimation.start()
         }
     }
 
