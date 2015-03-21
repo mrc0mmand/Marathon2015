@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item {
     id: root
     property alias clocks: clocks
+    property alias volumeControl: volumeControl
 
     function multiplierText(text)
     {
@@ -273,7 +274,17 @@ Item {
                 duration: 500
             }
         }
+    }
 
+    Item {
+        id: volumeControl
+        property alias volumeIcon: volumeIcon
+        Image {
+            id: volumeIcon
+            width: 16
+            height: 16
+            source: "qrc:/assets/volumeon.png"
+        }
     }
 }
 

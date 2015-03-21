@@ -80,7 +80,7 @@ Window {
         property int score: 0
         currentScene: gameScene
 
-        Settings {
+        Item {
             id: settings
             property variant scores: []
             property bool soundEnabled: true
