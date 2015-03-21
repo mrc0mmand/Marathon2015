@@ -120,14 +120,14 @@ Scene {
                 onClicked: {
                     if(scoresubmitbutton.isEnabled == false)
                         return
-                    if(isSubmitted == true)
+                    if(scoreboard.isSubmitted == true)
                         return
 
                     var tmpArray = []
                     var pushed = false
 
                     for(var i = 0; i < settings.scores.length; i++) {
-                        if(settings.scores[i][1] <= gameover.finalScore && pushed == false) {
+                        if(settings.scores[i][1] <= gameover.finalScore && pushed === false) {
                             tmpArray.push([scoresubmitinput.text, gameover.finalScore])
                             tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
                             pushed = true
@@ -137,13 +137,13 @@ Scene {
                         }
                     }
 
-                    if(pushed == false)
+                    if(pushed === false)
                         tmpArray.push([scoresubmitinput.text, gameover.finalScore])
 
                     settings.scores = tmpArray
                     console.log(gameover.finalScore)
                     scoresSaver.write(scoresubmitinput.text, gameover.finalScore)
-                    isSubmitted = true
+                    scoreboard.isSubmitted = true
                     scoreboard.defaultExit = scoreboardok
                 }
             }
@@ -287,7 +287,7 @@ Scene {
                 hud.visible = true
                 scoreTimer.restart()
                 scoreTimer.running = true
-                isSubmitted = false
+                scoreboard.isSubmitted = false
                 backgroundloop.play()
                 game.currentScene = gameScene
             }
