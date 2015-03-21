@@ -257,6 +257,7 @@ Scene {
             onClicked: {
                 gameScene.piggie.hitpoints = gameScene.piggie.maxHitpoints
                 hud.visible = true
+                scoreTimer.running = true
                 isSubmitted = false
                 game.currentScene = gameScene
 
