@@ -117,7 +117,7 @@ Scene {
 
     Keys.onRightPressed: {
         if(piggie.onFloor) {
-            piggie.linearVelocity = Qt.point(15, piggie.linearVelocity.y)
+            piggie.linearVelocity = Qt.point(piggie.linearVelocity.x + 5, piggie.linearVelocity.y)
         }
     }
     Keys.onLeftPressed: {

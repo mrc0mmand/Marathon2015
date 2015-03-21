@@ -5,6 +5,7 @@ Image {
     id: bloodDrop
     source: Math.random() > 0.1 ? "qrc:/assets/bloodDrop.png" : "qrc:/assets/bacon.png"
     height: source == "qrc:/assets/bloodDrop.png" ? 20 : 40
+    scale: Math.random() + 1.0
     fillMode: Image.PreserveAspectFit
 
     SequentialAnimation {
@@ -27,7 +28,18 @@ Image {
     NumberAnimation {
         running: true
         target: bloodDrop
+        property: "opacity"
+        easing.type: Easing.OutQuad
+        to: 0
+        duration: 2000
+    }
+
+
+    NumberAnimation {
+        running: true
+        target: bloodDrop
         property: "x"
+        easing.type: Easing.OutQuad
         to: Math.random() * (window.width + 64)
         duration: Math.random() * 4000
     }
@@ -36,6 +48,7 @@ Image {
         running: true
         target: bloodDrop
         property: "y"
+        easing.type: Easing.OutQuad
         to: Math.random() * (window.height + 64)
         duration: Math.random() * 4000
     }
