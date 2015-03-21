@@ -18,6 +18,12 @@ Item {
         clip: true
 
         onWidthChanged: {
+            if ((gameScene.piggie.hitpoints + 1) == gameScene.piggie.maxHitpoints)
+            {
+                hud.multiplierText("First blood!")
+                firstblood.play()
+            }
+
             if (width != childrenRect.width) {
                 for(var a = 0; a < 128; a++)
                 {

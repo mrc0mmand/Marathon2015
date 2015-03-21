@@ -26,6 +26,7 @@
         <file alias="rampage.wav">sounds/rampage.wav</file>
         <file alias="humiliation.wav">sounds/humiliation.wav</file>
         <file alias="dominating.wav">sounds/dominating.wav</file>
+        <file alias="firstblood.wav">sounds/firstblood.wav</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="Bacon_Bad.ttf">fonts/Bacon_Bad.ttf</file>
