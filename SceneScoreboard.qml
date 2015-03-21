@@ -28,7 +28,7 @@ Scene {
         Text {
             id: lbtext
             text: "leaderboard"
-            Layout.alignment: Qt.AlignCenter
+            Layout.alignment: Qt.AlignHCenter
             font.family: baconFont.name
             color: "brown"
             font.pointSize: 60
@@ -39,21 +39,14 @@ Scene {
                 font.family: baconFont.name
                 color: "dark red"
                 font.pointSize: 60
-
             }
-        }
-
-        Item {
-            height: 15
         }
 
         ListView {
             id: scoreboardlist
             width: window.width / 2
-            height: window.height - 200
             Layout.alignment: Qt.AlignCenter
             Layout.fillHeight: true
-            anchors.centerIn: parent
            // Layout.fillWidth: true
             clip: true
 
@@ -140,7 +133,6 @@ Scene {
         Row {
             width: window.width / 2
             Layout.alignment: Qt.AlignHCenter
-            Layout.fillHeight: true
             height: 50
 
             TextInput {
@@ -247,7 +239,6 @@ Scene {
         Button {
             id: scoreboardok
             Layout.alignment: Qt.AlignCenter
-            Layout.fillHeight: true
             height: 55
             text: "RESTART"
 

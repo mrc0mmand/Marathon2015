@@ -9,6 +9,8 @@ import QtMultimedia 5.0
 Window {
     id: window
     visible: true
+    minimumWidth: 800
+    minimumHeight: 600
     property int speed: -10
     property bool firstRun: true
     property int timeSave;
