@@ -20,14 +20,14 @@ Window {
             if(game.gameState == Bacon2D.Running || game.gameState == Bacon2D.Active) {
                 scoreTimer.stop()
                 gameScene.generatorTimer.stop()
-                hud.clocks.clocksTimer.stop()
+                //hud.clocks.clocksTimer.stop()
                 window.timeSave = game.startTime
                 game.gameState = Bacon2D.Paused
                 backgroundloop.stop()
             } else {
                 scoreTimer.start()
                 gameScene.generatorTimer.start()
-                hud.clocks.clocksTimer.start()
+                //hud.clocks.clocksTimer.start()
                 game.startTime = window.timeSave
                 game.gameState = Bacon2D.Running
                 backgroundloop.play()
@@ -196,6 +196,48 @@ Window {
         }
     }
 
+
+    Text {
+        width: parent.width
+        height: parent.height
+        textFormat: Text.RichText
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        font.family: baconFont.name
+        color: "brown"
+        font.pointSize: 30
+        font.bold: true
+        Text {
+            id: gameScoreText
+            text: parent.text
+            anchors.fill: parent
+            color: "dark red"
+            textFormat: Text.RichText
+            font.family: baconFont.name
+            font.pointSize: parent.font.pointSize
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+
+        text: "Projekt<br><br>
+                <font size=small>
+                Autori:<br>
+                Branislav Blaskovic,<br>
+                Martin Briza,<br>
+                Frantisek Sumsal<br>
+                </font>
+                "
+    }
+
+    MouseArea {
+        anchors.fill: parent
+        onClicked: {
+
+        }
+    }
+
+
+/*
     HUD {
         id: hud
         anchors {
@@ -206,4 +248,5 @@ Window {
         }
         height: 64
     }
+    */
 }

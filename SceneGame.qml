@@ -123,7 +123,7 @@ Scene {
         if(game.gameState == Bacon2D.Paused) {
             scoreTimer.start()
             gameScene.generatorTimer.start()
-            hud.clocks.clocksTimer.start()
+            //hud.clocks.clocksTimer.start()
 
             parent.startTime = new Date().valueOf()
             game.gameState = Bacon2D.Running
@@ -201,7 +201,7 @@ Scene {
             var rand = Math.random()
             var obj
             var forceY = -1
-
+/*
             if (rand < 0.1) {
                 obj = Qt.createQmlObject("Ramp{}", scene)
             }
@@ -244,20 +244,7 @@ Scene {
                 obj.y = (forceY != -1) ? forceY : game.height - obj.height
                 obj.destroy(7000)
             }
-        }
-    }
-
-    MouseArea {
-        id: globalMouse
-        anchors.fill: parent
-        hoverEnabled: true
-        onClicked: {
-            unlock()
-            if (piggie.onFloor)
-            {
-                piggie.onFloor = false
-                piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -50)
-            }
+            */
         }
     }
 
@@ -268,6 +255,12 @@ Scene {
                 //newBox.x = scene.width / 2 + 100 + 32*j;
                 //newBox.y = (15*i) - 10;
             }
+        }
+        unlock()
+        if (piggie.onFloor)
+        {
+            piggie.onFloor = false
+            piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -50)
         }
 
         game.gameState = Bacon2D.Paused
