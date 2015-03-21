@@ -119,7 +119,6 @@ Scene {
     height: parent.height
 
     Keys.onReturnPressed: {
-        console.log(game.gameState)
         if(game.gameState == Bacon2D.Paused) {
             scoreTimer.start()
             gameScene.generatorTimer.start()
@@ -235,7 +234,7 @@ Scene {
                 //newBox.y = (15*i) - 10;
             }
         }
-        console.log("Default game.state: ", game.gameState)
+
         game.gameState = Bacon2D.Paused
     }
 }
