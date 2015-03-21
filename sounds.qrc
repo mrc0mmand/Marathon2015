@@ -1,14 +1,21 @@
 <RCC>
     <qresource prefix="/sounds">
-        <file alias="holyshit.wav">sounds/holyshit.wav</file>
-        <file alias="unstoppable.wav">sounds/unstoppable.wav</file>
         <file alias="background.wav">sounds/background.wav</file>
-        <file alias="prepare.wav">sounds/prepare.wav</file>
-        <file alias="wickedsick.wav">sounds/wickedsick.wav</file>
-        <file alias="godlike.wav">sounds/godlike.wav</file>
-        <file alias="rampage.wav">sounds/rampage.wav</file>
-        <file alias="humiliation.wav">sounds/humiliation.wav</file>
         <file alias="dominating.wav">sounds/dominating.wav</file>
         <file alias="firstblood.wav">sounds/firstblood.wav</file>
+        <file alias="godlike.wav">sounds/godlike.wav</file>
+        <file alias="headshot.wav">sounds/headshot.wav</file>
+        <file alias="holyshit.wav">sounds/holyshit.wav</file>
+        <file alias="humiliation.wav">sounds/humiliation.wav</file>
+        <file alias="killingspree.wav">sounds/killingspree.wav</file>
+        <file alias="ludicrouskill.wav">sounds/ludicrouskill.wav</file>
+        <file alias="monsterkill.wav">sounds/monsterkill.wav</file>
+        <file alias="multikill.wav">sounds/multikill.wav</file>
+        <file alias="prepare.wav">sounds/prepare.wav</file>
+        <file alias="rampage.wav">sounds/rampage.wav</file>
+        <file alias="teamkiller.wav">sounds/teamkiller.wav</file>
+        <file alias="ultrakill.wav">sounds/ultrakill.wav</file>
+        <file alias="unstoppable.wav">sounds/unstoppable.wav</file>
+        <file alias="wickedsick.wav">sounds/wickedsick.wav</file>
     </qresource>
 </RCC>

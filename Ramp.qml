@@ -6,7 +6,7 @@ import WhateverDude 1.0 as Whatever
 PhysicsEntity {
     id: root
     bodyType: Body.Kinematic
-    width: 200
+    width: 230
     height: 100
 
     fixtures: [
@@ -19,7 +19,7 @@ PhysicsEntity {
             ]
         }
     ]
-
+/*
     Whatever.Polygon {
         vertices: [
             Qt.point(0, root.height),
@@ -28,5 +28,12 @@ PhysicsEntity {
         ]
         fillColor: "pink"
         borderWidth: 0
+    }
+*/
+    Image {
+        source: "qrc:/assets/ramp.png"
+        width: parent.width
+        height: parent.height
+        fillMode: Image.PreserveAspectCrop
     }
 }

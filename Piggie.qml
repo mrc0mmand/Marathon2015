@@ -79,7 +79,7 @@ PhysicsEntity {
                     }
                 }
                 if (other.entityType == "ramp") {
-                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 10, entity.linearVelocity.y)
+                    entity.linearVelocity = Qt.point(entity.linearVelocity.x + 15, entity.linearVelocity.y)
                     entity.angularVelocity = 0
                     gameScene.animatePowerUp()
                     holyShit.play()
@@ -103,11 +103,11 @@ PhysicsEntity {
 
             id: pigCircle
             property string entityType: "piggie"
-            density: 100
+            density: 0.1
             width: entity.width
             height: entity.width
             friction: 0.5
-            restitution: 0.2
+            restitution: 0.3
         }
     ]
 
