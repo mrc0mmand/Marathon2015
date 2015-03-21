@@ -10,9 +10,10 @@ Item {
         multiAnimation.start()
     }
 
+    Component.onCompleted: console.log("Created HUD")
     Item {
         id: hitpointBar
-        width: childrenRect.width * (gameScene.piggie.hitpoints / gameScene.piggie.maxHitpoints)
+        width: game.currentScene ? childrenRect.width * (gameScene.piggie.hitpoints / gameScene.piggie.maxHitpoints) : 0
         height: parent.height
         clip: true
 

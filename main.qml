@@ -12,6 +12,7 @@ Window {
     height: 600
     visible: true
     property int speed: -10
+    property QtObject gameSceneComp
 
     FontLoader {
         id: baconFont
@@ -60,6 +61,76 @@ Window {
         }
     }
 
+    Component.onCompleted: {
+       console.log("Component.onCompleted")
+      /*  try {
+            var gameSceneObject = Qt.createQmlObject('SceneGame {
+                 id: gameScene
+                 height: parent.height
+             }', game, gameScene)
+        }
+        catch (error) {
+            console.log(error)
+        }
+        console.log(gameSceneObject.id)
+        currentScene = gameSceneObject
+        hitpointWatcher.target = currentScene.piggie*/
+
+        var scene
+
+        createSceneObject()
+
+        function createSceneObject() {
+            console.log("Creating component.")
+            gameSceneComp = Qt.createComponent("SceneGameComponent.qml")
+            console.log("Created component.")
+            console.log(gameSceneComp)
+            if(gameSceneComp.status == Component.Ready) {
+                console.log("Component is ready.")
+                finishCreation()
+            } else {
+                console.log("Component is not ready: ", gameSceneComp.errorString())
+                gameSceneComp.statusChanged.connect(finishCreation)
+            }
+        }
+
+        function finishCreation() {
+            console.log("Finishing creation.")
+            if(gameSceneComp.status == Component.Ready) {
+                console.log("Component is finally ready. Trying to create an object.")
+                console.log("game.height: ", window.height)
+                scene = gameSceneComp.createObject(game, {"height" : window.height})
+                console.log("Object created: ", gameSceneComp.errorString())
+                console.log("Scene height: ", scene.height)
+                game.gameScene = scene
+                game.currentScene = game.gameScene
+                var connections = Qt.createQmlObject(game.gameScene, 'Connections {
+                    id: gameSceneConn
+                    target: gameScene.piggie
+                    onHitpointsChanged: {
+                        if(parent.target.hitpoints <= 0) {
+                            hud.visible = false
+                            scoreTimer.running = false
+                            gameover.finalScore = game.score
+                            game.currentScene = gameover
+                            console.log("Game Over")
+                        }
+                    }
+                }')
+                if(scene == null) {
+                    // Something's fucked up
+                    console.log("Unable to create scene object. God knows why.")
+                }
+            } else if(gameSceneComp.status == Component.Error){
+                console.log("Unable to create scene object: ", gameSceneComp.errorString())
+            }
+        }
+
+
+        console.log(game.gameScene)
+
+    }
+
     Game {
         id: game
         anchors.fill: parent
@@ -67,29 +138,13 @@ Window {
 
         property real startTime
         property int score: 0
-        currentScene: gameScene
+        property Scene gameScene
 
         Settings {
             id: settings
             property variant scores: []
         }
 
-        SceneGame {
-            id: gameScene
-            height: parent.height
-            Connections {
-                target: gameScene.piggie
-                onHitpointsChanged: {
-                    if(gameScene.piggie.hitpoints <= 0) {
-                        hud.visible = false
-                        scoreTimer.running = false
-                        gameover.finalScore = game.score
-                        game.currentScene = gameover
-                        console.log("Game Over")
-                    }
-                }
-            }
-        }
 
         SceneGameover {
             id: gameover
@@ -101,6 +156,35 @@ Window {
             id: scoreboard
             width: parent.width
             height: parent.height
+        }
+
+
+
+        Component.onCompleted: {
+            if(window.gameSceneComp == Component.Ready) {
+                waitForComponent()
+            } else {
+                window.gameSceneComp.statusChanged.connect(waitForComponent)
+            }
+
+            function waitForComponent() {
+                console.log("gameScene is available, creating Connections.")
+                var connections = Qt.createQmlObject(game, 'Connections {
+                    id: gameSceneConn
+                    target: gameScene.piggie
+                    onHitpointsChanged: {
+                        if(parent.target.hitpoints <= 0) {
+                            hud.visible = false
+                            scoreTimer.running = false
+                            gameover.finalScore = game.score
+                            game.currentScene = gameover
+                            console.log("Game Over")
+                        }
+                    }
+                }')
+
+                console.log("Hitpoints: ", gameScene.piggie.hitpoints)
+            }
         }
 
         Timer {

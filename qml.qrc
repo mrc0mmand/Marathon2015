@@ -13,6 +13,7 @@
         <file>SceneGame.qml</file>
         <file>SceneScoreboard.qml</file>
         <file>SceneGameover.qml</file>
+        <file>SceneGameComponent.qml</file>
     </qresource>
     <qresource prefix="/assets">
         <file alias="astronaut.png">assets/astronaut.png</file>
