@@ -4,27 +4,28 @@
 #include <QObject>
 #include <QAbstractListModel>
 #include <QFile>
-#include <iostream>
+#include <QUrl>
 #include <QDebug>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QEventLoop>
+#include <QNetworkReply>
 
 class Scores : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool ready READ ready NOTIFY readyChanged)
 public:
     explicit Scores(QObject *parent = 0);
-
     ~Scores();
 
-    bool ready();
 private:
-    QString filename;
-    bool m_ready;
+    QString m_filename;
+
 signals:
-    void readyChanged();
+
 
 public slots:
-    bool write(const QVariantList& content);
+    bool write(const QString& name, int sc);
     QVariantList load();
 };
 

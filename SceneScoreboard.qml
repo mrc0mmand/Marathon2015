@@ -236,7 +236,8 @@ Scene {
                         tmpArray.push([scoresubmitinput.text, gameover.finalScore])
 
                     settings.scores = tmpArray
-                    scoresSaver.write(settings.scores)
+                    console.log(gameover.finalScore)
+                    scoresSaver.write(scoresubmitinput.text, gameover.finalScore)
                     isSubmitted = true
                     scoreboard.defaultExit = scoreboardok
                 }
