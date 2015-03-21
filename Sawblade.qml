@@ -35,6 +35,12 @@ PhysicsEntity {
             radius: entity.width
             friction: 0
             restitution: 0
+
+            onBeginContact: {
+                if (other.entityType == "piggie") {
+                    console.log("hit!")
+                }
+            }
         }
     ]
 }

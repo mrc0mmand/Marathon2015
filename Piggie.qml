@@ -100,6 +100,7 @@ PhysicsEntity {
             }
 
             id: pigCircle
+            property string entityType: "piggie"
             density: 100
             width: entity.width
             height: entity.width
