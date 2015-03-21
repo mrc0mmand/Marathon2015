@@ -145,7 +145,7 @@ Scene {
             TextInput {
                 id: scoresubmitinput
                 focus: true
-                text: "Your name"
+                text: "YourName"
                 width: 200
                 height: parent.height
                 color: Qt.lighter("brown")
@@ -223,8 +223,8 @@ Scene {
                     if(pushed == false)
                         tmpArray.push([scoresubmitinput.text, gameover.finalScore])
 
-                    console.log("settings.scores: ", settings.scores)
                     settings.scores = tmpArray
+                    scoresSaver.write(settings.scores)
                     isSubmitted = true
                 }
             }

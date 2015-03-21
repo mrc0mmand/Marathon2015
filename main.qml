@@ -80,6 +80,10 @@ Window {
         Settings {
             id: settings
             property variant scores: []
+
+            Component.onCompleted: {
+                settings.scores = scoresSaver.load()
+            }
         }
 
         SceneGame {
