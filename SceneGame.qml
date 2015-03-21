@@ -179,6 +179,8 @@ Scene {
         onTriggered: {
             var rand = Math.random()
             var obj
+            var forceY = -1
+
             if (rand < 0.1) {
                 obj = Qt.createQmlObject("Ramp{}", scene)
             }
@@ -190,6 +192,9 @@ Scene {
             }
             else if (rand < 0.4) {
                 obj = Qt.createQmlObject("Sawblade{}", scene)
+            }else if (rand < 0.5) {
+                obj = Qt.createQmlObject("Corn{}", scene)
+                forceY = 300
             }
 
             // Sounds
@@ -215,7 +220,7 @@ Scene {
 
             if (obj) {
                 obj.x = piggie.x + game.width
-                obj.y = game.height - obj.height
+                obj.y = (forceY != -1) ? forceY : game.height - obj.height
                 obj.destroy(7000)
             }
         }

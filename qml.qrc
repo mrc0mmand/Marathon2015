@@ -3,6 +3,7 @@
         <file>main.qml</file>
         <file>Floor.qml</file>
         <file>Piggie.qml</file>
+        <file>Corn.qml</file>
         <file>Slaughter.qml</file>
         <file>Ramp.qml</file>
         <file>Sawblade.qml</file>
