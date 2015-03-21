@@ -218,6 +218,8 @@ Item {
                 text: parent.text
                 anchors.centerIn: parent
                 font.family: baconFont.name
+                textFormat: Text.RichText
+                horizontalAlignment: parent.horizontalAlignment
                 color: "dark red"
                 font.pointSize: 40
             }
