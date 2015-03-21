@@ -153,6 +153,10 @@ Scene {
                 font.bold: true
                 verticalAlignment: TextInput.AlignVCenter
                 horizontalAlignment: TextInput.AlignHCenter
+                validator: RegExpValidator {
+                    regExp: /^[0-9a-zA-Z]{1,10}$/
+                }
+
                 maximumLength: 10
                 font.pointSize: 25
                 Text {
@@ -219,6 +223,7 @@ Scene {
                     if(pushed == false)
                         tmpArray.push([scoresubmitinput.text, gameover.finalScore])
 
+                    console.log("settings.scores: ", settings.scores)
                     settings.scores = tmpArray
                     isSubmitted = true
                 }
