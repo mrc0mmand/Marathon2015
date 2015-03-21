@@ -9,6 +9,7 @@ Scene {
     width: parent.width
     height: parent.height
     opacity: 0
+    focus: true
 
     property int finalScore
 
@@ -18,6 +19,11 @@ Scene {
         from: 0
         to: 1
         duration: 500
+        onStopped: gameover.focus = true
+    }
+
+    Keys.onReturnPressed: {
+        gameoverok.clicked.call()
     }
 
     Image {
@@ -51,12 +57,6 @@ Scene {
         Layout.fillWidth: true
 
         anchors.centerIn: parent
-
-        /*Image {
-            anchors.fill: parent
-            Layout.alignment: Qt.AlignCenter
-            source: "qrc:/assets/pig.png"
-        }*/
 
         Text {
             id: textgo
@@ -122,6 +122,7 @@ Scene {
             Layout.fillHeight: true
             Layout.alignment: Qt.AlignCenter
             text: "OK"
+            isDefault: true
 
             style: ButtonStyle {
                 background: Rectangle {
