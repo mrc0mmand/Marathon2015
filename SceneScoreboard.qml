@@ -20,7 +20,6 @@ Scene {
 
     Keys.onReturnPressed: {
         defaultExit.clicked.call()
-        defaultExit = scoreboardok
     }
 
     ColumnLayout {
@@ -239,6 +238,7 @@ Scene {
                     settings.scores = tmpArray
                     scoresSaver.write(settings.scores)
                     isSubmitted = true
+                    scoreboard.defaultExit = scoreboardok
                 }
             }
         }
