@@ -146,7 +146,7 @@ Scene {
             TextInput {
                 id: scoresubmitinput
                 focus: true
-                text: "YourName"
+                text: "Baconator"
                 width: 200
                 height: parent.height
                 color: Qt.lighter("brown")
@@ -166,6 +166,7 @@ Scene {
                     font.family: baconFont.name
                     color: "red"
                     font.pointSize: parent.font.pointSize
+                    verticalAlignment: TextInput.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
 

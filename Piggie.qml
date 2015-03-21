@@ -76,7 +76,7 @@ PhysicsEntity {
                     {
                         var spriteObject = Qt.createQmlObject("Explosion{}", scene)
                         spriteObject.x = entity.x + Math.random() * 400 - 200
-                        spriteObject.y = entity.y + 200 - i
+                        spriteObject.y = entity.y - i
                         spriteObject.scale = 3
                     }
                 }
