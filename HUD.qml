@@ -234,28 +234,31 @@ Item {
             property real scale: 1
             xScale: scale
             yScale: scale
-            origin.x: idMulti.width / 2
-            origin.y: idMulti.height / 2
+            origin.x: idMulti.x + idMulti.width / 2
+            origin.y: idMulti.y + idMulti.height / 2
         }
 
         SequentialAnimation {
             id: multiAnimation
-            loops:8
+            onStarted: idMulti.opacity = 1
             onStopped: multiplier.visible = false
             PropertyAnimation {
                 target: multiScale
                 properties: "scale"
                 from: 1.0
                 to: 1.4
-                easing.type: Easing.InOutBack
-                duration: 100
+                easing.type: Easing.OutBounce
+                duration: 500
+            }
+            PauseAnimation {
+                duration: 500
             }
             PropertyAnimation {
-                target: multiScale
-                properties: "scale"
-                to: 1.0
+                target: idMulti
+                properties: "opacity"
+                to: 0
                 easing.type: Easing.InOutBack
-                duration: 100
+                duration: 500
             }
         }
 
