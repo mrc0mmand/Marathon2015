@@ -221,7 +221,7 @@ Scene {
                 obj = Qt.createQmlObject("Sawblade{}", scene)
             }else if (rand < 0.5) {
                 obj = Qt.createQmlObject("Corn{}", scene)
-                forceY = 300
+                forceY = 100
             }
 
             // Sounds
