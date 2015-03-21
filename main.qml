@@ -197,37 +197,6 @@ Window {
     }
 
 
-    Text {
-        width: parent.width
-        height: parent.height
-        textFormat: Text.RichText
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        font.family: baconFont.name
-        color: "brown"
-        font.pointSize: 30
-        font.bold: true
-        Text {
-            id: gameScoreText
-            text: parent.text
-            anchors.fill: parent
-            color: "dark red"
-            textFormat: Text.RichText
-            font.family: baconFont.name
-            font.pointSize: parent.font.pointSize
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-        }
-
-        text: "Projekt<br><br>
-                <font size=small>
-                Autori:<br>
-                Branislav Blaskovic,<br>
-                Martin Briza,<br>
-                Frantisek Sumsal<br>
-                </font>
-                "
-    }
 
     MouseArea {
         anchors.fill: parent
