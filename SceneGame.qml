@@ -172,7 +172,7 @@ Scene {
             else if (rand < 0.3) {
                 obj = Qt.createQmlObject("Mine{}", scene)
             }
-            else if (rand < 0.3) {
+            else if (rand < 0.4) {
                 obj = Qt.createQmlObject("Sawblade{}", scene)
             }
 
