@@ -256,11 +256,20 @@ Scene {
 
             onClicked: {
                 gameScene.piggie.hitpoints = gameScene.piggie.maxHitpoints
+                gameScene.piggie.x = 100
+                gameScene.piggie.y = gameScene.height - gameScene.piggie.height - 10
+                gameScene.piggie.linearVelocity = Qt.point(15, 0)
+                gameScene.x = 0
+                gameScene.generatorTimer.restart()
+                game.startTime = new Date().valueOf()
+                game.score = 0
+                hud.clocks.clockBody.secondHand.rotation = 0
+
                 hud.visible = true
+                scoreTimer.restart()
                 scoreTimer.running = true
                 isSubmitted = false
                 game.currentScene = gameScene
-
             }
         }
     }

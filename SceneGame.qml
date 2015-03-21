@@ -9,6 +9,8 @@ Scene {
     id: scene
 
     property alias piggie: piggie
+    property alias generatorTimer: generatorTimer
+
     function animatePowerUp() {
         powerUpAnimation.running = true
     }

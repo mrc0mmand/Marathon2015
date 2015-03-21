@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Item {
     id: root
+    property alias clocks: clocks
 
     function multiplierText(text)
     {
@@ -116,6 +117,8 @@ Item {
     }
 
     Item {
+        id: clocks
+        property alias clockBody: clockBody
         anchors.right: parent.right
         anchors.top: parent.top
         height: parent.height * 2
@@ -129,6 +132,7 @@ Item {
 
         Item {
             id: clockBody
+            property alias secondHand: secondHand
             anchors.fill: parent
             transformOrigin: Item.Center
             Item {
