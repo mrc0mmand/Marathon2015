@@ -131,6 +131,10 @@ Scene {
                 window.firstRun = false
             }
         }
+
+        if(event.key == Qt.Key_Escape) {
+            window.close()
+        }
     }
 
     Keys.onRightPressed: {
