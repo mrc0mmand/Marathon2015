@@ -127,6 +127,7 @@ Scene {
             parent.startTime = new Date().valueOf()
             game.gameState = Bacon2D.Running
             backgroundloop.play()
+            window.firstRun = false
         }
     }
 

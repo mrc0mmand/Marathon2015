@@ -277,6 +277,7 @@ Scene {
             }
 
             onClicked: {
+                scoreboard.defaultExit = scoresubmitbutton
                 gameScene.piggie.hitpoints = gameScene.piggie.maxHitpoints
                 gameScene.piggie.x = 100
                 gameScene.piggie.y = gameScene.height - gameScene.piggie.height - 10

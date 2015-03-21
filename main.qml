@@ -12,6 +12,28 @@ Window {
     height: 600
     visible: true
     property int speed: -10
+    property bool firstRun: true
+    property int timeSave;
+
+    onFocusObjectChanged: {
+        if(firstRun == false) {
+            if(game.gameState == Bacon2D.Running || game.gameState == Bacon2D.Active) {
+                scoreTimer.stop()
+                gameScene.generatorTimer.stop()
+                hud.clocks.clocksTimer.stop()
+                window.timeSave = game.startTime
+                game.gameState = Bacon2D.Paused
+                backgroundloop.stop()
+            } else {
+                scoreTimer.start()
+                gameScene.generatorTimer.start()
+                hud.clocks.clocksTimer.start()
+                game.startTime = window.timeSave
+                game.gameState = Bacon2D.Running
+                backgroundloop.play()
+            }
+        }
+    }
 
     FontLoader {
         id: baconFont
