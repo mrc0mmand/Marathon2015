@@ -22,8 +22,8 @@ Scene {
     Connections {
         target: piggie
         onXChanged: {
-            if (-piggie.x + 200 < scene.x)
-                scene.x = -piggie.x + 200
+            if (-piggie.x - piggie.width / 2 + 300 < scene.x)
+                scene.x = -piggie.x - piggie.width / 2 + 300
         }
     }
 
