@@ -59,6 +59,11 @@ Window {
     }
 
     SoundEffect {
+        id: firstblood
+        source: "qrc:/sounds/firstblood.wav"
+    }
+
+    SoundEffect {
         id: backgroundloop
         source: "qrc:/sounds/background.wav"
         loops: Audio.Infinite
