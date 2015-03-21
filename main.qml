@@ -10,7 +10,7 @@ Window {
     id: window
     visible: true
     minimumWidth: 800
-    minimumHeight: 600
+    minimumHeight: 480
     property int speed: -10
     property bool firstRun: true
     property int timeSave;
