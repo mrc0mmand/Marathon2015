@@ -17,9 +17,12 @@
         <file alias="bacon.png">assets/bacon.png</file>
         <file alias="happy_pig.png">assets/happy_pig.png</file>
         <file alias="ramp.png">assets/ramp.png</file>
+        <file alias="volumeoff.png">assets/volumeoff.png</file>
+        <file alias="volumeon.png">assets/volumeon.png</file>
         <file alias="corn.png">assets/corn.png</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="Bacon_Bad.ttf">fonts/Bacon_Bad.ttf</file>
     </qresource>
+
 </RCC>

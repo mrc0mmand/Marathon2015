@@ -137,10 +137,13 @@ Scene {
         }
 
         if(event.key == Qt.Key_S) {
-            if(settings.soundEnabled == true)
+            if(settings.soundEnabled == true) {
                 settings.soundEnabled = false
-            else
+                hud.volumeControl.volumeIcon.source = "qrc:/assets/volumeoff.png"
+            } else {
                 settings.soundEnabled = true
+                hud.volumeControl.volumeIcon.source = "qrc:/assets/volumeon.png"
+            }
         }
     }
 
