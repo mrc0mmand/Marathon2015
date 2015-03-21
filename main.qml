@@ -80,6 +80,12 @@ Window {
         property int score: 0
         currentScene: gameScene
 
+        Keys.onPressed: {
+            if(event.key == Qt.Key_Escape) {
+                window.close()
+            }
+        }
+
         Item {
             id: settings
             property variant scores: []

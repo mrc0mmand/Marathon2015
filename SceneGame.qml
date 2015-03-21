@@ -118,6 +118,7 @@ Scene {
     width: 10000 - x
     height: parent.height
 
+
     Keys.onPressed: {
         if(event.key == Qt.Key_Enter || event.key == Qt.Key_Space || event.key == Qt.Key_Return) {
             if(game.gameState == Bacon2D.Paused) {
@@ -130,10 +131,6 @@ Scene {
                 backgroundloop.play()
                 window.firstRun = false
             }
-        }
-
-        if(event.key == Qt.Key_Escape) {
-            window.close()
         }
 
         if(event.key == Qt.Key_S) {
