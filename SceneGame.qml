@@ -135,6 +135,13 @@ Scene {
         if(event.key == Qt.Key_Escape) {
             window.close()
         }
+
+        if(event.key == Qt.Key_S) {
+            if(settings.soundEnabled == true)
+                settings.soundEnabled = false
+            else
+                settings.soundEnabled = true
+        }
     }
 
     Keys.onRightPressed: {

@@ -40,57 +40,6 @@ Window {
         source: "qrc:/fonts/Bacon_Bad.ttf"
     }
 
-    SoundEffect {
-        id: holyShit
-        source: "qrc:/sounds/holyshit.wav"
-    }
-
-    SoundEffect {
-        id: unstoppable
-        source: "qrc:/sounds/unstoppable.wav"
-    }
-
-    SoundEffect {
-        id: prepare
-        source: "qrc:/sounds/prepare.wav"
-    }
-
-    SoundEffect {
-        id: wickedsick
-        source: "qrc:/sounds/wickedsick.wav"
-    }
-
-    SoundEffect {
-        id: godlike
-        source: "qrc:/sounds/godlike.wav"
-    }
-
-    SoundEffect {
-        id: rampage
-        source: "qrc:/sounds/rampage.wav"
-    }
-
-    SoundEffect {
-        id: humiliation
-        source: "qrc:/sounds/humiliation.wav"
-    }
-
-    SoundEffect {
-        id: dominating
-        source: "qrc:/sounds/dominating.wav"
-    }
-
-    SoundEffect {
-        id: firstblood
-        source: "qrc:/sounds/firstblood.wav"
-    }
-
-    SoundEffect {
-        id: backgroundloop
-        source: "qrc:/sounds/background.wav"
-        loops: SoundEffect.Infinite
-    }
-
     Component {
         id: ball
         PhysicsEntity {
@@ -134,10 +83,72 @@ Window {
         Settings {
             id: settings
             property variant scores: []
+            property bool soundEnabled: true
 
             Component.onCompleted: {
                 settings.scores = scoresSaver.load()
             }
+        }
+
+        SoundEffect {
+            id: holyShit
+            source: "qrc:/sounds/holyshit.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: unstoppable
+            source: "qrc:/sounds/unstoppable.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: prepare
+            source: "qrc:/sounds/prepare.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: wickedsick
+            source: "qrc:/sounds/wickedsick.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: godlike
+            source: "qrc:/sounds/godlike.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: rampage
+            source: "qrc:/sounds/rampage.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: humiliation
+            source: "qrc:/sounds/humiliation.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: dominating
+            source: "qrc:/sounds/dominating.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: firstblood
+            source: "qrc:/sounds/firstblood.wav"
+            volume: settings.soundEnabled ? 1 : 0
+        }
+
+        SoundEffect {
+            id: backgroundloop
+            source: "qrc:/sounds/background.wav"
+            loops: SoundEffect.Infinite
+            volume: settings.soundEnabled ? 1 : 0
         }
 
         SceneGame {
