@@ -175,7 +175,7 @@ Scene {
         id: generatorTimer
         interval: 500
         repeat: true
-        running: true
+        running: false
         onTriggered: {
             var rand = Math.random()
             var obj
