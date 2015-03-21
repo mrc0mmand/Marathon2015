@@ -27,6 +27,7 @@
         <file alias="mine.png">assets/mine.png</file>
         <file alias="explosion.png">assets/explosion.png</file>
         <file alias="sawblade.png">assets/sawblade.png</file>
+        <file alias="sawbladeBlood.png">assets/sawbladeBlood.png</file>
         <file alias="bacon.png">assets/bacon.png</file>
         <file alias="happy_pig.png">assets/happy_pig.png</file>
     </qresource>

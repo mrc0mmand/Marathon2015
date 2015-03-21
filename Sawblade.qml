@@ -16,9 +16,9 @@ PhysicsEntity {
     linearVelocity: Qt.point(window.speed, 0)
 
 
-    ImageLayer {
+    Image {
         id: sawblade
-        source: "assets/sawblade.png"
+        source: "qrc:/assets/sawblade.png"
         anchors.fill: parent
         smooth: true
     }
@@ -35,6 +35,12 @@ PhysicsEntity {
             radius: entity.width
             friction: 0
             restitution: 0
+
+            onBeginContact: {
+                if (other.entityType == "piggie") {
+                    sawblade.source = "qrc:/assets/sawbladeBlood.png"
+                }
+            }
         }
     ]
 }
