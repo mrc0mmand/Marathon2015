@@ -150,7 +150,7 @@ Window {
 
         Timer {
             id: scoreTimer
-            running: true
+            running: false
             interval: 1000
             repeat: true
             onTriggered: game.score += 10

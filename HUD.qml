@@ -125,6 +125,7 @@ Item {
     Item {
         id: clocks
         property alias clockBody: clockBody
+        property alias clocksTimer: clocksTimer
         anchors.right: parent.right
         anchors.top: parent.top
         height: parent.height * 2
@@ -196,9 +197,11 @@ Item {
                 }
             }
         }
+
         Timer {
+            id:clocksTimer
             repeat: true
-            running: true
+            running: false
             interval: 1000
             onTriggered: {
                 secondHand.move()

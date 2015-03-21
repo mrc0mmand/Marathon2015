@@ -19,6 +19,9 @@ Scene {
     physics: true
     gravity: Qt.point(0, 10)
     x: 0
+
+
+
     Connections {
         target: piggie
         onXChanged: {
@@ -114,6 +117,19 @@ Scene {
 
     width: 10000 - x
     height: parent.height
+
+    Keys.onReturnPressed: {
+        console.log(game.gameState)
+        if(game.gameState == Bacon2D.Paused) {
+            scoreTimer.start()
+            gameScene.generatorTimer.start()
+            hud.clocks.clocksTimer.start()
+
+            parent.startTime = new Date().valueOf()
+            game.gameState = Bacon2D.Running
+            backgroundloop.play()
+        }
+    }
 
     Keys.onRightPressed: {
         if(piggie.onFloor) {
@@ -219,7 +235,7 @@ Scene {
                 //newBox.y = (15*i) - 10;
             }
         }
-        parent.startTime = new Date().valueOf()
-        backgroundloop.play()
+        console.log("Default game.state: ", game.gameState)
+        game.gameState = Bacon2D.Paused
     }
 }
