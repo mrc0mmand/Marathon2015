@@ -17,7 +17,7 @@ Scene {
 
     focus: true
     physics: true
-    gravity: Qt.point(0, 10)
+    gravity: Qt.point(0, 100)
     x: 0
     Connections {
         target: piggie
@@ -129,7 +129,7 @@ Scene {
         if (piggie.onFloor)
         {
             piggie.onFloor = false
-            piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -15)
+            piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -50)
         }
     }
     Image {
