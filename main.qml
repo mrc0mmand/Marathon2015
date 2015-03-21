@@ -29,10 +29,39 @@ Window {
     }
 
     SoundEffect {
+        id: prepare
+        source: "qrc:/sounds/prepare.wav"
+    }
+
+    SoundEffect {
+        id: wickedsick
+        source: "qrc:/sounds/wickedsick.wav"
+    }
+
+    SoundEffect {
+        id: godlike
+        source: "qrc:/sounds/godlike.wav"
+    }
+
+    SoundEffect {
+        id: rampage
+        source: "qrc:/sounds/rampage.wav"
+    }
+
+    SoundEffect {
+        id: humiliation
+        source: "qrc:/sounds/humiliation.wav"
+    }
+
+    SoundEffect {
+        id: dominating
+        source: "qrc:/sounds/dominating.wav"
+    }
+
+    SoundEffect {
         id: backgroundloop
         source: "qrc:/sounds/background.wav"
         loops: Audio.Infinite
-        volume: 0.6
     }
 
     Component {

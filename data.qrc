@@ -20,6 +20,12 @@
         <file alias="holyshit.wav">sounds/holyshit.wav</file>
         <file alias="unstoppable.wav">sounds/unstoppable.wav</file>
         <file alias="background.wav">sounds/background.wav</file>
+        <file alias="prepare.wav">sounds/prepare.wav</file>
+        <file alias="wickedsick.wav">sounds/wickedsick.wav</file>
+        <file alias="godlike.wav">sounds/godlike.wav</file>
+        <file alias="rampage.wav">sounds/rampage.wav</file>
+        <file alias="humiliation.wav">sounds/humiliation.wav</file>
+        <file alias="dominating.wav">sounds/dominating.wav</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="Bacon_Bad.ttf">fonts/Bacon_Bad.ttf</file>

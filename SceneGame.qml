@@ -178,9 +178,23 @@ Scene {
 
             // Sounds
             if (game.score % 100 == 0 && game.score != 0) {
+                if (game.score % 200 == 0)
+                {
+                    rampage.play()
+                    hud.multiplierText("Rampage!")
+                }
+                else if(game.score % 300 == 0)
+                {
+                    dominating.play()
+                    hud.multiplierText("Dominating!")
+                }
+                else
+                {
+                    unstoppable.play()
+                    hud.multiplierText("Unstoppable!")
+                }
+
                 game.score += 10
-                unstoppable.play()
-                hud.multiplierText("Unstoppable!")
             }
 
             if (obj) {
