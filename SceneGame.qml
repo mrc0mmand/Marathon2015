@@ -177,7 +177,7 @@ Scene {
             }
 
             // Sounds
-            if (game.score % 50 == 0 && game.score != 0) {
+            if (game.score % 100 == 0 && game.score != 0) {
                 game.score += 10
                 unstoppable.play()
                 hud.multiplierText("Unstoppable!")
@@ -186,6 +186,7 @@ Scene {
             if (obj) {
                 obj.x = piggie.x + game.width
                 obj.y = game.height - obj.height
+                obj.destroy(7000)
             }
         }
     }
@@ -205,5 +206,6 @@ Scene {
             }
         }
         parent.startTime = new Date().valueOf()
+        backgroundloop.play()
     }
 }

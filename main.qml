@@ -29,6 +29,14 @@ Window {
         autoLoad: true
     }
 
+    Audio {
+        id: backgroundloop
+        source: "qrc:/sounds/background.mp3"
+        autoLoad: true
+        loops: Audio.Infinite
+        volume: 0.6
+    }
+
     Component {
         id: ball
         PhysicsEntity {
@@ -81,6 +89,7 @@ Window {
                 target: gameScene.piggie
                 onHitpointsChanged: {
                     if(gameScene.piggie.hitpoints <= 0) {
+                        backgroundloop.stop()
                         hud.visible = false
                         scoreTimer.running = false
                         gameover.finalScore = game.score

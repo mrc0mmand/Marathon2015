@@ -17,6 +17,10 @@ Scene {
 
     }
 
+    Keys.onReturnPressed: {
+        scoreboardok.clicked.call()
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
@@ -269,6 +273,7 @@ Scene {
                 scoreTimer.restart()
                 scoreTimer.running = true
                 isSubmitted = false
+                backgroundloop.play()
                 game.currentScene = gameScene
             }
         }
