@@ -61,7 +61,7 @@ Window {
     SoundEffect {
         id: backgroundloop
         source: "qrc:/sounds/background.wav"
-        loops: Audio.Infinite
+        loops: SoundEffect.Infinite
     }
 
     Component {
