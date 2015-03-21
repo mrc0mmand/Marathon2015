@@ -168,6 +168,14 @@ Scene {
                     horizontalAlignment: Text.AlignHCenter
                 }
 
+                onAcceptableInputChanged: {
+                    if(acceptableInput == false) {
+                        scoresubmitbutton.isEnabled = false
+                    } else {
+                        scoresubmitbutton.isEnabled = true
+                    }
+                }
+
                 onEditingFinished: {
                     scoresubmitbutton.clicked.call()
                 }
@@ -179,6 +187,7 @@ Scene {
                 text: "Submit"
                 height: parent.height
                 isDefault: true
+                property bool isEnabled: true
 
                 style: ButtonStyle {
                     background: Rectangle {
@@ -203,6 +212,8 @@ Scene {
                 }
 
                 onClicked: {
+                    if(scoresubmitbutton.isEnabled == false)
+                        return
                     if(isSubmitted == true)
                         return
 
@@ -210,7 +221,7 @@ Scene {
                     var pushed = false
 
                     for(var i = 0; i < settings.scores.length; i++) {
-                        if(settings.scores[i][1] <= gameover.finalScore) {
+                        if(settings.scores[i][1] <= gameover.finalScore && pushed == false) {
                             tmpArray.push([scoresubmitinput.text, gameover.finalScore])
                             tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
                             pushed = true
