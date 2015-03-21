@@ -118,16 +118,18 @@ Scene {
     width: 10000 - x
     height: parent.height
 
-    Keys.onReturnPressed: {
-        if(game.gameState == Bacon2D.Paused) {
-            scoreTimer.start()
-            gameScene.generatorTimer.start()
-            hud.clocks.clocksTimer.start()
+    Keys.onPressed: {
+        if(event.key == Qt.Key_Enter || event.key == Qt.Key_Space || event.key == Qt.Key_Return) {
+            if(game.gameState == Bacon2D.Paused) {
+                scoreTimer.start()
+                gameScene.generatorTimer.start()
+                hud.clocks.clocksTimer.start()
 
-            parent.startTime = new Date().valueOf()
-            game.gameState = Bacon2D.Running
-            backgroundloop.play()
-            window.firstRun = false
+                parent.startTime = new Date().valueOf()
+                game.gameState = Bacon2D.Running
+                backgroundloop.play()
+                window.firstRun = false
+            }
         }
     }
 
