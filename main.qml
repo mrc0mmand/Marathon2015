@@ -18,21 +18,19 @@ Window {
         source: "qrc:/fonts/Bacon_Bad.ttf"
     }
 
-    Audio {
+    SoundEffect {
         id: holyShit
         source: "qrc:/sounds/holyshit.wav"
     }
 
-    Audio {
+    SoundEffect {
         id: unstoppable
-        source: "qrc:/sounds/unstoppable.mp3"
-        autoLoad: true
+        source: "qrc:/sounds/unstoppable.wav"
     }
 
-    Audio {
+    SoundEffect {
         id: backgroundloop
-        source: "qrc:/sounds/background.mp3"
-        autoLoad: true
+        source: "qrc:/sounds/background.wav"
         loops: Audio.Infinite
         volume: 0.6
     }

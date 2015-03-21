@@ -18,8 +18,8 @@
     </qresource>
     <qresource prefix="/sounds">
         <file alias="holyshit.wav">sounds/holyshit.wav</file>
-        <file alias="unstoppable.mp3">sounds/unstoppable.mp3</file>
-        <file alias="background.mp3">sounds/background.mp3</file>
+        <file alias="unstoppable.wav">sounds/unstoppable.wav</file>
+        <file alias="background.wav">sounds/background.wav</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="Bacon_Bad.ttf">fonts/Bacon_Bad.ttf</file>
