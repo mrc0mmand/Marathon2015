@@ -39,8 +39,9 @@ PhysicsEntity {
 
     behavior: ScriptBehavior {
         script: {
-            if(linearVelocity.x < 15) {
-                entity.linearVelocity = Qt.point(15, entity.linearVelocity.y)
+            var scoreBoost = 15 + (Math.floor(game.score / 100)) * 2
+            if(linearVelocity.x < scoreBoost) {
+                entity.linearVelocity = Qt.point(scoreBoost, entity.linearVelocity.y)
             }
             if(entity.y < 0) {
                 entity.linearVelocity = Qt.point(entity.linearVelocity.x, 0)
