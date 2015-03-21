@@ -25,6 +25,7 @@ PhysicsEntity {
         height: corn.height
         friction: 0.5
         restitution: 0.8
+        sensor: true
 
         onBeginContact: {
             if(other.entityType == "piggie")
