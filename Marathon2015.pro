@@ -8,7 +8,8 @@ SOURCES += main.cpp \
     polygon.cpp \
     scores.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+             data.qrc
 
 EXAMPLE_IMAGE_FILES += \
     astronaut.png \
