@@ -10,6 +10,7 @@ Scene {
     width: parent.width
     height: parent.height
     property bool isSubmitted: false
+    property Button defaultExit: scoresubmitbutton
 
     Rectangle {
         color: "black"
@@ -18,7 +19,8 @@ Scene {
     }
 
     Keys.onReturnPressed: {
-        scoreboardok.clicked.call()
+        defaultExit.clicked.call()
+        defaultExit = scoreboardok
     }
 
     ColumnLayout {
