@@ -144,11 +144,13 @@ Item {
             transformOrigin: Item.Center
             Item {
                 id: secondHand
+                property alias clockAnimation: clockAnimation
                 rotation: 0
                 function move() {
-                    rotation = (new Date().valueOf() - game.startTime) / 1000 * 6 + 6.2
+                    rotation += 4 //(new Date().valueOf()) / 1000 * 6 + 6.2
                 }
                 Behavior on rotation {
+                    id: clockAnimation
                     NumberAnimation {
                         duration: 999
                     }
@@ -167,9 +169,10 @@ Item {
                     y: -height
                     transformOrigin: Image.BottomLeft
                 }
-                Component.onCompleted: rotation = 6.2
+                //Component.onCompleted: rotation = 6.2
             }
             Item {
+                visible: false
                 id: minuteHand
                 rotation: 0
                 function move() {

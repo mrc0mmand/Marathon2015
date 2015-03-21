@@ -285,8 +285,11 @@ Scene {
                 gameScene.x = 0
                 gameScene.generatorTimer.restart()
                 game.startTime = new Date().valueOf()
-                game.score = 0
+                game.score =
+
+                hud.clocks.clockBody.secondHand.clockAnimation.enabled = false
                 hud.clocks.clockBody.secondHand.rotation = 0
+                hud.clocks.clockBody.secondHand.clockAnimation.enabled = true
 
                 hud.visible = true
                 scoreTimer.restart()
