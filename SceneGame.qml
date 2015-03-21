@@ -189,13 +189,15 @@ Scene {
 
     Timer {
         id: generatorTimer
-        interval: 500
+        interval: 500 - piggie.linearVelocity.x
         repeat: true
         running: false
         onTriggered: {
             var rand = Math.random()
             var obj
             var forceY = -1
+
+            console.log(interval)
 
             if (rand < 0.1) {
                 obj = Qt.createQmlObject("Ramp{}", scene)
