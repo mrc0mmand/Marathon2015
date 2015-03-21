@@ -197,8 +197,6 @@ Scene {
             var obj
             var forceY = -1
 
-            console.log(interval)
-
             if (rand < 0.1) {
                 obj = Qt.createQmlObject("Ramp{}", scene)
             }
