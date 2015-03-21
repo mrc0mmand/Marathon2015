@@ -159,7 +159,8 @@ Scene {
 
             model: settings.scores
             header: Row {
-                width: parent.width
+                height: childrenRect.height
+                width: scoreboardlist.width
                 Text {
                     horizontalAlignment: Text.AlignHCenter
                     color: "brown"
