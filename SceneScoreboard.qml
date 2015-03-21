@@ -28,7 +28,7 @@ Scene {
         Text {
             id: lbtext
             text: "leaderboard"
-            Layout.alignment: Qt.AlignCenter
+            Layout.alignment: Qt.AlignHCenter
             font.family: baconFont.name
             color: "brown"
             font.pointSize: 60
@@ -39,21 +39,121 @@ Scene {
                 font.family: baconFont.name
                 color: "dark red"
                 font.pointSize: 60
-
             }
         }
 
-        Item {
-            height: 15
+        Row {
+            width: window.width / 2
+            Layout.alignment: Qt.AlignHCenter
+            height: 50
+
+            TextInput {
+                id: scoresubmitinput
+                focus: true
+                text: "Baconator"
+                width: 200
+                height: parent.height
+                color: Qt.lighter("brown")
+                font.family: baconFont.name
+                font.bold: true
+                verticalAlignment: TextInput.AlignVCenter
+                horizontalAlignment: TextInput.AlignHCenter
+                validator: RegExpValidator {
+                    regExp: /^[0-9a-zA-Z]{1,10}$/
+                }
+
+                maximumLength: 10
+                font.pointSize: 25
+                Text {
+                    text: parent.text
+                    anchors.fill: parent
+                    font.family: baconFont.name
+                    color: "red"
+                    font.pointSize: parent.font.pointSize
+                    verticalAlignment: TextInput.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                onAcceptableInputChanged: {
+                    if(acceptableInput == false) {
+                        scoresubmitbutton.isEnabled = false
+                    } else {
+                        scoresubmitbutton.isEnabled = true
+                    }
+                }
+
+                onEditingFinished: {
+                    scoresubmitbutton.clicked.call()
+                }
+
+            }
+
+            Button {
+                id: scoresubmitbutton
+                text: "Submit"
+                height: parent.height
+                isDefault: true
+                property bool isEnabled: true
+
+                style: ButtonStyle {
+                    background: Rectangle {
+                        visible: false
+                    }
+                    label: Text {
+                        color: "brown"
+                        font.family: baconFont.name
+                        font.bold: true
+                        font.pointSize: 30
+                        text: scoresubmitbutton.text
+                        verticalAlignment: Text.AlignVCenter
+                        Text {
+                            text: parent.text
+                            anchors.fill: parent
+                            font.family: baconFont.name
+                            color: "dark red"
+                            font.pointSize: parent.font.pointSize
+                            verticalAlignment: parent.verticalAlignment
+                        }
+                    }
+                }
+
+                onClicked: {
+                    if(scoresubmitbutton.isEnabled == false)
+                        return
+                    if(isSubmitted == true)
+                        return
+
+                    var tmpArray = []
+                    var pushed = false
+
+                    for(var i = 0; i < settings.scores.length; i++) {
+                        if(settings.scores[i][1] <= gameover.finalScore && pushed == false) {
+                            tmpArray.push([scoresubmitinput.text, gameover.finalScore])
+                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
+                            pushed = true
+                            console.log("New HighScore: " + scoresubmitinput.text + ": " + gameover.finalScore)
+                        } else {
+                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
+                        }
+                    }
+
+                    if(pushed == false)
+                        tmpArray.push([scoresubmitinput.text, gameover.finalScore])
+
+                    settings.scores = tmpArray
+                    console.log(gameover.finalScore)
+                    scoresSaver.write(scoresubmitinput.text, gameover.finalScore)
+                    isSubmitted = true
+                    scoreboard.defaultExit = scoreboardok
+                }
+            }
         }
 
         ListView {
             id: scoreboardlist
             width: window.width / 2
-            height: window.height - 200
             Layout.alignment: Qt.AlignCenter
             Layout.fillHeight: true
-            anchors.centerIn: parent
            // Layout.fillWidth: true
             clip: true
 
@@ -137,117 +237,9 @@ Scene {
             }
         }
 
-        Row {
-            width: window.width / 2
-            Layout.alignment: Qt.AlignHCenter
-            Layout.fillHeight: true
-            height: 50
-
-            TextInput {
-                id: scoresubmitinput
-                focus: true
-                text: "YourName"
-                width: 200
-                height: parent.height
-                color: Qt.lighter("brown")
-                font.family: baconFont.name
-                font.bold: true
-                verticalAlignment: TextInput.AlignVCenter
-                horizontalAlignment: TextInput.AlignHCenter
-                validator: RegExpValidator {
-                    regExp: /^[0-9a-zA-Z]{1,10}$/
-                }
-
-                maximumLength: 10
-                font.pointSize: 25
-                Text {
-                    text: parent.text
-                    anchors.fill: parent
-                    font.family: baconFont.name
-                    color: "red"
-                    font.pointSize: parent.font.pointSize
-                    horizontalAlignment: Text.AlignHCenter
-                }
-
-                onAcceptableInputChanged: {
-                    if(acceptableInput == false) {
-                        scoresubmitbutton.isEnabled = false
-                    } else {
-                        scoresubmitbutton.isEnabled = true
-                    }
-                }
-
-                onEditingFinished: {
-                    scoresubmitbutton.clicked.call()
-                }
-
-            }
-
-            Button {
-                id: scoresubmitbutton
-                text: "Submit"
-                height: parent.height
-                isDefault: true
-                property bool isEnabled: true
-
-                style: ButtonStyle {
-                    background: Rectangle {
-                        visible: false
-                    }
-                    label: Text {
-                        color: "brown"
-                        font.family: baconFont.name
-                        font.bold: true
-                        font.pointSize: 30
-                        text: scoresubmitbutton.text
-                        verticalAlignment: Text.AlignVCenter
-                        Text {
-                            text: parent.text
-                            anchors.fill: parent
-                            font.family: baconFont.name
-                            color: "dark red"
-                            font.pointSize: parent.font.pointSize
-                            verticalAlignment: parent.verticalAlignment
-                        }
-                    }
-                }
-
-                onClicked: {
-                    if(scoresubmitbutton.isEnabled == false)
-                        return
-                    if(isSubmitted == true)
-                        return
-
-                    var tmpArray = []
-                    var pushed = false
-
-                    for(var i = 0; i < settings.scores.length; i++) {
-                        if(settings.scores[i][1] <= gameover.finalScore && pushed == false) {
-                            tmpArray.push([scoresubmitinput.text, gameover.finalScore])
-                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
-                            pushed = true
-                            console.log("New HighScore: " + scoresubmitinput.text + ": " + gameover.finalScore)
-                        } else {
-                            tmpArray.push([settings.scores[i][0], settings.scores[i][1]])
-                        }
-                    }
-
-                    if(pushed == false)
-                        tmpArray.push([scoresubmitinput.text, gameover.finalScore])
-
-                    settings.scores = tmpArray
-                    console.log(gameover.finalScore)
-                    scoresSaver.write(scoresubmitinput.text, gameover.finalScore)
-                    isSubmitted = true
-                    scoreboard.defaultExit = scoreboardok
-                }
-            }
-        }
-
         Button {
             id: scoreboardok
             Layout.alignment: Qt.AlignCenter
-            Layout.fillHeight: true
             height: 55
             text: "RESTART"
 

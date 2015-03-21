@@ -13,7 +13,7 @@ PhysicsEntity {
     Image {
         id: corn
         source: "qrc:/assets/corn.png"
-        height: 60
+        height: 80
         fillMode: Image.PreserveAspectFit
     }
 

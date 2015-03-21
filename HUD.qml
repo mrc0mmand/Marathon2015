@@ -26,7 +26,7 @@ Item {
             }
 
             if (width != childrenRect.width) {
-                for(var a = 0; a < 128; a++)
+                for(var a = 0; a < 16; a++)
                 {
                     var newBloodDrop = Qt.createQmlObject("BloodDrop{x:"+(width + Math.random() * 100)+";y:"+(10 + Math.random() * 100)+"}", root)
                 }

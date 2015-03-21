@@ -119,18 +119,20 @@ Scene {
     height: parent.height
 
 
+    function unlock() {
+        if(game.gameState == Bacon2D.Paused) {
+            scoreTimer.start()
+            gameScene.generatorTimer.start()
+            hud.clocks.clocksTimer.start()
+
+            parent.startTime = new Date().valueOf()
+            game.gameState = Bacon2D.Running
+            backgroundloop.play()
+            window.firstRun = false
+        }
+    }
     Keys.onPressed: {
         if(event.key == Qt.Key_Enter || event.key == Qt.Key_Space || event.key == Qt.Key_Return) {
-            if(game.gameState == Bacon2D.Paused) {
-                scoreTimer.start()
-                gameScene.generatorTimer.start()
-                hud.clocks.clocksTimer.start()
-
-                parent.startTime = new Date().valueOf()
-                game.gameState = Bacon2D.Running
-                backgroundloop.play()
-                window.firstRun = false
-            }
         }
 
         if(event.key == Qt.Key_S) {
@@ -169,8 +171,14 @@ Scene {
     }
     Image {
         anchors.fill: parent
-        anchors.leftMargin: -1000 + scene.x / 2
+        anchors.leftMargin: -1000 + scene.x / 4
         source: "qrc:/assets/sky2.png"
+        fillMode: Image.TileHorizontally
+    }
+    Image {
+        anchors.fill: parent
+        anchors.leftMargin: -1000 + scene.x / 2
+        source: "qrc:/assets/sky3.png"
         fillMode: Image.TileHorizontally
     }
     // Stuff in scene
@@ -186,7 +194,7 @@ Scene {
 
     Timer {
         id: generatorTimer
-        interval: 500 - piggie.linearVelocity.x
+        interval: 500
         repeat: true
         running: false
         onTriggered: {
@@ -194,7 +202,11 @@ Scene {
             var obj
             var forceY = -1
 
-            console.log(interval)
+            var newInterval = 500 - (piggie.linearVelocity.x*4)
+            if(newInterval < 50) {
+                newInterval = 50
+            }
+            interval = newInterval
 
             if (rand < 0.1) {
                 obj = Qt.createQmlObject("Ramp{}", scene)
@@ -245,6 +257,14 @@ Scene {
         id: globalMouse
         anchors.fill: parent
         hoverEnabled: true
+        onClicked: {
+            unlock()
+            if (piggie.onFloor)
+            {
+                piggie.onFloor = false
+                piggie.linearVelocity = Qt.point(piggie.linearVelocity.x - 2, -50)
+            }
+        }
     }
 
     Component.onCompleted: {

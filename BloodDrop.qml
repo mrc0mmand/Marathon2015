@@ -5,7 +5,7 @@ Image {
     id: bloodDrop
     source: Math.random() > 0.1 ? "qrc:/assets/bloodDrop.png" : "qrc:/assets/bacon.png"
     height: source == "qrc:/assets/bloodDrop.png" ? 20 : 40
-    scale: Math.random() + 1.0
+    scale: Math.random() * 2.0 + 2.0
     fillMode: Image.PreserveAspectFit
 
     SequentialAnimation {
