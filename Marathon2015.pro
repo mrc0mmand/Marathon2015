@@ -5,7 +5,8 @@ CONFIG += c++11
 QT += qml quick widgets
 
 SOURCES += main.cpp \
-    polygon.cpp
+    polygon.cpp \
+    scores.cpp
 
 RESOURCES += qml.qrc
 
@@ -22,4 +23,5 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    polygon.h
+    polygon.h \
+    scores.h

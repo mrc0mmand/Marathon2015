@@ -158,13 +158,19 @@ Scene {
                     color: "red"
                     font.pointSize: parent.font.pointSize
                     horizontalAlignment: Text.AlignHCenter
-                }                
+                }
+
+                onEditingFinished: {
+                    scoresubmitbutton.clicked.call()
+                }
+
             }
 
             Button {
                 id: scoresubmitbutton
                 text: "Submit"
                 height: parent.height
+                isDefault: true
 
                 style: ButtonStyle {
                     background: Rectangle {
